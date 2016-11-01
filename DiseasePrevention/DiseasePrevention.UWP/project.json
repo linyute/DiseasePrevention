@@ -11,6 +11,7 @@
     "sqlite-net-pcl": "1.2.0",
     "Unity": "4.0.1",
     "Xam.Plugin.Connectivity": "2.2.12",
+    "Xam.Plugin.DeviceInfo": "2.0.2",
     "Xam.Plugin.ExternalMaps": "3.0.0",
     "Xam.Plugins.Messaging": "3.2.1",
     "Xam.Plugins.Settings": "2.5.1",
