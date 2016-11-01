@@ -11,12 +11,17 @@ namespace DiseasePrevention
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync("MainPage?title=Hello%20from%20Xamarin.Forms");
+            NavigationService.NavigateAsync(
+                "Xf:///MainMasterDetailPage/MainNavigationPage/MainPage?title=Hello%20from%20Xamarin.Forms");
         }
 
         protected override void RegisterTypes()
         {
             Container.RegisterTypeForNavigation<MainPage>();
+            Container.RegisterTypeForNavigation<MainMasterDetailPage>();
+            Container.RegisterTypeForNavigation<MainNavigationPage>();
+
+            Container.RegisterTypeForNavigation<AboutPage>();
         }
     }
 }

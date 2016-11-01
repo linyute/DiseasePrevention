@@ -239,6 +239,39 @@
     </Reference>
     <Reference Include="Xamarin.iOS" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu_home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu_rss.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu_setting.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\toolbar_call.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\toolbar_filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\toolbar_link.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\toolbar_map.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\toolbar_safari.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\toolbar_share.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\toolbar_zoom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu_info.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

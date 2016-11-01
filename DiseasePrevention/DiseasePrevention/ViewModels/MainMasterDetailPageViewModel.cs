@@ -1,52 +1,30 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
-using Prism.Navigation;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using DiseasePrevention.Models;
 using DiseasePrevention.Services;
+using Prism.Navigation;
 
 namespace DiseasePrevention.ViewModels
 {
-    public class MainPageViewModel : BindableBase, INavigationAware
+    public class MainMasterDetailPageViewModel : BindableBase
     {
-        private string _title;
-        public string Title
-        {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
-        }
-
-        public MainPageViewModel(
+        public MainMasterDetailPageViewModel(
             INavigationService navigationService,
             MenuItemService menuItemService)
         {
             _navigationService = navigationService;
             _menuItemService = menuItemService;
 
-            MasterMenuItemSelectedCommand = new DelegateCommand(MasterMenuItemSelected);
-
             BuildMenu();
-        }
 
-        #region Navigation
+            MasterMenuItemSelectedCommand = new DelegateCommand(MasterMenuItemSelected);
+        }
 
         private readonly INavigationService _navigationService;
-
-        public void OnNavigatedFrom(NavigationParameters parameters)
-        {
-
-        }
-
-        public void OnNavigatedTo(NavigationParameters parameters)
-        {
-            if (parameters.ContainsKey("title"))
-                Title = (string)parameters["title"] + " and Prism";
-        }
-
-        #endregion
 
         #region Menu
 
@@ -79,10 +57,6 @@ namespace DiseasePrevention.ViewModels
 
             foreach (var item in items)
             {
-                //if (item.Title == "首頁")
-                //{
-                //    continue;
-                //}
                 MasterMenuItems.Add(item);
             }
         }

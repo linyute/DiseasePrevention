@@ -27,7 +27,7 @@
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
+    <DebugSymbols>True</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
@@ -36,6 +36,15 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>True</AndroidUseSharedRuntime>
     <AndroidLinkMode>None</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>False</EmbedAssembliesIntoApk>
+    <BundleAssemblies>False</BundleAssemblies>
+    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
+    <Debugger>Xamarin</Debugger>
+    <AotAssemblies>False</AotAssemblies>
+    <EnableLLVM>False</EnableLLVM>
+    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+    <EnableProguard>False</EnableProguard>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -242,6 +251,50 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Properties\AndroidManifest.xml" />
+    <AndroidResource Include="Resources\drawable\menu_home.png" />
+    <AndroidResource Include="Resources\drawable\menu_rss.png" />
+    <AndroidResource Include="Resources\drawable\menu_setting.png" />
+    <AndroidResource Include="Resources\drawable\toolbar_call.png" />
+    <AndroidResource Include="Resources\drawable\toolbar_chrome.png" />
+    <AndroidResource Include="Resources\drawable\toolbar_filter.png" />
+    <AndroidResource Include="Resources\drawable\toolbar_link.png" />
+    <AndroidResource Include="Resources\drawable\toolbar_map.png" />
+    <AndroidResource Include="Resources\drawable\toolbar_share.png" />
+    <AndroidResource Include="Resources\drawable\toolbar_zoom.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\menu_home.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\menu_rss.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\menu_setting.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\toolbar_call.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\toolbar_chrome.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\toolbar_filter.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\toolbar_link.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\toolbar_map.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\toolbar_share.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\toolbar_zoom.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\menu_home.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\menu_rss.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\menu_setting.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\toolbar_call.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\toolbar_chrome.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\toolbar_filter.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\toolbar_link.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\toolbar_map.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\toolbar_share.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\toolbar_zoom.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\menu_home.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\menu_rss.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\menu_setting.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\toolbar_call.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\toolbar_chrome.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\toolbar_filter.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\toolbar_link.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\toolbar_map.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\toolbar_share.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\toolbar_zoom.png" />
+    <AndroidResource Include="Resources\drawable\menu_info.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\menu_info.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\menu_info.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\menu_info.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DiseasePrevention\DiseasePrevention.csproj">

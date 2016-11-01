@@ -108,6 +108,18 @@
     <None Include="DiseasePrevention.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Icon.png" />
+    <Content Include="Assets\menu_home.png" />
+    <Content Include="Assets\menu_info.png" />
+    <Content Include="Assets\menu_rss.png" />
+    <Content Include="Assets\menu_setting.png" />
+    <Content Include="Assets\toolbar_call.png" />
+    <Content Include="Assets\toolbar_edge.png" />
+    <Content Include="Assets\toolbar_filter.png" />
+    <Content Include="Assets\toolbar_link.png" />
+    <Content Include="Assets\toolbar_map.png" />
+    <Content Include="Assets\toolbar_share.png" />
+    <Content Include="Assets\toolbar_zoom.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
