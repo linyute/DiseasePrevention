@@ -2,6 +2,7 @@
 using Prism.Unity;
 using DiseasePrevention.Views;
 using DiseasePrevention.Views.News;
+using DiseasePrevention.Views.Travels;
 using Microsoft.Practices.Unity;
 
 namespace DiseasePrevention
@@ -15,10 +16,7 @@ namespace DiseasePrevention
             InitializeComponent();
 
             NavigationService.NavigateAsync(
-                "Xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=Hello%20from%20Xamarin.Forms");
-
-            //NavigationService.NavigateAsync(new Uri("xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=歡迎",
-            //    UriKind.Absolute));
+                "Xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=Hello");
         }
 
         protected override void RegisterTypes()
@@ -47,7 +45,10 @@ namespace DiseasePrevention
             Container.RegisterTypeForNavigation<NewsDetailPage>();
 
             #endregion
-            
+
+            Container.RegisterTypeForNavigation<TravelPage>();
+            Container.RegisterTypeForNavigation<TravelListPage>();
+            Container.RegisterTypeForNavigation<TravelDetailPage>();
         }
     }
 }

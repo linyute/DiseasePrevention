@@ -9,9 +9,6 @@ namespace DiseasePrevention.Views.News
         public NewsListPage()
         {
             InitializeComponent();
-
-            //var vm = this.BindingContext as NewsListPageViewModel;
-            //this.Title += vm.Title;
         }
     }
 }

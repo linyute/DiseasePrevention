@@ -14,7 +14,12 @@ namespace DiseasePrevention.Services
             _httpClient = httpClient;
 
             var headers = _httpClient.DefaultRequestHeaders;
+            headers.Accept.TryParseAdd("text/csv");
             headers.Accept.TryParseAdd("text/html");
+            headers.Accept.TryParseAdd("text/plain");
+            headers.Accept.TryParseAdd("application/json");
+            headers.Accept.TryParseAdd("application/xml");
+            headers.Accept.TryParseAdd("application/xhtml+xml");
             headers.AcceptLanguage.TryParseAdd("zh-TW");
             headers.AcceptEncoding.TryParseAdd("gzip, deflate");
             headers.UserAgent.TryParseAdd("Edge");

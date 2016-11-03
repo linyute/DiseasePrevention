@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="DiseasePrevention.Views.Travels.TravelDetailPage"
+             Title="疫情內容">
+  <StackLayout Orientation="Vertical" Padding="20" Spacing="5"
+               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Label Text="{Binding Path=SelectedItem.Headline}" LineBreakMode="CharacterWrap" FontSize="24" />
+    </Grid>
+    
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="85"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Label Text="發送時間" FontSize="20" />
+      <Label Text="{Binding Path=SelectedItem.Sent, StringFormat='{0:yyyy-MM-dd HH:mm:ss}'}" Grid.Column="1" FontSize="20" />
+    </Grid>
+    
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="85"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Label Text="到期日期" FontSize="20" />
+      <Label Text="{Binding Path=SelectedItem.Expires, StringFormat='{0:yyyy-MM-dd HH:mm:ss}'}" Grid.Column="1" FontSize="20" TextColor="Blue" />
+    </Grid>
+    
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="85"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Label Text="描述" FontSize="20" />
+      <Label Text="{Binding Path=SelectedItem.Description}" LineBreakMode="CharacterWrap" Grid.Column="1" FontSize="20" />
+    </Grid>
+    
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="85"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Label Text="應變方案" FontSize="20" />
+      <Label Text="{Binding Path=SelectedItem.Instruction}" LineBreakMode="CharacterWrap" Grid.Column="1" FontSize="20" />
+    </Grid>
+    
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="85"/>
+        <ColumnDefinition Width="*"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Label Text="區域" FontSize="20" />
+      <Label Text="{Binding Path=SelectedItem.AreaDesc}" Grid.Column="1" FontSize="20" />
+      <Label Text="{Binding Path=SelectedItem.AreaDesc_EN}" Grid.Column="2" FontSize="20" />
+    </Grid>
+    
+    <Grid>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="85"/>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+      <Label Text="省市" FontSize="20" />
+      <Label Text="{Binding Path=SelectedItem.AreaDetail}" LineBreakMode="CharacterWrap" Grid.Column="1" FontSize="20" />
+    </Grid>
+  </StackLayout>
+</ContentPage>

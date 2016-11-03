@@ -41,6 +41,12 @@ namespace DiseasePrevention.Services.News
             }
 
             var str = await _netService.GetStringAsync(new Uri(url));
+
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return new List<RssFeed>();
+            }
+
             var xml = str.Replace("a10:updated", "pubDate");
 
             var doc = XDocument.Parse(xml);
