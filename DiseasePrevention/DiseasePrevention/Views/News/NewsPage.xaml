@@ -4,8 +4,8 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:userControls="clr-namespace:DiseasePrevention.UserControls;assembly=DiseasePrevention"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="DiseasePrevention.Views.MainPage"
-             Title="歡迎">
+             x:Class="DiseasePrevention.Views.News.NewsPage"
+             Title="最新消息">
   <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
 
     <userControls:MainMenu BindingContext="{Binding MainMenuViewModel}"/>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="DiseasePrevention.Views.News.NewsDetailPage"
+             Title="新聞稿內容">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Command="{Binding OpenBrowserCommand}" Text="開啟網站">
+      <ToolbarItem.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource"
+                    iOS="toolbar_safari.png" Android="toolbar_chrome.png" WinPhone="Assets/toolbar_edge.png"/>
+      </ToolbarItem.Icon>
+    </ToolbarItem>
+
+    <ToolbarItem Command="{Binding CopyLinkCommand}" Text="複製連結">
+      <ToolbarItem.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource"
+                    iOS="toolbar_link.png" Android="toolbar_link.png" WinPhone="Assets/toolbar_link.png"/>
+      </ToolbarItem.Icon>
+    </ToolbarItem>
+
+    <ToolbarItem Command="{Binding ShareLinkCommand}" Text="分享">
+      <ToolbarItem.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource"
+                    iOS="toolbar_share.png" Android="toolbar_share.png" WinPhone="Assets/toolbar_share.png"/>
+      </ToolbarItem.Icon>
+    </ToolbarItem>
+  </ContentPage.ToolbarItems>
+  
+  <StackLayout Orientation="Vertical" Padding="20"
+               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+    <Label Text="{Binding SelectedItem.Title}" TextColor="Black" FontSize="20"
+           LineBreakMode="CharacterWrap" />
+    <Label Text="{Binding SelectedItem.PublicationDate, StringFormat='{0:yyyy-MM-dd HH:mm:ss}'}"
+           TextColor="Blue" HorizontalTextAlignment="End" />
+    <WebView Source="{Binding SelectedItem.Description, Converter={StaticResource StringToHtmlConverter}}"
+             HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" />
+  </StackLayout>
+</ContentPage>

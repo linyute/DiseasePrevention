@@ -27,13 +27,13 @@
               HorizontalOptions="FillAndExpand"/>
         </StackLayout>-->
 
-        <ListView ItemsSource="{Binding MasterMenuItems, Mode=TwoWay}"
-                SelectedItem="{Binding SelectedMasterMenuItem, Mode=TwoWay}"
+        <ListView ItemsSource="{Binding MenuItems, Mode=TwoWay}"
+                SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
                 HasUnevenRows="True"
                 CachingStrategy="RecycleElement">
           <ListView.Behaviors>
             <behaviors:EventHandlerBehavior EventName="ItemTapped">
-              <behaviors:InvokeCommandAction Command="{Binding MasterMenuItemSelectedCommand}" />
+              <behaviors:InvokeCommandAction Command="{Binding MenuItemSelectedCommand}" />
             </behaviors:EventHandlerBehavior>
           </ListView.Behaviors>
 

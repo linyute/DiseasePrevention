@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
+             x:Class="DiseasePrevention.UserControls.NewsList">
+  <ContentView.Content>
+
+    <ListView SeparatorVisibility="None" HasUnevenRows="true"
+              ItemsSource="{Binding ItemsSource, Mode=TwoWay}"
+              SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
+              CachingStrategy="RecycleElement">
+      <ListView.Behaviors>
+        <behaviors:EventHandlerBehavior EventName="ItemTapped">
+          <behaviors:InvokeCommandAction Command="{Binding ItemSelectedCommand}" />
+        </behaviors:EventHandlerBehavior>
+      </ListView.Behaviors>
+      
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <StackLayout Orientation="Vertical" Padding="10,10,10,12">
+              <Label Text="{Binding PublicationDate, StringFormat='{0:yyyy-MM-dd HH:mm:ss}'}"
+                       TextColor="Blue"/>
+              <Label Text="{Binding Title}" TextColor="Black" FontSize="20"
+                       LineBreakMode="CharacterWrap" />
+            </StackLayout>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+    
+  </ContentView.Content>
+</ContentView>

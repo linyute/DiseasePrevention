@@ -1,27 +1,18 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
-using Prism.Navigation;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
-using DiseasePrevention.Models;
 using DiseasePrevention.Services;
 using DiseasePrevention.ViewModels.UserControls;
+using Prism.Navigation;
 
-namespace DiseasePrevention.ViewModels
+namespace DiseasePrevention.ViewModels.News
 {
-    public class MainPageViewModel : BindableBase, INavigationAware
+    public class NewsPageViewModel : BindableBase, INavigationAware
     {
-        private string _title;
-        public string Title
-        {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
-        }
-
-        public MainPageViewModel(
-            INavigationService navigationService,
+        public NewsPageViewModel(
+            INavigationService navigationService, 
             MenuItemService menuItemService)
         {
             this._navigationService = navigationService;
@@ -55,18 +46,15 @@ namespace DiseasePrevention.ViewModels
 
         private void BuildMenu()
         {
-            var items = _menuItemService.MainMenuItems;
+            var items = this._menuItemService.NewsMenuItems;
 
             foreach (var item in items)
             {
-                if (item.Title == "首頁")
-                {
-                    continue;
-                }
                 this.MainMenuViewModel.MenuItems.Add(item);
             }
         }
 
         #endregion
+
     }
 }

@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace DiseasePrevention.Models
 {
-    public class MenuItem
+    public class NewsListItem
     {
+        public string Id { get; set; }
         public string Title { get; set; }
-
-        public string Icon { get; set; }
-
-        public Func<Task> ActionAsync { get; set; }
+        public DateTime PublicationDate { get; set; }
     }
 }

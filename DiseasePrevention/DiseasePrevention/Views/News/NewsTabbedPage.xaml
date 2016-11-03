@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+            xmlns:news="clr-namespace:DiseasePrevention.Views.News;assembly=DiseasePrevention"
+            prism:ViewModelLocator.AutowireViewModel="True"
+            x:Class="DiseasePrevention.Views.News.NewsTabbedPage"
+            Title="最新消息">
+  <news:NewsListPage Title="一般民眾版" x:Name="NormalNewsPage" />
+  <news:NewsListPage Title="專業人士版" x:Name="ProfessionalNewsPage" />
+  <news:NewsListPage Title="致醫界通函" x:Name="MedicalNewsPage" />
+</TabbedPage>

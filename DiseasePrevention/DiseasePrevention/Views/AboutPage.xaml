@@ -5,7 +5,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DiseasePrevention.Views.AboutPage"
              Title="關於本程式">
-  <StackLayout Orientation="Vertical">
+  <StackLayout Orientation="Vertical" Padding="20">
     <Label Text="CopyRight yutelin" />
     <Label Text="{Binding Model}" />
     <Label Text="{Binding Platform}" />

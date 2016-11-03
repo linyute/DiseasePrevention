@@ -21,7 +21,7 @@ namespace DiseasePrevention.ViewModels
 
             BuildMenu();
 
-            MasterMenuItemSelectedCommand = new DelegateCommand(MasterMenuItemSelected);
+            MenuItemSelectedCommand = new DelegateCommand(MenuItemSelected);
         }
 
         private readonly INavigationService _navigationService;
@@ -30,25 +30,25 @@ namespace DiseasePrevention.ViewModels
 
         private readonly MenuItemService _menuItemService;
 
-        public DelegateCommand MasterMenuItemSelectedCommand { get; private set; }
+        public DelegateCommand MenuItemSelectedCommand { get; private set; }
 
-        private async void MasterMenuItemSelected()
+        private async void MenuItemSelected()
         {
-            await _navigationService.NavigateAsync(SelectedMasterMenuItem.Uri);
+            await SelectedMenuItem.ActionAsync.Invoke();
         }
 
-        private MasterMenuItem _selectedMasterMenuItem;
-        public MasterMenuItem SelectedMasterMenuItem
+        private MenuItem _selectedMenuItem;
+        public MenuItem SelectedMenuItem
         {
-            get { return _selectedMasterMenuItem; }
-            set { SetProperty(ref _selectedMasterMenuItem, value); }
+            get { return _selectedMenuItem; }
+            set { SetProperty(ref _selectedMenuItem, value); }
         }
 
-        private ObservableCollection<MasterMenuItem> _masterMenuItems = new ObservableCollection<MasterMenuItem>();
-        public ObservableCollection<MasterMenuItem> MasterMenuItems
+        private ObservableCollection<MenuItem> _menuItems = new ObservableCollection<MenuItem>();
+        public ObservableCollection<MenuItem> MenuItems
         {
-            get { return _masterMenuItems; }
-            set { SetProperty(ref _masterMenuItems, value); }
+            get { return _menuItems; }
+            set { SetProperty(ref _menuItems, value); }
         }
 
         private void BuildMenu()
@@ -57,7 +57,7 @@ namespace DiseasePrevention.ViewModels
 
             foreach (var item in items)
             {
-                MasterMenuItems.Add(item);
+                MenuItems.Add(item);
             }
         }
 
