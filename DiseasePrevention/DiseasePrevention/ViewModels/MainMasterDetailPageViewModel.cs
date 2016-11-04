@@ -22,7 +22,7 @@ namespace DiseasePrevention.ViewModels
 
             BuildMenu();
 
-            //MenuItemSelectedCommand = new DelegateCommand(MenuItemSelected);
+            MenuItemSelectedCommand = new DelegateCommand(MenuItemSelected);
         }
 
         private readonly INavigationService _navigationService;
@@ -31,12 +31,13 @@ namespace DiseasePrevention.ViewModels
 
         private readonly MenuItemService _menuItemService;
 
-        //public DelegateCommand MenuItemSelectedCommand { get; private set; }
+        public DelegateCommand MenuItemSelectedCommand { get; private set; }
 
-        //private async void MenuItemSelected()
-        //{
-        //    await SelectedMenuItem.ActionAsync.Invoke();
-        //}
+        private void MenuItemSelected()
+        {
+            SelectedMenuItem.Command.Execute(SelectedMenuItem.CommandParameter);
+            SelectedMenuItem = null;
+        }
 
         private MenuItem _selectedMenuItem;
         public MenuItem SelectedMenuItem

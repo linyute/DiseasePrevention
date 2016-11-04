@@ -21,5 +21,7 @@ namespace DiseasePrevention.Models
                     await this._navigationService.NavigateAsync(
                         new Uri("xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=歡迎", UriKind.Absolute));
                 }
+
+     await this.SelectedMenuItem.ActionAsync.Invoke();
      */
 }

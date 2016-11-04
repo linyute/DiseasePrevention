@@ -13,7 +13,7 @@
                 CachingStrategy="RecycleElement">
       <ListView.Behaviors>
         <behaviors:EventHandlerBehavior EventName="ItemTapped">
-          <behaviors:InvokeCommandAction Command="{Binding SelectedMenuItem.Command}" />
+          <behaviors:InvokeCommandAction Command="{Binding MenuItemSelectedCommand}" />
         </behaviors:EventHandlerBehavior>
       </ListView.Behaviors>
 
@@ -26,7 +26,7 @@
                 <StackLayout Orientation="Horizontal">
                   <Image Source="{Binding Icon}" VerticalOptions="Center" WidthRequest="64" HeightRequest="64"/>
                   <Label Text ="{Binding Text}" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
-                         FontSize="36" TextColor="Black"/>
+                         FontSize="30" TextColor="Black"/>
                 </StackLayout>
               </Frame>
 

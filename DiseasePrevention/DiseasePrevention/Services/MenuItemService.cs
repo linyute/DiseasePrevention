@@ -4,17 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DiseasePrevention.Models;
+using Microsoft.Practices.Unity;
+using Plugin.Messaging;
 using Prism.Commands;
 using Prism.Navigation;
+using Prism.Services;
 using Xamarin.Forms;
 
 namespace DiseasePrevention.Services
 {
     public class MenuItemService
     {
-        public MenuItemService(INavigationService navigationService)
+        public MenuItemService(
+            INavigationService navigationService,
+            IPageDialogService dialogService)
         {
             this._navigationService = navigationService;
+            this._dialogService = dialogService;
 
             this.BuildMainMenu();
 
@@ -24,6 +30,8 @@ namespace DiseasePrevention.Services
         }
 
         private readonly INavigationService _navigationService;
+
+        private readonly IPageDialogService _dialogService;
 
         #region 主要選單
 
@@ -66,12 +74,29 @@ namespace DiseasePrevention.Services
 
             this.MainMenuItems.Add(new MenuItem()
             {
-                Text = "關於本程式",
+                Text = "疾管局諮詢專線",
+                Icon = Device.OnPlatform("menu_info.png", "menu_info.png", "Assets/menu_info.png"),
+                Command = new DelegateCommand(() =>
+                {
+                    if (CrossMessaging.Current.PhoneDialer.CanMakePhoneCall)
+                    {
+                        CrossMessaging.Current.PhoneDialer.MakePhoneCall("1922", "疾管局諮詢專線");
+                    }
+                    else
+                    {
+                        this._dialogService.DisplayAlertAsync("疫情通報及傳染病諮詢", "請撥打 1922 專線", "OK");
+                    }
+                })
+            });
+
+            this.MainMenuItems.Add(new MenuItem()
+            {
+                Text = "關於防疫小幫手",
                 Icon = Device.OnPlatform("menu_info.png", "menu_info.png", "Assets/menu_info.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/AboutPage?Title=關於本程式", UriKind.Absolute));
+                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/AboutPage?Title=關於防疫小幫手", UriKind.Absolute));
                 })
             });
         }

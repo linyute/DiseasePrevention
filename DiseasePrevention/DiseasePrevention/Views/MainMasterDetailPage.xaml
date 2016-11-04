@@ -33,7 +33,7 @@
                 CachingStrategy="RecycleElement">
           <ListView.Behaviors>
             <behaviors:EventHandlerBehavior EventName="ItemTapped">
-              <behaviors:InvokeCommandAction Command="{Binding SelectedMenuItem.Command}" />
+              <behaviors:InvokeCommandAction Command="{Binding MenuItemSelectedCommand}" />
             </behaviors:EventHandlerBehavior>
           </ListView.Behaviors>
 

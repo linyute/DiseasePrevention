@@ -13,17 +13,18 @@ namespace DiseasePrevention.ViewModels.UserControls
     {
         public MainMenuViewModel()
         {
-            //this.MenuItemSelectedCommand = new DelegateCommand(MenuItemSelected);
+            this.MenuItemSelectedCommand = new DelegateCommand(MenuItemSelected);
         }
 
         #region Menu
 
-        //public DelegateCommand MenuItemSelectedCommand { get; private set; }
+        public DelegateCommand MenuItemSelectedCommand { get; private set; }
 
-        //private async void MenuItemSelected()
-        //{
-        //    await this.SelectedMenuItem.ActionAsync.Invoke();
-        //}
+        private void MenuItemSelected()
+        {
+            SelectedMenuItem.Command.Execute(SelectedMenuItem.CommandParameter);
+            SelectedMenuItem = null;
+        }
 
         private MenuItem _selectedMenuItem;
         public MenuItem SelectedMenuItem
