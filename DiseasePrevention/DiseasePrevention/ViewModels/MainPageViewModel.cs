@@ -59,7 +59,7 @@ namespace DiseasePrevention.ViewModels
 
             foreach (var item in items)
             {
-                if (item.Title == "首頁")
+                if (item.Text == "首頁")
                 {
                     continue;
                 }

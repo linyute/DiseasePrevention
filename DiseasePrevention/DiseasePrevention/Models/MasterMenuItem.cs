@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DiseasePrevention.Models
 {
-    public class MenuItem
+    public class MasterMenuItem
     {
         public string Title { get; set; }
 
@@ -14,4 +14,12 @@ namespace DiseasePrevention.Models
 
         public Func<Task> ActionAsync { get; set; }
     }
+
+    /*
+     ActionAsync = async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=歡迎", UriKind.Absolute));
+                }
+     */
 }

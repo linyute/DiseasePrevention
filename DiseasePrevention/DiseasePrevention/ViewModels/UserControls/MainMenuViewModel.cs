@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using DiseasePrevention.Models;
+using Xamarin.Forms;
 
 namespace DiseasePrevention.ViewModels.UserControls
 {
@@ -12,17 +13,17 @@ namespace DiseasePrevention.ViewModels.UserControls
     {
         public MainMenuViewModel()
         {
-            this.MenuItemSelectedCommand = new DelegateCommand(MenuItemSelected);
+            //this.MenuItemSelectedCommand = new DelegateCommand(MenuItemSelected);
         }
 
         #region Menu
 
-        public DelegateCommand MenuItemSelectedCommand { get; private set; }
+        //public DelegateCommand MenuItemSelectedCommand { get; private set; }
 
-        private async void MenuItemSelected()
-        {
-            await this.SelectedMenuItem.ActionAsync.Invoke();
-        }
+        //private async void MenuItemSelected()
+        //{
+        //    await this.SelectedMenuItem.ActionAsync.Invoke();
+        //}
 
         private MenuItem _selectedMenuItem;
         public MenuItem SelectedMenuItem
