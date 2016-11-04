@@ -115,7 +115,7 @@ namespace DiseasePrevention.ViewModels.Travels
                         {
                             Id = item.Id,
                             Title = item.Headline,
-                            PublicationDate = item.Expires
+                            PublicationDate = item.Sent
                         });
                     }
                 }

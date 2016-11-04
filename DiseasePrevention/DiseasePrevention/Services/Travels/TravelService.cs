@@ -54,9 +54,10 @@ namespace DiseasePrevention.Services.Travels
 
             items.ForEach(x => x.Id = x.GetHashCode().ToString());
 
-            items = items.OrderByDescending(x => x.Expires)
-                         .ThenByDescending(x => x.Severity_Level)
-                         .ThenByDescending(x => x.Sent)
+            items = items.OrderByDescending(x => x.Sent)
+                         .ThenByDescending(x => x.Expires)
+                         //.ThenByDescending(x => x.Severity_Level)
+                         //.ThenByDescending(x => x.Sent)
                          .ToList();
 
             return items;
