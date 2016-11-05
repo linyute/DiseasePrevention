@@ -38,9 +38,11 @@ namespace DiseasePrevention.ViewModels.Travels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
+            //if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
+
             if (parameters.ContainsKey("SelectedItem"))
             {
-                SelectedItem = parameters["SelectedItem"] as TravelAlert;
+                SelectedItem = (TravelAlert)parameters["SelectedItem"];
             }
         }
 

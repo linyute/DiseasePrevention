@@ -65,11 +65,11 @@ namespace DiseasePrevention.ViewModels.Travels
 
         public async void OnNavigatedTo(NavigationParameters parameters)
         {
-            //if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
+            if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
 
             if (parameters.ContainsKey("NewsType"))
             {
-                var newsType = (string) parameters["NewsType"];
+                var newsType = (string)parameters["NewsType"];
                 this.NewsType = newsType;
             }
 

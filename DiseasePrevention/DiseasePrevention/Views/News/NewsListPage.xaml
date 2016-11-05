@@ -5,7 +5,7 @@
              xmlns:userControls="clr-namespace:DiseasePrevention.UserControls;assembly=DiseasePrevention"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DiseasePrevention.Views.News.NewsListPage"
-             Title="最新新聞稿">
+             Title="{Binding Title}">
   <StackLayout Orientation="Vertical" Padding="20"
                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
@@ -13,7 +13,7 @@
     
     <userControls:NewsList BindingContext="{Binding NewsListViewModel}" 
         IsVisible="{Binding IsRunning, Converter={StaticResource InvertedBooleanConverter}}"
-        VerticalOptions="FillAndExpand"/>
+        VerticalOptions="FillAndExpand" />
     
   </StackLayout>
 </ContentPage>

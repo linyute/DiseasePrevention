@@ -27,6 +27,8 @@ namespace DiseasePrevention.Services
             this.BuildNewsMenu();
 
             this.BuildTravelMenu();
+
+            this.BuildDiseaseMenu();
         }
 
         private readonly INavigationService _navigationService;
@@ -35,8 +37,14 @@ namespace DiseasePrevention.Services
 
         #region 主要選單
 
+        /// <summary>
+        /// 主要選單
+        /// </summary>
         public List<MenuItem> MainMenuItems { get; set; } = new List<MenuItem>();
 
+        /// <summary>
+        /// 主要選單
+        /// </summary>
         private void BuildMainMenu()
         {
             this.MainMenuItems.Add(new MenuItem()
@@ -57,7 +65,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/NewsPage?Title=最新消息", UriKind.Absolute));
+                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/NewsPage?Title=最新消息&MenuType=最新消息", UriKind.Absolute));
                 })
             });
 
@@ -69,6 +77,17 @@ namespace DiseasePrevention.Services
                 {
                     await this._navigationService.NavigateAsync(
                         new Uri("xf:///MainMasterDetailPage/MainNavigationPage/TravelPage?Title=國際疫情", UriKind.Absolute));
+                })
+            });
+
+            this.MainMenuItems.Add(new MenuItem()
+            {
+                Text = "傳染病介紹",
+                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/NewsPage?Title=傳染病介紹&MenuType=傳染病介紹", UriKind.Absolute));
                 })
             });
 
@@ -105,8 +124,14 @@ namespace DiseasePrevention.Services
 
         #region 最新消息
 
+        /// <summary>
+        /// 最新消息
+        /// </summary>
         public List<MenuItem> NewsMenuItems { get; set; } = new List<MenuItem>();
 
+        /// <summary>
+        /// 最新消息
+        /// </summary>
         private void BuildNewsMenu()
         {
             this.NewsMenuItems.Add(new MenuItem()
@@ -147,8 +172,14 @@ namespace DiseasePrevention.Services
 
         #region 國際疫情
 
+        /// <summary>
+        /// 國際疫情
+        /// </summary>
         public List<MenuItem> TravelMenuItems { get; set; } = new List<MenuItem>();
 
+        /// <summary>
+        /// 國際疫情
+        /// </summary>
         private void BuildTravelMenu()
         {
             this.TravelMenuItems.Add(new MenuItem()
@@ -170,6 +201,87 @@ namespace DiseasePrevention.Services
                 {
                     await this._navigationService.NavigateAsync(
                         new Uri("TravelListPage?Title=國際旅遊疫情&NewsType=國際旅遊疫情", UriKind.Relative));
+                })
+            });
+        }
+
+        #endregion
+
+        #region 傳染病介紹
+
+        /// <summary>
+        /// 傳染病介紹
+        /// </summary>
+        public List<MenuItem> DiseaseMenuItems { get; set; } = new List<MenuItem>();
+
+        /// <summary>
+        /// 傳染病介紹
+        /// </summary>
+        private void BuildDiseaseMenu()
+        {
+            this.DiseaseMenuItems.Add(new MenuItem()
+            {
+                Text = "食物或飲水傳染",
+                //Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("NewsListPage?Title=食物或飲水傳染&DiseaseType=食物或飲水傳染", UriKind.Relative));
+                })
+            });
+
+            this.DiseaseMenuItems.Add(new MenuItem()
+            {
+                Text = "空氣或飛沫傳染",
+                //Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("NewsListPage?Title=空氣或飛沫傳染&DiseaseType=空氣或飛沫傳染", UriKind.Relative));
+                })
+            });
+
+            this.DiseaseMenuItems.Add(new MenuItem()
+            {
+                Text = "蟲媒傳染",
+                //Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("NewsListPage?Title=蟲媒傳染&DiseaseType=蟲媒傳染", UriKind.Relative));
+                })
+            });
+
+            this.DiseaseMenuItems.Add(new MenuItem()
+            {
+                Text = "性接觸或血液傳染",
+                //Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("NewsListPage?Title=性接觸或血液傳染&DiseaseType=性接觸或血液傳染", UriKind.Relative));
+                })
+            });
+
+            this.DiseaseMenuItems.Add(new MenuItem()
+            {
+                Text = "接觸傳染",
+                //Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("NewsListPage?Title=接觸傳染&DiseaseType=接觸傳染", UriKind.Relative));
+                })
+            });
+
+            this.DiseaseMenuItems.Add(new MenuItem()
+            {
+                Text = "其他類",
+                //Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("NewsListPage?Title=其他類&DiseaseType=其他類", UriKind.Relative));
                 })
             });
         }

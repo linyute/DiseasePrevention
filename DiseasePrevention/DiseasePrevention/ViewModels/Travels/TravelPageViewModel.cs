@@ -11,6 +11,14 @@ namespace DiseasePrevention.ViewModels.Travels
 {
     public class TravelPageViewModel : BindableBase, INavigationAware
     {
+        private string _title;
+
+        public string Title
+        {
+            get { return _title; }
+            set { SetProperty(ref _title, value); }
+        }
+
         public TravelPageViewModel(
             INavigationService navigationService,
             MenuItemService menuItemService)
@@ -32,7 +40,7 @@ namespace DiseasePrevention.ViewModels.Travels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            //if (parameters.ContainsKey("Title")) { Title = (string)parameters["Title"]; }
+            if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
         }
 
         #endregion

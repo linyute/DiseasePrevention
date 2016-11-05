@@ -10,6 +10,6 @@ namespace DiseasePrevention.Models
     {
         public string Id { get; set; }
         public string Title { get; set; }
-        public DateTime PublicationDate { get; set; }
+        public DateTime? PublicationDate { get; set; }
     }
 }

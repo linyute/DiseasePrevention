@@ -5,10 +5,11 @@
              xmlns:userControls="clr-namespace:DiseasePrevention.UserControls;assembly=DiseasePrevention"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DiseasePrevention.Views.News.NewsPage"
-             Title="最新消息">
+             Title="{Binding Title}">
   <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
 
-    <userControls:MainMenu BindingContext="{Binding MainMenuViewModel}"/>
+    <userControls:MainMenu BindingContext="{Binding MainMenuViewModel}"
+        VerticalOptions="FillAndExpand" />
 
   </StackLayout>
 </ContentPage>

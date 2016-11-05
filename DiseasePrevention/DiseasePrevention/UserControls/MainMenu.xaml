@@ -24,9 +24,10 @@
 
               <Frame HasShadow="True" OutlineColor="Transparent" Margin="0, 5, 0, 5" BackgroundColor="White">
                 <StackLayout Orientation="Horizontal">
-                  <Image Source="{Binding Icon}" VerticalOptions="Center" WidthRequest="64" HeightRequest="64"/>
+                  <Image Source="{Binding Icon}" VerticalOptions="Center" WidthRequest="64" HeightRequest="64"
+                         IsVisible="{Binding Icon, Converter={StaticResource ObjectToBooleanConverter}}"/>
                   <Label Text ="{Binding Text}" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
-                         FontSize="30" TextColor="Black"/>
+                         FontSize="26" TextColor="Black" LineBreakMode="CharacterWrap"/>
                 </StackLayout>
               </Frame>
 

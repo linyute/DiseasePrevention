@@ -6,19 +6,26 @@ using System.Linq;
 using DiseasePrevention.Services;
 using DiseasePrevention.ViewModels.UserControls;
 using Prism.Navigation;
+using Xamarin.Forms;
 
 namespace DiseasePrevention.ViewModels.News
 {
     public class NewsPageViewModel : BindableBase, INavigationAware
     {
+        private string _title;
+
+        public string Title
+        {
+            get { return _title; }
+            set { SetProperty(ref _title, value); }
+        }
+
         public NewsPageViewModel(
             INavigationService navigationService, 
             MenuItemService menuItemService)
         {
             this._navigationService = navigationService;
             this._menuItemService = menuItemService;
-
-            this.BuildMenu();
         }
 
         #region Navigation
@@ -32,12 +39,24 @@ namespace DiseasePrevention.ViewModels.News
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            //if (parameters.ContainsKey("Title")) { Title = (string)parameters["Title"]; }
+            if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
+
+            if (parameters.ContainsKey("MenuType")) { this.MenuType = (string)parameters["MenuType"]; }
+
+            this.BuildMenu();
         }
 
         #endregion
 
         #region Menu
+
+        private string _menuType;
+
+        public string MenuType
+        {
+            get { return _menuType; }
+            set { SetProperty(ref _menuType, value); }
+        }
 
         private readonly MenuItemService _menuItemService;
 
@@ -46,7 +65,9 @@ namespace DiseasePrevention.ViewModels.News
 
         private void BuildMenu()
         {
-            var items = this._menuItemService.NewsMenuItems;
+            var items = this.MenuType == "最新消息" ? 
+                this._menuItemService.NewsMenuItems : 
+                this._menuItemService.DiseaseMenuItems;
 
             foreach (var item in items)
             {

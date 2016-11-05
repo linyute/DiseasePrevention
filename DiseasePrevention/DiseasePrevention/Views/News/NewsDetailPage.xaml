@@ -4,7 +4,7 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DiseasePrevention.Views.News.NewsDetailPage"
-             Title="新聞稿內容">
+             Title="{Binding Title}">
   <ContentPage.ToolbarItems>
     <ToolbarItem Command="{Binding OpenBrowserCommand}" Text="開啟網站">
       <ToolbarItem.Icon>

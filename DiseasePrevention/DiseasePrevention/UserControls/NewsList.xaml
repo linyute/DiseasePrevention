@@ -18,11 +18,12 @@
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <StackLayout Orientation="Vertical" Padding="10,10,10,12">
+            <StackLayout Orientation="Vertical" Padding="0,10,0,12">
               <Label Text="{Binding PublicationDate, StringFormat='{0:yyyy-MM-dd HH:mm:ss}'}"
-                       TextColor="Blue"/>
+                     IsVisible="{Binding PublicationDate, Converter={StaticResource ObjectToBooleanConverter}}"  
+                     TextColor="Blue"/>
               <Label Text="{Binding Title}" TextColor="Black" FontSize="20"
-                       LineBreakMode="CharacterWrap" />
+                     LineBreakMode="CharacterWrap" />
             </StackLayout>
           </ViewCell>
         </DataTemplate>

@@ -8,6 +8,7 @@
     <ResourceDictionary>
       <Color x:Key="BgColor">#f7f7f7</Color>
       <converters:InvertedBooleanConverter x:Key="InvertedBooleanConverter" />
+      <converters:ObjectToBooleanConverter x:Key="ObjectToBooleanConverter" />
       <converters:StringToHtmlConverter x:Key="StringToHtmlConverter" />
     </ResourceDictionary>
   </Application.Resources>

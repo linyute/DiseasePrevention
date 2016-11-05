@@ -64,26 +64,32 @@ namespace DiseasePrevention.ViewModels.News
 
         public async void OnNavigatedTo(NavigationParameters parameters)
         {
-            //if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
+            if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
 
             if (parameters.ContainsKey("NewsType"))
             {
-                var newsType = (string) parameters["NewsType"];
-                this.NewsType = newsType;
-                this._newsService.NewsType = newsType;
+                this.NewsType = (string)parameters["NewsType"];
+                await this.DownloadNewsListAsync();
             }
 
-            await this.DownloadListAsync();
+            if (parameters.ContainsKey("DiseaseType"))
+            {
+                this.DiseaseType = (string)parameters["DiseaseType"];
+                this.GetDiseaseList();
+            }
 
             this.IsRunning = false;
         }
 
         #endregion
 
-        #region ListView
+        public NewsListViewModel NewsListViewModel { get; set; }
+            = new NewsListViewModel();
 
         private readonly NewsService _newsService;
-        
+
+        #region News List
+
         private string _newsType;
 
         public string NewsType
@@ -95,21 +101,18 @@ namespace DiseasePrevention.ViewModels.News
                 this._newsService.NewsType = _newsType;
             }
         }
+        
+        private List<RssFeed> _newsList = new List<RssFeed>();
 
-        public NewsListViewModel NewsListViewModel { get; set; }
-            = new NewsListViewModel();
-
-        private List<RssFeed> _itemList = new List<RssFeed>();
-
-        public async Task DownloadListAsync()
+        public async Task DownloadNewsListAsync()
         {
             try
             {
                 if (CrossConnectivity.Current.IsConnected)
                 {
-                    this._itemList = await this._newsService.GetRssReedsAsync();
+                    this._newsList = await this._newsService.GetRssReedsAsync();
 
-                    foreach (var feed in _itemList)
+                    foreach (var feed in _newsList)
                     {
                         this.NewsListViewModel.ItemsSource.Add(new NewsListItem()
                         {
@@ -128,15 +131,58 @@ namespace DiseasePrevention.ViewModels.News
 
         #endregion
 
+        #region Disease List
+
+        private string _diseaseType;
+
+        public string DiseaseType
+        {
+            get { return _diseaseType; }
+            set
+            {
+                SetProperty(ref _diseaseType, value);
+                this._newsService.DiseaseType = _diseaseType;
+            }
+        }
+        
+        public void GetDiseaseList()
+        {
+            var items = this._newsService.GetDiseaseList();
+
+            foreach (var item in items)
+            {
+                this.NewsListViewModel.ItemsSource.Add(new NewsListItem()
+                {
+                    Id = item.Key,
+                    Title = item.Value
+                });
+            }
+        }
+
+        #endregion
+
         #region Command
 
         private async void NaviDetailPage()
         {
-            var item = this._itemList.First(x => x.Guid == this.NewsListViewModel.SelectedItem.Id);
+            RssFeed item = null;
+            var title = string.Empty;
+
+            if (string.IsNullOrEmpty(this.NewsType) == false)
+            {
+                item = this._newsList.First(x => x.Guid == this.NewsListViewModel.SelectedItem.Id);
+                title = "新聞稿內容";
+            }
+
+            if (string.IsNullOrEmpty(this.DiseaseType) == false)
+            {
+                item = await this._newsService.GetDiseaseFeedAsync(this.NewsListViewModel.SelectedItem.Id);
+                title = "傳染病說明";
+            }
 
             var ps = new NavigationParameters {{"SelectedItem", item }};
 
-            await _navigationService.NavigateAsync(new Uri("NewsDetailPage", UriKind.Relative), ps);
+            await _navigationService.NavigateAsync(new Uri($"NewsDetailPage?Title={title}", UriKind.Relative), ps);
         }
 
         #endregion
