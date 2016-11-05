@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -33,6 +34,13 @@ namespace DiseasePrevention.UWP
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            #region 設定語系
+
+            var language = Windows.System.UserProfile.GlobalizationPreferences.Languages[0];
+            Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = language;
+
+            #endregion
         }
 
         /// <summary>

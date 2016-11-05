@@ -269,5 +269,9 @@ namespace DiseasePrevention.ViewModels
         }
 
         #endregion
+
+        #region 疫苗接種
+        
+        #endregion
     }
 }

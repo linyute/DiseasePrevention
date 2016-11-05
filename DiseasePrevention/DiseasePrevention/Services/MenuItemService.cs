@@ -29,6 +29,8 @@ namespace DiseasePrevention.Services
             this.BuildTravelMenu();
 
             this.BuildDiseaseMenu();
+
+            this.BuildVaccineMenu();
         }
 
         private readonly INavigationService _navigationService;
@@ -104,13 +106,13 @@ namespace DiseasePrevention.Services
 
             this.MainMenuItems.Add(new MenuItem()
             {
-                Text = "疾管局諮詢專線",
+                Text = "疾管署諮詢專線",
                 Icon = Device.OnPlatform("menu_info.png", "menu_info.png", "Assets/menu_info.png"),
                 Command = new DelegateCommand(() =>
                 {
                     if (CrossMessaging.Current.PhoneDialer.CanMakePhoneCall)
                     {
-                        CrossMessaging.Current.PhoneDialer.MakePhoneCall("1922", "疾管局諮詢專線");
+                        CrossMessaging.Current.PhoneDialer.MakePhoneCall("1922", "疾管署諮詢專線");
                     }
                     else
                     {
@@ -293,6 +295,32 @@ namespace DiseasePrevention.Services
                 {
                     await this._navigationService.NavigateAsync(
                         new Uri("MainListPage?Title=其他類&MenuType=傳染病介紹&ListType=其他類", UriKind.Relative));
+                })
+            });
+        }
+
+        #endregion
+
+        #region 疫苗接種
+
+        /// <summary>
+        /// 疫苗接種
+        /// </summary>
+        public List<MenuItem> VaccineMenuItems { get; set; } = new List<MenuItem>();
+
+        /// <summary>
+        /// 疫苗接種
+        /// </summary>
+        private void BuildVaccineMenu()
+        {
+            this.VaccineMenuItems.Add(new MenuItem()
+            {
+                Text = "幼兒疫苗接種",
+                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("ChildVaccinePage?Title=幼兒疫苗接種", UriKind.Relative));
                 })
             });
         }

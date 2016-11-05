@@ -2,6 +2,7 @@
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Plugin.DeviceInfo;
 using Prism.Navigation;
@@ -24,6 +25,9 @@ namespace DiseasePrevention.ViewModels
             this.Model = CrossDeviceInfo.Current.Model;
             this.Platform = CrossDeviceInfo.Current.Platform.ToString();
             this.VersionNumber = CrossDeviceInfo.Current.VersionNumber.ToString();
+
+            this.CurrentCulture = CultureInfo.CurrentCulture.Name;
+            this.CurrentUICulture = CultureInfo.CurrentUICulture.Name;
         }
 
         #region Naviation
@@ -63,6 +67,20 @@ namespace DiseasePrevention.ViewModels
         {
             get { return _versionNumber; }
             set { SetProperty(ref _versionNumber, value); }
+        }
+
+        private string _currentCulture;
+        public string CurrentCulture
+        {
+            get { return _currentCulture; }
+            set { SetProperty(ref _currentCulture, value); }
+        }
+
+        private string _currentUICulture;
+        public string CurrentUICulture
+        {
+            get { return _currentUICulture; }
+            set { SetProperty(ref _currentUICulture, value); }
         }
 
         #endregion

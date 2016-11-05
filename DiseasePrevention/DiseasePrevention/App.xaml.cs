@@ -3,6 +3,7 @@ using Prism.Unity;
 using DiseasePrevention.Views;
 using DiseasePrevention.Views.News;
 using DiseasePrevention.Views.Travels;
+using DiseasePrevention.Views.Vaccines;
 using Microsoft.Practices.Unity;
 
 namespace DiseasePrevention
@@ -57,9 +58,10 @@ namespace DiseasePrevention
 
             #region 疫苗接種
 
-
+            Container.RegisterTypeForNavigation<ChildVaccinePage>();
 
             #endregion
+            
         }
     }
 }

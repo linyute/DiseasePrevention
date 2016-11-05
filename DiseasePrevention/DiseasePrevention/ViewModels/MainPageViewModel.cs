@@ -40,7 +40,7 @@ namespace DiseasePrevention.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            if (parameters.ContainsKey("Title")) { Title = (string)parameters["Title"]; }
+            if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
 
             if (parameters.ContainsKey("MenuType")) { this.MenuType = (string)parameters["MenuType"]; }
 
@@ -71,16 +71,19 @@ namespace DiseasePrevention.ViewModels
             switch (this.MenuType)
             {
                 case "首頁":
-                    items = _menuItemService.MainMenuItems;
+                    items = this._menuItemService.MainMenuItems;
                     break;
                 case "最新消息":
-                    items = _menuItemService.NewsMenuItems;
+                    items = this._menuItemService.NewsMenuItems;
                     break;
                 case "國際疫情":
-                    items = _menuItemService.TravelMenuItems;
+                    items = this._menuItemService.TravelMenuItems;
                     break;
                 case "傳染病介紹":
-                    items = _menuItemService.DiseaseMenuItems;
+                    items = this._menuItemService.DiseaseMenuItems;
+                    break;
+                case "疫苗接種":
+                    items = this._menuItemService.VaccineMenuItems;
                     break;
                 default:
                     items = new List<MenuItem>();

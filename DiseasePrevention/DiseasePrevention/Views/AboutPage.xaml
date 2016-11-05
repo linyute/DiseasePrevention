@@ -10,5 +10,7 @@
     <Label Text="{Binding Model}" />
     <Label Text="{Binding Platform}" />
     <Label Text="{Binding VersionNumber}" />
+    <Label Text="{Binding CurrentCulture}" />
+    <Label Text="{Binding CurrentUICulture}" />
   </StackLayout>
 </ContentPage>
