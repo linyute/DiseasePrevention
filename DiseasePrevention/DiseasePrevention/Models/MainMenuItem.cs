@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DiseasePrevention.Models
 {
-    public class MasterMenuItem
+    public class MainMenuItem
     {
         public string Title { get; set; }
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DiseasePrevention.Models
 {
-    public class NewsListItem
+    public class MainListItem
     {
         public string Id { get; set; }
         public string Title { get; set; }

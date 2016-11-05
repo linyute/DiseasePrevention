@@ -78,7 +78,7 @@ namespace DiseasePrevention.Tests.Services.News
             var newsService = new NewsService(_netService);
 
             // Act
-            var items = await newsService.GetRssReedsAsync();
+            var items = await newsService.GetRssReedsAsync("一般民眾版");
 
             // Assert
             Assert.True(items.Any());
@@ -91,10 +91,9 @@ namespace DiseasePrevention.Tests.Services.News
         {
             // Arrange
             var newsService = new NewsService(_netService);
-            newsService.DiseaseType = "食物或飲水傳染";
 
             // Act
-            var items = newsService.GetDiseaseList();
+            var items = newsService.GetDiseaseList("食物或飲水傳染");
 
             // Assert
             Assert.True(items.Any());

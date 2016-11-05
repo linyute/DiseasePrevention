@@ -18,17 +18,16 @@ namespace DiseasePrevention.Services.Travels
 
         private readonly NetService _netService;
 
-        public string NewsType { get; set; }
-
         /// <summary>
         /// 國際疫情
         /// </summary>
+        /// <param name="newsType">新聞類型</param>
         /// <returns></returns>
-        public async Task<List<TravelAlert>> GetTravelAlertsAsync()
+        public async Task<List<TravelAlert>> GetTravelAlertsAsync(string newsType)
         {
             string url;
 
-            switch (NewsType)
+            switch (newsType)
             {
                 case "國際重要疫情":
                     url = @"http://www.cdc.gov.tw/ExportOpenData.aspx?Type=json&FromWeb=1";

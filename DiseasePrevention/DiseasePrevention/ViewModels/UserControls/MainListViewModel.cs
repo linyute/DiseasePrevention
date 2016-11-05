@@ -8,24 +8,24 @@ using DiseasePrevention.Models;
 
 namespace DiseasePrevention.ViewModels.UserControls
 {
-    public class NewsListViewModel : BindableBase
+    public class MainListViewModel : BindableBase
     {
-        public NewsListViewModel()
+        public MainListViewModel()
         {
 
         }
 
         #region List
 
-        private ObservableCollection<NewsListItem> _itemsSource = new ObservableCollection<NewsListItem>();
-        public ObservableCollection<NewsListItem> ItemsSource
+        private ObservableCollection<MainListItem> _itemsSource = new ObservableCollection<MainListItem>();
+        public ObservableCollection<MainListItem> ItemsSource
         {
             get { return _itemsSource; }
             set { SetProperty(ref _itemsSource, value); }
         }
 
-        private NewsListItem _selectedItem;
-        public NewsListItem SelectedItem
+        private MainListItem _selectedItem;
+        public MainListItem SelectedItem
         {
             get { return _selectedItem; }
             set { SetProperty(ref _selectedItem, value); }

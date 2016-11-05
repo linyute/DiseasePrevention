@@ -5,9 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DiseasePrevention.Models;
-using DiseasePrevention.Models.News;
 using DiseasePrevention.Models.Travels;
-using DiseasePrevention.Services.News;
 using DiseasePrevention.Services.Travels;
 using DiseasePrevention.ViewModels.UserControls;
 using Plugin.Connectivity;
@@ -36,7 +34,7 @@ namespace DiseasePrevention.ViewModels.Travels
             this._dialogService = dialogService;
             this._travelService = travelService;
 
-            this.NewsListViewModel.ItemSelectedCommand =
+            this.MainListViewModel.ItemSelectedCommand =
                 new DelegateCommand(NaviDetailPage, () => this.IsRunning == false);
         }
 
@@ -48,7 +46,7 @@ namespace DiseasePrevention.ViewModels.Travels
             set
             {
                 SetProperty(ref _isRunning, value);
-                this.NewsListViewModel.ItemSelectedCommand.RaiseCanExecuteChanged();
+                this.MainListViewModel.ItemSelectedCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -69,8 +67,7 @@ namespace DiseasePrevention.ViewModels.Travels
 
             if (parameters.ContainsKey("NewsType"))
             {
-                var newsType = (string)parameters["NewsType"];
-                this.NewsType = newsType;
+                this.NewsType = (string)parameters["NewsType"];
             }
 
             await this.DownloadListAsync();
@@ -92,12 +89,12 @@ namespace DiseasePrevention.ViewModels.Travels
             set
             {
                 SetProperty(ref _newsType, value);
-                this._travelService.NewsType = _newsType;
+                //this._travelService.NewsType = _newsType;
             }
         }
 
-        public NewsListViewModel NewsListViewModel { get; set; }
-        = new NewsListViewModel();
+        public MainListViewModel MainListViewModel { get; set; }
+        = new MainListViewModel();
 
         private List<TravelAlert> _itemList = new List<TravelAlert>();
 
@@ -107,11 +104,11 @@ namespace DiseasePrevention.ViewModels.Travels
             {
                 if (CrossConnectivity.Current.IsConnected)
                 {
-                    this._itemList = await this._travelService.GetTravelAlertsAsync();
+                    this._itemList = await this._travelService.GetTravelAlertsAsync(this.NewsType);
 
                     foreach (var item in _itemList)
                     {
-                        this.NewsListViewModel.ItemsSource.Add(new NewsListItem()
+                        this.MainListViewModel.ItemsSource.Add(new MainListItem()
                         {
                             Id = item.Id,
                             Title = item.Headline,
@@ -132,7 +129,7 @@ namespace DiseasePrevention.ViewModels.Travels
 
         private async void NaviDetailPage()
         {
-            var item = this._itemList.First(x => x.Id == this.NewsListViewModel.SelectedItem.Id);
+            var item = this._itemList.First(x => x.Id == this.MainListViewModel.SelectedItem.Id);
 
             var ps = new NavigationParameters {{"SelectedItem", item}};
 

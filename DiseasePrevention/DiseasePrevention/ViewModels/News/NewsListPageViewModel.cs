@@ -35,7 +35,7 @@ namespace DiseasePrevention.ViewModels.News
             this._dialogService = dialogService;
             this._newsService = newsService;
 
-            this.NewsListViewModel.ItemSelectedCommand = 
+            this.MainListViewModel.ItemSelectedCommand = 
                 new DelegateCommand(NaviDetailPage, () => this.IsRunning == false);
         }
 
@@ -47,7 +47,7 @@ namespace DiseasePrevention.ViewModels.News
             set
             {
                 SetProperty(ref _isRunning, value);
-                this.NewsListViewModel.ItemSelectedCommand.RaiseCanExecuteChanged();
+                this.MainListViewModel.ItemSelectedCommand.RaiseCanExecuteChanged();
             }
         }
 
@@ -83,8 +83,8 @@ namespace DiseasePrevention.ViewModels.News
 
         #endregion
 
-        public NewsListViewModel NewsListViewModel { get; set; }
-            = new NewsListViewModel();
+        public MainListViewModel MainListViewModel { get; set; }
+            = new MainListViewModel();
 
         private readonly NewsService _newsService;
 
@@ -98,7 +98,7 @@ namespace DiseasePrevention.ViewModels.News
             set
             {
                 SetProperty(ref _newsType, value);
-                this._newsService.NewsType = _newsType;
+                //this._newsService.NewsType = _newsType;
             }
         }
         
@@ -110,11 +110,11 @@ namespace DiseasePrevention.ViewModels.News
             {
                 if (CrossConnectivity.Current.IsConnected)
                 {
-                    this._newsList = await this._newsService.GetRssReedsAsync();
+                    this._newsList = await this._newsService.GetRssReedsAsync(this.NewsType);
 
                     foreach (var feed in _newsList)
                     {
-                        this.NewsListViewModel.ItemsSource.Add(new NewsListItem()
+                        this.MainListViewModel.ItemsSource.Add(new MainListItem()
                         {
                             Id = feed.Guid,
                             Title = feed.Title,
@@ -141,17 +141,17 @@ namespace DiseasePrevention.ViewModels.News
             set
             {
                 SetProperty(ref _diseaseType, value);
-                this._newsService.DiseaseType = _diseaseType;
+                //this._newsService.DiseaseType = _diseaseType;
             }
         }
         
         public void GetDiseaseList()
         {
-            var items = this._newsService.GetDiseaseList();
+            var items = this._newsService.GetDiseaseList(this.DiseaseType);
 
             foreach (var item in items)
             {
-                this.NewsListViewModel.ItemsSource.Add(new NewsListItem()
+                this.MainListViewModel.ItemsSource.Add(new MainListItem()
                 {
                     Id = item.Key,
                     Title = item.Value
@@ -170,13 +170,13 @@ namespace DiseasePrevention.ViewModels.News
 
             if (string.IsNullOrEmpty(this.NewsType) == false)
             {
-                item = this._newsList.First(x => x.Guid == this.NewsListViewModel.SelectedItem.Id);
+                item = this._newsList.First(x => x.Guid == this.MainListViewModel.SelectedItem.Id);
                 title = "新聞稿內容";
             }
 
             if (string.IsNullOrEmpty(this.DiseaseType) == false)
             {
-                item = await this._newsService.GetDiseaseFeedAsync(this.NewsListViewModel.SelectedItem.Id);
+                item = await this._newsService.GetDiseaseFeedAsync(this.MainListViewModel.SelectedItem.Id);
                 title = "傳染病說明";
             }
 

@@ -5,7 +5,7 @@
              xmlns:userControls="clr-namespace:DiseasePrevention.UserControls;assembly=DiseasePrevention"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DiseasePrevention.Views.MainPage"
-             Title="歡迎">
+             Title="{Binding Title}">
   <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="20">
 
     <userControls:MainMenu BindingContext="{Binding MainMenuViewModel}"

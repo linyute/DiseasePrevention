@@ -8,9 +8,9 @@ using Xamarin.Forms;
 
 namespace DiseasePrevention.UserControls
 {
-    public partial class NewsList : ContentView
+    public partial class MainList : ContentView
     {
-        public NewsList()
+        public MainList()
         {
             InitializeComponent();
         }

@@ -18,13 +18,40 @@ namespace DiseasePrevention.Services.News
 
         private readonly NetService _netService;
 
-        public string NewsType { get; set; }
+        /// <summary>
+        /// 最新消息 RSS
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
+        public List<RssFeed> ParseRssFeeds(string str)
+        {
+            var xml = str.Replace("a10:updated", "pubDate");
 
-        public async Task<List<RssFeed>> GetRssReedsAsync()
+            var doc = XDocument.Parse(xml);
+
+            var feeds = (from item in doc.Element("rss").Element("channel").Elements("item")
+                select new RssFeed
+                {
+                    Title = item.Element("title").Value,
+                    Link = item.Element("link").Value,
+                    Description = item.Element("description").Value,
+                    PublicationDate = DateTime.Parse(item.Element("pubDate").Value),
+                    Guid = item.Element("guid").Value
+                }).ToList();
+
+            return feeds;
+        }
+
+        /// <summary>
+        /// 最新消息
+        /// </summary>
+        /// <param name="newsType">新聞類型</param>
+        /// <returns></returns>
+        public async Task<List<RssFeed>> GetRssReedsAsync(string newsType)
         {
             string url;
 
-            switch (NewsType)
+            switch (newsType)
             {
                 case "一般民眾版":
                     url = @"http://www.cdc.gov.tw/rss.aspx?v=0&type=news";
@@ -52,32 +79,37 @@ namespace DiseasePrevention.Services.News
             return feeds;
         }
 
-        public List<RssFeed> ParseRssFeeds(string str)
+        /// <summary>
+        /// 傳染病介紹
+        /// </summary>
+        /// <param name="diseaseId">傳染病ID</param>
+        /// <returns></returns>
+        public async Task<RssFeed> GetDiseaseFeedAsync(string diseaseId)
         {
-            var xml = str.Replace("a10:updated", "pubDate");
+            var url = $"http://www.cdc.gov.tw/rss.aspx?v=0&type=disease&infoid={diseaseId}";
 
-            var doc = XDocument.Parse(xml);
+            var str = await _netService.GetStringAsync(new Uri(url));
 
-            var feeds = (from item in doc.Element("rss").Element("channel").Elements("item")
-                select new RssFeed
-                {
-                    Title = item.Element("title").Value,
-                    Link = item.Element("link").Value,
-                    Description = item.Element("description").Value,
-                    PublicationDate = DateTime.Parse(item.Element("pubDate").Value),
-                    Guid = item.Element("guid").Value
-                }).ToList();
+            if (string.IsNullOrWhiteSpace(str))
+            {
+                return new RssFeed();
+            }
 
-            return feeds;
+            var feed = ParseRssFeeds(str).First();
+
+            return feed;
         }
 
-        public string DiseaseType { get; set; }
-
-        public Dictionary<string, string> GetDiseaseList()
+        /// <summary>
+        /// 傳染病介紹
+        /// </summary>
+        /// <param name="diseaseType">傳染病類型</param>
+        /// <returns></returns>
+        public Dictionary<string, string> GetDiseaseList(string diseaseType)
         {
             var dic = new Dictionary<string, string>();
 
-            switch (DiseaseType)
+            switch (diseaseType)
             {
                 case "食物或飲水傳染":
                     #region 食物或飲水傳染
@@ -199,22 +231,6 @@ namespace DiseasePrevention.Services.News
             }
 
             return dic;
-        }
-
-        public async Task<RssFeed> GetDiseaseFeedAsync(string diseaseId)
-        {
-            var url = $"http://www.cdc.gov.tw/rss.aspx?v=0&type=disease&infoid={diseaseId}";
-
-            var str = await _netService.GetStringAsync(new Uri(url));
-
-            if (string.IsNullOrWhiteSpace(str))
-            {
-                return new RssFeed();
-            }
-
-            var feed = ParseRssFeeds(str).First();
-
-            return feed;
         }
     }
 }

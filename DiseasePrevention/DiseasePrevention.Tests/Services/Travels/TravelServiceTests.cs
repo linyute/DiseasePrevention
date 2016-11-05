@@ -33,7 +33,7 @@ namespace DiseasePrevention.Tests.Services.Travels
             var newsService = new TravelService(_netService);
 
             // Act
-            var items = await newsService.GetTravelAlertsAsync();
+            var items = await newsService.GetTravelAlertsAsync("國際重要疫情");
 
             // Assert
             Assert.True(items.Any());

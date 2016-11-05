@@ -10,8 +10,8 @@
                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
     <userControls:LoadingIndicator IsVisible="{Binding IsRunning}" />
-    
-    <userControls:NewsList BindingContext="{Binding NewsListViewModel}" 
+
+    <userControls:MainList BindingContext="{Binding MainListViewModel}" 
         IsVisible="{Binding IsRunning, Converter={StaticResource InvertedBooleanConverter}}"
         VerticalOptions="FillAndExpand" />
     

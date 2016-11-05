@@ -39,8 +39,8 @@
     <Compile Include="Converters\InvertedBooleanConverter.cs" />
     <Compile Include="Converters\StringToHtmlConverter.cs" />
     <Compile Include="Helpers\Settings.cs" />
-    <Compile Include="Models\MasterMenuItem.cs" />
-    <Compile Include="Models\NewsListItem.cs" />
+    <Compile Include="Models\MainMenuItem.cs" />
+    <Compile Include="Models\MainListItem.cs" />
     <Compile Include="Models\News\RssFeed.cs" />
     <Compile Include="Models\Travels\TravelAlert.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,13 +52,14 @@
     <Compile Include="UserControls\LoadingIndicator.xaml.cs">
       <DependentUpon>LoadingIndicator.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\NewsList.xaml.cs">
-      <DependentUpon>NewsList.xaml</DependentUpon>
+    <Compile Include="UserControls\MainList.xaml.cs">
+      <DependentUpon>MainList.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AboutPageViewModel.cs" />
+    <Compile Include="ViewModels\MainListPageViewModel.cs" />
     <Compile Include="ViewModels\MainMasterDetailPageViewModel.cs" />
     <Compile Include="ViewModels\MainNavigationPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
@@ -69,8 +70,11 @@
     <Compile Include="ViewModels\Travels\TravelDetailPageViewModel.cs" />
     <Compile Include="ViewModels\Travels\TravelListPageViewModel.cs" />
     <Compile Include="ViewModels\Travels\TravelPageViewModel.cs" />
-    <Compile Include="ViewModels\UserControls\NewsListViewModel.cs" />
+    <Compile Include="ViewModels\UserControls\MainListViewModel.cs" />
     <Compile Include="ViewModels\UserControls\MainMenuViewModel.cs" />
+    <Compile Include="Views\MainListPage.xaml.cs">
+      <DependentUpon>MainListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\News\NewsDetailPage.xaml.cs">
       <DependentUpon>NewsDetailPage.xaml</DependentUpon>
     </Compile>
@@ -282,7 +286,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="UserControls\NewsList.xaml">
+    <EmbeddedResource Include="UserControls\MainList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -307,6 +311,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Travels\TravelDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\MainListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

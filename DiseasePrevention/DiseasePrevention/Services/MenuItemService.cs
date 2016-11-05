@@ -54,7 +54,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=歡迎", UriKind.Absolute));
+                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=歡迎&MenuType=首頁", UriKind.Absolute));
                 })
             });
 
@@ -65,7 +65,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/NewsPage?Title=最新消息&MenuType=最新消息", UriKind.Absolute));
+                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=最新消息&MenuType=最新消息", UriKind.Absolute));
                 })
             });
 
@@ -76,7 +76,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/TravelPage?Title=國際疫情", UriKind.Absolute));
+                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=國際疫情&MenuType=國際疫情", UriKind.Absolute));
                 })
             });
 
@@ -87,7 +87,18 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/NewsPage?Title=傳染病介紹&MenuType=傳染病介紹", UriKind.Absolute));
+                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=傳染病介紹&MenuType=傳染病介紹", UriKind.Absolute));
+                })
+            });
+
+            this.MainMenuItems.Add(new MenuItem()
+            {
+                Text = "疫苗接種",
+                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=疫苗接種&MenuType=疫苗接種", UriKind.Absolute));
                 })
             });
 
@@ -141,7 +152,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("NewsListPage?Title=一般民眾版&NewsType=一般民眾版", UriKind.Relative));
+                        new Uri("MainListPage?Title=一般民眾版&MenuType=最新消息&ListType=一般民眾版", UriKind.Relative));
                 })
             });
 
@@ -152,7 +163,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("NewsListPage?Title=專業人士版&NewsType=專業人士版", UriKind.Relative));
+                        new Uri("MainListPage?Title=專業人士版&MenuType=最新消息&ListType=專業人士版", UriKind.Relative));
                 })
             });
 
@@ -163,7 +174,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("NewsListPage?Title=致醫界通函&NewsType=致醫界通函", UriKind.Relative));
+                        new Uri("MainListPage?Title=致醫界通函&MenuType=最新消息&ListType=致醫界通函", UriKind.Relative));
                 })
             });
         }
@@ -189,7 +200,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("TravelListPage?Title=國際重要疫情&NewsType=國際重要疫情", UriKind.Relative));
+                        new Uri("MainListPage?Title=國際重要疫情&MenuType=國際疫情&ListType=國際重要疫情", UriKind.Relative));
                 })
             });
 
@@ -200,7 +211,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("TravelListPage?Title=國際旅遊疫情&NewsType=國際旅遊疫情", UriKind.Relative));
+                        new Uri("MainListPage?Title=國際旅遊疫情&MenuType=國際疫情&ListType=國際旅遊疫情", UriKind.Relative));
                 })
             });
         }
@@ -226,7 +237,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("NewsListPage?Title=食物或飲水傳染&DiseaseType=食物或飲水傳染", UriKind.Relative));
+                        new Uri("MainListPage?Title=食物或飲水傳染&MenuType=傳染病介紹&ListType=食物或飲水傳染", UriKind.Relative));
                 })
             });
 
@@ -237,7 +248,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("NewsListPage?Title=空氣或飛沫傳染&DiseaseType=空氣或飛沫傳染", UriKind.Relative));
+                        new Uri("MainListPage?Title=空氣或飛沫傳染&MenuType=傳染病介紹&ListType=空氣或飛沫傳染", UriKind.Relative));
                 })
             });
 
@@ -248,7 +259,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("NewsListPage?Title=蟲媒傳染&DiseaseType=蟲媒傳染", UriKind.Relative));
+                        new Uri("MainListPage?Title=蟲媒傳染&MenuType=傳染病介紹&ListType=蟲媒傳染", UriKind.Relative));
                 })
             });
 
@@ -259,7 +270,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("NewsListPage?Title=性接觸或血液傳染&DiseaseType=性接觸或血液傳染", UriKind.Relative));
+                        new Uri("MainListPage?Title=性接觸或血液傳染&MenuType=傳染病介紹&ListType=性接觸或血液傳染", UriKind.Relative));
                 })
             });
 
@@ -270,7 +281,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("NewsListPage?Title=接觸傳染&DiseaseType=接觸傳染", UriKind.Relative));
+                        new Uri("MainListPage?Title=接觸傳染&MenuType=傳染病介紹&ListType=接觸傳染", UriKind.Relative));
                 })
             });
 
@@ -281,7 +292,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("NewsListPage?Title=其他類&DiseaseType=其他類", UriKind.Relative));
+                        new Uri("MainListPage?Title=其他類&MenuType=傳染病介紹&ListType=其他類", UriKind.Relative));
                 })
             });
         }
