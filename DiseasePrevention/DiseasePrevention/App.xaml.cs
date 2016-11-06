@@ -59,9 +59,9 @@ namespace DiseasePrevention
             #region 疫苗接種
 
             Container.RegisterTypeForNavigation<ChildVaccinePage>();
+            Container.RegisterTypeForNavigation<AdultVaccinePage>();
 
             #endregion
-            
         }
     }
 }

@@ -4,34 +4,38 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DiseasePrevention.Views.Vaccines.ChildVaccinePage"
-             Title="幼兒疫苗接種">
+             Title="幼兒常規疫苗接種時間試算表">
+  <StackLayout Orientation="Vertical" Padding="20"
+                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+    <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+      <Grid Padding="10">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Text="小朋友的生日" FontSize="16"
+               HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
+               Grid.Row="0" />
+        <DatePicker Date="{Binding BirthDay, Mode=TwoWay}" Format="yyyy-MM-dd"
+                    HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
+                    
+                    Grid.Row="1" />
+        <Button Text="試算接種時間" FontSize="16"
+                Command="{Binding CaculateDateCommand}"
+                HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
+                Grid.Row="2" />
+      </Grid>
+    </Frame>
+    
   <ScrollView Orientation="Vertical">
     <StackLayout Orientation="Vertical" Padding="20"
                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-
-      <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
-        <Grid Padding="10">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
-
-          <Label Text="小朋友的生日" FontSize="16"
-                 HorizontalTextAlignment="Center" VerticalTextAlignment="Center"
-                 Grid.Row="0" />
-          <DatePicker Date="{Binding BirthDay, Mode=TwoWay}" Format="yyyy-MM-dd"
-                      HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
-                      Grid.Row="1" />
-          <Button Text="試算接種時間" FontSize="16"
-                  Command="{Binding CaculateDateCommand}"
-                  HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
-                  Grid.Row="2" />
-        </Grid>
-      </Frame>
 
       <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
         <Grid Padding="10">
@@ -275,8 +279,10 @@
         </Grid>
       </Frame>
       
-      <Label Text="資料版本 2016-11-02" HorizontalTextAlignment="Center" />
     </StackLayout>
   </ScrollView>
-
+    
+    <Label Text="資料版本 2016-11-02" HorizontalTextAlignment="Center" />
+  </StackLayout>
+    
 </ContentPage>

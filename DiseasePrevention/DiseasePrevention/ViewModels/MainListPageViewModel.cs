@@ -196,7 +196,7 @@ namespace DiseasePrevention.ViewModels
 
         private void GetDiseaseList()
         {
-            var items = this._newsService.GetDiseaseList(this.ListType);
+            var items = this._newsService.GetDiseases(this.ListType);
 
             foreach (var item in items)
             {

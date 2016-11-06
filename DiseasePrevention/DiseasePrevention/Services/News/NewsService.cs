@@ -105,7 +105,7 @@ namespace DiseasePrevention.Services.News
         /// </summary>
         /// <param name="diseaseType">傳染病類型</param>
         /// <returns></returns>
-        public Dictionary<string, string> GetDiseaseList(string diseaseType)
+        public Dictionary<string, string> GetDiseases(string diseaseType)
         {
             var dic = new Dictionary<string, string>();
 

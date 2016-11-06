@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:userControls="clr-namespace:DiseasePrevention.UserControls;assembly=DiseasePrevention"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="DiseasePrevention.Views.Vaccines.AdultVaccinePage"
+             Title="成人預防接種建議時程">
+  <StackLayout Orientation="Vertical" Padding="20"
+               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+    <userControls:LoadingIndicator IsVisible="{Binding IsRunning}" />
+
+    <ListView SeparatorVisibility="None" HasUnevenRows="true"
+              ItemsSource="{Binding ItemsSource, Mode=TwoWay}"
+              IsVisible="{Binding IsRunning, Converter={StaticResource InvertedBooleanConverter}}"
+              VerticalOptions="FillAndExpand"
+              CachingStrategy="RecycleElement">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <Frame HasShadow="True" OutlineColor="Transparent" Padding="0,10,0,10">
+              <Grid>
+                <Grid.ColumnDefinitions>
+                  <ColumnDefinition Width="85"/>
+                  <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                  <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Text="疫苗種類" />
+                <Label Text="{Binding Vaccine}" LineBreakMode="CharacterWrap" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" />
+                <Label Text="年齡" Grid.Row="1" />
+                <Label Text="{Binding Age}" LineBreakMode="CharacterWrap" TextColor="Blue" FontAttributes="Bold" Grid.Column="1" Grid.Row="1" />
+                <Label Text="建議" Grid.Row="2" />
+                <Label Text="{Binding Advice}" LineBreakMode="CharacterWrap" Grid.Column="1" Grid.Row="2" />
+                <Label Text="接種劑次" Grid.Row="3" />
+                <Label Text="{Binding Vaccinate}" LineBreakMode="CharacterWrap" Grid.Column="1" Grid.Row="3" />
+                <Label Text="備註" Grid.Row="4" />
+                <Label Text="{Binding Note}" LineBreakMode="CharacterWrap" Grid.Column="1" Grid.Row="4" />
+              </Grid>  
+            </Frame>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+
+  <Label Text="資料版本 2016-11-02" HorizontalTextAlignment="Center" />
+  </StackLayout>
+</ContentPage>

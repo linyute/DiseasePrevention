@@ -87,13 +87,13 @@ namespace DiseasePrevention.Tests.Services.News
         }
 
         [Fact]
-        public void GetDiseaseListTest()
+        public void GetDiseasesTest()
         {
             // Arrange
             var newsService = new NewsService(_netService);
 
             // Act
-            var items = newsService.GetDiseaseList("食物或飲水傳染");
+            var items = newsService.GetDiseases("食物或飲水傳染");
 
             // Assert
             Assert.True(items.Any());

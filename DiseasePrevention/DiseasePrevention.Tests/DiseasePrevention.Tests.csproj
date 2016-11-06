@@ -41,6 +41,7 @@
     <Compile Include="Services\NetServiceTests.cs" />
     <Compile Include="Services\News\NewsServiceTests.cs" />
     <Compile Include="Services\Travels\TravelServiceTests.cs" />
+    <Compile Include="Services\Vaccines\VaccineServiceTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
@@ -69,6 +70,7 @@
       <Name>DiseasePrevention</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

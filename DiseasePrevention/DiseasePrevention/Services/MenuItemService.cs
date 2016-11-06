@@ -323,6 +323,17 @@ namespace DiseasePrevention.Services
                         new Uri("ChildVaccinePage?Title=幼兒疫苗接種", UriKind.Relative));
                 })
             });
+
+            this.VaccineMenuItems.Add(new MenuItem()
+            {
+                Text = "成人預防接種",
+                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("AdultVaccinePage?Title=成人預防接種", UriKind.Relative));
+                })
+            });
         }
 
         #endregion
