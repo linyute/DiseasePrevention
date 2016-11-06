@@ -85,6 +85,9 @@ namespace DiseasePrevention.ViewModels
                 case "疫苗接種":
                     items = this._menuItemService.VaccineMenuItems;
                     break;
+                case "疾管署防疫專區":
+                    items = this._menuItemService.CDCAreaMenuItems;
+                    break;
                 default:
                     items = new List<MenuItem>();
                     break;

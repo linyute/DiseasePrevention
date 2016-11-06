@@ -32,6 +32,8 @@ namespace DiseasePrevention.Services
             this.BuildDiseaseMenu();
 
             this.BuildVaccineMenu();
+
+            this.BuildCDCAreaMenu();
         }
 
         private readonly INavigationService _navigationService;
@@ -107,18 +109,12 @@ namespace DiseasePrevention.Services
 
             this.MainMenuItems.Add(new MenuItem()
             {
-                Text = "疾管署諮詢專線",
+                Text = "疾管署防疫專區",
                 Icon = Device.OnPlatform("menu_info.png", "menu_info.png", "Assets/menu_info.png"),
-                Command = new DelegateCommand(() =>
+                Command = new DelegateCommand(async () =>
                 {
-                    if (CrossMessaging.Current.PhoneDialer.CanMakePhoneCall)
-                    {
-                        CrossMessaging.Current.PhoneDialer.MakePhoneCall("1922", "疾管署諮詢專線");
-                    }
-                    else
-                    {
-                        this._dialogService.DisplayAlertAsync("疫情通報及傳染病諮詢", "請撥打 1922 專線", "OK");
-                    }
+                    await this._navigationService.NavigateAsync(
+                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=疾管署防疫專區&MenuType=疾管署防疫專區", UriKind.Absolute));
                 })
             });
 
@@ -343,6 +339,68 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await CrossShare.Current.OpenBrowser(@"https://antiflu.cdc.gov.tw/");
+                })
+            });
+        }
+
+        #endregion
+
+        #region 防疫專區
+
+        /// <summary>
+        /// 防疫專區
+        /// </summary>
+        public List<MenuItem> CDCAreaMenuItems { get; set; } = new List<MenuItem>();
+
+        /// <summary>
+        /// 防疫專區
+        /// </summary>
+        private void BuildCDCAreaMenu()
+        {
+            this.CDCAreaMenuItems.Add(new MenuItem()
+            {
+                Text = "流感專區",
+                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await CrossShare.Current.OpenBrowser(@"http://www.cdc.gov.tw/Professional/DiseasePrologue.aspx?did=680&lid=960C589FBCC5C017&treeid=8208EB95DDA7842A&nowtreeid=8208EB95DDA7842A");
+                })
+            });
+
+            this.CDCAreaMenuItems.Add(new MenuItem()
+            {
+                Text = "登革熱防治網",
+                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await CrossShare.Current.OpenBrowser(@"http://www.dengue.gov.tw/");
+                })
+            });
+
+            this.CDCAreaMenuItems.Add(new MenuItem()
+            {
+                Text = "茲卡病毒感染症專區",
+                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await CrossShare.Current.OpenBrowser(@"http://www.cdc.gov.tw/Professional/DiseasePrologue.aspx?did=744&lid=64B7C4FC7D164D4D&treeid=53FDE358DA8186DD&nowtreeid=53FDE358DA8186DD");
+                })
+            });
+
+            this.CDCAreaMenuItems.Add(new MenuItem()
+            {
+                Text = "疾管署諮詢專線",
+                Icon = Device.OnPlatform("menu_info.png", "menu_info.png", "Assets/menu_info.png"),
+                Command = new DelegateCommand(() =>
+                {
+                    if (CrossMessaging.Current.PhoneDialer.CanMakePhoneCall)
+                    {
+                        CrossMessaging.Current.PhoneDialer.MakePhoneCall("1922", "疾管署諮詢專線");
+                    }
+                    else
+                    {
+                        this._dialogService.DisplayAlertAsync("疫情通報及傳染病諮詢", "請撥打 1922 專線", "OK");
+                    }
                 })
             });
         }
