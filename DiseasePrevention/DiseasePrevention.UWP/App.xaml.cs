@@ -37,8 +37,8 @@ namespace DiseasePrevention.UWP
 
             #region 設定語系
 
-            var language = Windows.System.UserProfile.GlobalizationPreferences.Languages[0];
-            Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = language;
+            //var language = Windows.System.UserProfile.GlobalizationPreferences.Languages[0];
+            //Windows.Globalization.ApplicationLanguages.PrimaryLanguageOverride = language;
 
             #endregion
         }

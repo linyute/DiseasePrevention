@@ -77,7 +77,7 @@ namespace DiseasePrevention.Services
             this.MainMenuItems.Add(new MenuItem()
             {
                 Text = "國際疫情",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_globe.png", "menu_globe.png", "Assets/menu_globe.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
@@ -88,7 +88,7 @@ namespace DiseasePrevention.Services
             this.MainMenuItems.Add(new MenuItem()
             {
                 Text = "傳染病介紹",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_sick.png", "menu_sick.png", "Assets/menu_sick.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
@@ -99,7 +99,7 @@ namespace DiseasePrevention.Services
             this.MainMenuItems.Add(new MenuItem()
             {
                 Text = "疫苗接種",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_syringe.png", "menu_syringe.png", "Assets/menu_syringe.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
@@ -110,7 +110,7 @@ namespace DiseasePrevention.Services
             this.MainMenuItems.Add(new MenuItem()
             {
                 Text = "疾管署防疫專區",
-                Icon = Device.OnPlatform("menu_info.png", "menu_info.png", "Assets/menu_info.png"),
+                Icon = Device.OnPlatform("menu_cdc.png", "menu_cdc.png", "Assets/menu_cdc.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
@@ -147,7 +147,7 @@ namespace DiseasePrevention.Services
             this.NewsMenuItems.Add(new MenuItem()
             {
                 Text = "一般民眾版",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_children.png", "menu_children.png", "Assets/menu_children.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
@@ -158,7 +158,7 @@ namespace DiseasePrevention.Services
             this.NewsMenuItems.Add(new MenuItem()
             {
                 Text = "專業人士版",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_employee.png", "menu_employee.png", "Assets/menu_employee.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
@@ -169,7 +169,7 @@ namespace DiseasePrevention.Services
             this.NewsMenuItems.Add(new MenuItem()
             {
                 Text = "致醫界通函",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_doctor.png", "menu_doctor.png", "Assets/menu_doctor.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
@@ -195,7 +195,7 @@ namespace DiseasePrevention.Services
             this.TravelMenuItems.Add(new MenuItem()
             {
                 Text = "國際重要疫情",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_globe.png", "menu_globe.png", "Assets/menu_globe.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
@@ -206,7 +206,7 @@ namespace DiseasePrevention.Services
             this.TravelMenuItems.Add(new MenuItem()
             {
                 Text = "國際旅遊疫情",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_aeroplane.png", "menu_aeroplane.png", "Assets/menu_aeroplane.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
@@ -313,7 +313,7 @@ namespace DiseasePrevention.Services
             this.VaccineMenuItems.Add(new MenuItem()
             {
                 Text = "幼兒疫苗接種",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_baby.png", "menu_baby.png", "Assets/menu_baby.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
@@ -324,7 +324,7 @@ namespace DiseasePrevention.Services
             this.VaccineMenuItems.Add(new MenuItem()
             {
                 Text = "成人預防接種",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_user.png", "menu_user.png", "Assets/menu_user.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
@@ -335,7 +335,7 @@ namespace DiseasePrevention.Services
             this.VaccineMenuItems.Add(new MenuItem()
             {
                 Text = "公費流感疫苗合約院所查詢",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_hospital.png", "menu_hospital.png", "Assets/menu_hospital.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await CrossShare.Current.OpenBrowser(@"https://antiflu.cdc.gov.tw/");
@@ -360,7 +360,7 @@ namespace DiseasePrevention.Services
             this.CDCAreaMenuItems.Add(new MenuItem()
             {
                 Text = "流感專區",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_flu.png", "menu_flu.png", "Assets/menu_flu.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await CrossShare.Current.OpenBrowser(@"http://www.cdc.gov.tw/Professional/DiseasePrologue.aspx?did=680&lid=960C589FBCC5C017&treeid=8208EB95DDA7842A&nowtreeid=8208EB95DDA7842A");
@@ -370,7 +370,7 @@ namespace DiseasePrevention.Services
             this.CDCAreaMenuItems.Add(new MenuItem()
             {
                 Text = "登革熱防治網",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_dengue.png", "menu_dengue.png", "Assets/menu_dengue.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await CrossShare.Current.OpenBrowser(@"http://www.dengue.gov.tw/");
@@ -380,7 +380,7 @@ namespace DiseasePrevention.Services
             this.CDCAreaMenuItems.Add(new MenuItem()
             {
                 Text = "茲卡病毒感染症專區",
-                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Icon = Device.OnPlatform("menu_zika.png", "menu_zika.png", "Assets/menu_zika.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await CrossShare.Current.OpenBrowser(@"http://www.cdc.gov.tw/Professional/DiseasePrologue.aspx?did=744&lid=64B7C4FC7D164D4D&treeid=53FDE358DA8186DD&nowtreeid=53FDE358DA8186DD");
@@ -390,7 +390,7 @@ namespace DiseasePrevention.Services
             this.CDCAreaMenuItems.Add(new MenuItem()
             {
                 Text = "疾管署諮詢專線",
-                Icon = Device.OnPlatform("menu_info.png", "menu_info.png", "Assets/menu_info.png"),
+                Icon = Device.OnPlatform("menu_telephone.png", "menu_telephone.png", "Assets/menu_telephone.png"),
                 Command = new DelegateCommand(() =>
                 {
                     if (CrossMessaging.Current.PhoneDialer.CanMakePhoneCall)

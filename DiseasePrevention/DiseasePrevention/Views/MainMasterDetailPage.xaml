@@ -16,16 +16,16 @@
                    HorizontalOptions="Start"
                    Padding="20, 20, 20, 20">
 
-        <!--<StackLayout Orientation="Horizontal" Padding="10">
+        <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="#4169E1">
           <Image VerticalOptions="Center" >
             <Image.Source>
-              <OnPlatform x:TypeArguments="ImageSource" iOS="row.png" Android="row.png" WinPhone="Assets/row.png" />
+              <OnPlatform x:TypeArguments="ImageSource" iOS="icon.png" Android="icon.png" WinPhone="Assets/icon.png" />
             </Image.Source>
           </Image>
-          <Label Text ="功能選單" FontSize="24" FontAttributes="Bold"
+          <Label Text ="防疫小幫手" FontSize="24" FontAttributes="Bold" TextColor="White"
               VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
-              HorizontalOptions="FillAndExpand"/>
-        </StackLayout>-->
+              HorizontalOptions="CenterAndExpand"/>
+        </StackLayout>
 
         <ListView ItemsSource="{Binding MenuItems, Mode=TwoWay}"
                 SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
