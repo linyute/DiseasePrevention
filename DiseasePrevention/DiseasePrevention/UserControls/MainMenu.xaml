@@ -22,15 +22,39 @@
           <ViewCell>
             <ViewCell.View>
 
-              <Frame HasShadow="True" OutlineColor="Transparent" Margin="0, 5, 0, 5" BackgroundColor="White">
-                <StackLayout Orientation="Horizontal">
+              <!--<Frame HasShadow="True" OutlineColor="Transparent" BackgroundColor="White" Padding="10"
+                     HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" BackgroundColor="Fuchsia"
+                             HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
                   <Image Source="{Binding Icon}" VerticalOptions="Center" WidthRequest="64" HeightRequest="64"
                          IsVisible="{Binding Icon, Converter={StaticResource ObjectToBooleanConverter}}"/>
-                  <Label Text ="{Binding Text}" HorizontalOptions="FillAndExpand" VerticalOptions="Center"
-                         FontSize="26" TextColor="Black" LineBreakMode="CharacterWrap"/>
+                  <Label Text ="{Binding Text}" HorizontalOptions="Start" VerticalOptions="Center"
+                         HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
+                         FontSize="26" TextColor="Black" LineBreakMode="CharacterWrap" BackgroundColor="Green"/>
                 </StackLayout>
-              </Frame>
+              </Frame>-->
 
+              <Frame HasShadow="True" OutlineColor="Transparent" Padding="10">
+                <Grid>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                  </Grid.ColumnDefinitions>
+                  <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                  </Grid.RowDefinitions>
+
+                  <Image Source="{Binding Icon}" VerticalOptions="Center" 
+                         IsVisible="{Binding Icon, Converter={StaticResource ObjectToBooleanConverter}}"
+                         Grid.Column="0" Grid.Row="0" />
+                  <Label Text="{Binding Text}" LineBreakMode="CharacterWrap" FontAttributes="Bold"
+                         FontSize="26" TextColor="Black"
+                         HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+                         HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
+                         Grid.Column="1" Grid.Row="0" />
+                </Grid>
+              </Frame>
+              
             </ViewCell.View>
           </ViewCell>
         </DataTemplate>
