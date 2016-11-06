@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DiseasePrevention.Models;
 using Microsoft.Practices.Unity;
 using Plugin.Messaging;
+using Plugin.Share;
 using Prism.Commands;
 using Prism.Navigation;
 using Prism.Services;
@@ -332,6 +333,16 @@ namespace DiseasePrevention.Services
                 {
                     await this._navigationService.NavigateAsync(
                         new Uri("AdultVaccinePage?Title=成人預防接種", UriKind.Relative));
+                })
+            });
+
+            this.VaccineMenuItems.Add(new MenuItem()
+            {
+                Text = "公費流感疫苗合約院所查詢",
+                Icon = Device.OnPlatform("menu_rss.png", "menu_rss.png", "Assets/menu_rss.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await CrossShare.Current.OpenBrowser(@"https://antiflu.cdc.gov.tw/");
                 })
             });
         }
