@@ -29,7 +29,7 @@
 
         <ListView ItemsSource="{Binding MenuItems, Mode=TwoWay}"
                 SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
-                HasUnevenRows="True"
+                HasUnevenRows="True" SeparatorVisibility="None"
                 CachingStrategy="RecycleElement">
           <ListView.Behaviors>
             <behaviors:EventHandlerBehavior EventName="ItemTapped">

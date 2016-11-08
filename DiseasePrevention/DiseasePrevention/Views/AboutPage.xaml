@@ -4,13 +4,62 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DiseasePrevention.Views.AboutPage"
-             Title="關於本程式">
-  <StackLayout Orientation="Vertical" Padding="20">
-    <Label Text="CopyRight yutelin" />
-    <Label Text="{Binding Model}" />
-    <Label Text="{Binding Platform}" />
-    <Label Text="{Binding VersionNumber}" />
-    <Label Text="{Binding CurrentCulture}" />
-    <Label Text="{Binding CurrentUICulture}" />
-  </StackLayout>
+             Title="關於防疫小幫手">
+  <ScrollView Orientation="Vertical" Padding="5">
+    <StackLayout Orientation="Vertical" Padding="0"
+                    HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+      
+    <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+      <Grid Padding="10">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#4B0082" Grid.Row="0">
+          <Label Text="免責聲明" FontSize="20" TextColor="White" FontAttributes="Bold" />
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+          <Label LineBreakMode="CharacterWrap" Text="防疫小幫手（以下簡稱本 APP）的資料來自於 衛生福利部疾病管制署 與 政府資料開放平臺。" />
+          <Label LineBreakMode="CharacterWrap" Text="本 APP 需要使用網際網路、行動網路傳輸資料、或播打電話，您需要自行負擔相關費用。" />
+          <Label LineBreakMode="CharacterWrap" Text="本 APP 作者不保證資料的正確性，有任何疑問，請與疾管署連絡，或向專業醫療人員諮詢。" />
+          <Label LineBreakMode="CharacterWrap" Text="本 APP 作者不保證資料的可用性，APP 可能因資料來源改版或其他異常，造成 APP 無法使用。" />
+          <Label LineBreakMode="CharacterWrap" Text="因開發或統計需要，本 APP 可能會蒐集回傳您的裝置型號、作業系統版本、使用的功能、除錯記錄...等資訊，以提供更好的服務。" />
+          <Label LineBreakMode="CharacterWrap" TextColor="Red" Text="若您無法同意以上聲明，請移除本 APP。" />
+          <!--<Label LineBreakMode="CharacterWrap" Text="有任何建議，可與作者連繫。" />-->
+          <Label Text="著作權 © yutelin。版權所有。" />
+          <Label LineBreakMode="CharacterWrap" Text="感謝 Syncfusion 免費提供 Metro Studio。" />
+        </StackLayout>
+      </Grid>
+    </Frame>
+
+    <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+      <Grid Padding="10">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#B8860B" Grid.Row="0">
+          <Label Text="裝置資訊" FontSize="20" TextColor="White" FontAttributes="Bold" />
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+          <Label Text="{Binding Model}" />
+          <Label Text="{Binding Platform}" />
+          <Label Text="{Binding VersionNumber}" />
+          <Label Text="{Binding CurrentCulture}" />
+          <Label Text="{Binding CurrentUICulture}" />
+        </StackLayout>
+      </Grid>
+    </Frame>
+    </StackLayout>
+  </ScrollView>
 </ContentPage>

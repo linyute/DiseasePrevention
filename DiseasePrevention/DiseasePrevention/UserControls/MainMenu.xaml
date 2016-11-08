@@ -34,7 +34,7 @@
                 </StackLayout>
               </Frame>-->
 
-              <Frame HasShadow="True" OutlineColor="Transparent" Padding="10">
+              <Frame HasShadow="True" OutlineColor="Transparent" BackgroundColor="White" Margin="5" Padding="20">
                 <Grid>
                   <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>

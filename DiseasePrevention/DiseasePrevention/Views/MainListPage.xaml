@@ -6,7 +6,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DiseasePrevention.Views.MainListPage"
              Title="{Binding Title}">
-  <StackLayout Orientation="Vertical" Padding="20"
+  <StackLayout Orientation="Vertical" Padding="5"
                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
     <userControls:LoadingIndicator IsVisible="{Binding IsRunning}" />

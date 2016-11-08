@@ -6,7 +6,7 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DiseasePrevention.Views.Vaccines.AdultVaccinePage"
              Title="成人預防接種建議時程">
-  <StackLayout Orientation="Vertical" Padding="20"
+  <StackLayout Orientation="Vertical" Padding="5"
                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
     <userControls:LoadingIndicator IsVisible="{Binding IsRunning}" />
@@ -14,12 +14,12 @@
     <ListView SeparatorVisibility="None" HasUnevenRows="true"
               ItemsSource="{Binding ItemsSource, Mode=TwoWay}"
               IsVisible="{Binding IsRunning, Converter={StaticResource InvertedBooleanConverter}}"
-              VerticalOptions="FillAndExpand"
+              VerticalOptions="FillAndExpand" 
               CachingStrategy="RecycleElement">
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
-            <Frame HasShadow="True" OutlineColor="Transparent" Padding="10">
+            <Frame HasShadow="True" OutlineColor="Transparent" Margin="5" Padding="10">
               <Grid>
                 <Grid.ColumnDefinitions>
                   <ColumnDefinition Width="85"/>
@@ -30,19 +30,19 @@
                   <RowDefinition Height="Auto"/>
                   <RowDefinition Height="Auto"/>
                   <RowDefinition Height="Auto"/>
-                  <RowDefinition Height="Auto"/>
+                  <!--<RowDefinition Height="Auto"/>-->
                 </Grid.RowDefinitions>
 
-                <Label Text="疫苗種類" />
-                <Label Text="{Binding Vaccine}" LineBreakMode="CharacterWrap" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" />
-                <Label Text="年齡" Grid.Row="1" />
-                <Label Text="{Binding Age}" LineBreakMode="CharacterWrap" TextColor="Blue" FontAttributes="Bold" Grid.Column="1" Grid.Row="1" />
-                <Label Text="建議" Grid.Row="2" />
-                <Label Text="{Binding Advice}" LineBreakMode="CharacterWrap" Grid.Column="1" Grid.Row="2" />
-                <Label Text="接種劑次" Grid.Row="3" />
-                <Label Text="{Binding Vaccinate}" LineBreakMode="CharacterWrap" Grid.Column="1" Grid.Row="3" />
-                <Label Text="備註" Grid.Row="4" />
-                <Label Text="{Binding Note}" LineBreakMode="CharacterWrap" Grid.Column="1" Grid.Row="4" />
+                <Label Text="疫苗種類" FontSize="20" />
+                <Label Text="{Binding Vaccine}" LineBreakMode="CharacterWrap" FontSize="20" TextColor="Black" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" />
+                <Label Text="年齡" FontSize="20" Grid.Row="1" />
+                <Label Text="{Binding Age}" LineBreakMode="CharacterWrap" FontSize="20" TextColor="Blue" FontAttributes="Bold" Grid.Column="1" Grid.Row="1" />
+                <Label Text="建議" FontSize="20" Grid.Row="2" />
+                <Label Text="{Binding Advice}" LineBreakMode="CharacterWrap" FontSize="20" Grid.Column="1" Grid.Row="2" />
+                <Label Text="接種劑次" FontSize="20" Grid.Row="3" />
+                <Label Text="{Binding Vaccinate}" LineBreakMode="CharacterWrap" FontSize="20" Grid.Column="1" Grid.Row="3" />
+                <!--<Label Text="備註" FontSize="20" Grid.Row="4" />
+                <Label Text="{Binding Note}" LineBreakMode="CharacterWrap" FontSize="20" Grid.Column="1" Grid.Row="4" />-->
               </Grid>  
             </Frame>
           </ViewCell>
