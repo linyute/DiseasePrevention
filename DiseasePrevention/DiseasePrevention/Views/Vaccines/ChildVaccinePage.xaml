@@ -4,7 +4,7 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DiseasePrevention.Views.Vaccines.ChildVaccinePage"
-             Title="幼兒常規疫苗接種時間試算表">
+             Title="幼兒常規疫苗接種">
   <StackLayout Orientation="Vertical" Padding="20"
                  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
