@@ -1091,32 +1091,32 @@ namespace DiseasePrevention.Droid
 		public partial class Color
 		{
 			
-			// aapt resource value: 0x7f0b004c
-			public const int abc_background_cache_hint_selector_material_dark = 2131427404;
-			
 			// aapt resource value: 0x7f0b004d
-			public const int abc_background_cache_hint_selector_material_light = 2131427405;
+			public const int abc_background_cache_hint_selector_material_dark = 2131427405;
 			
 			// aapt resource value: 0x7f0b004e
-			public const int abc_color_highlight_material = 2131427406;
+			public const int abc_background_cache_hint_selector_material_light = 2131427406;
+			
+			// aapt resource value: 0x7f0b004f
+			public const int abc_color_highlight_material = 2131427407;
 			
 			// aapt resource value: 0x7f0b0004
 			public const int abc_input_method_navigation_guard = 2131427332;
 			
-			// aapt resource value: 0x7f0b004f
-			public const int abc_primary_text_disable_only_material_dark = 2131427407;
-			
 			// aapt resource value: 0x7f0b0050
-			public const int abc_primary_text_disable_only_material_light = 2131427408;
+			public const int abc_primary_text_disable_only_material_dark = 2131427408;
 			
 			// aapt resource value: 0x7f0b0051
-			public const int abc_primary_text_material_dark = 2131427409;
+			public const int abc_primary_text_disable_only_material_light = 2131427409;
 			
 			// aapt resource value: 0x7f0b0052
-			public const int abc_primary_text_material_light = 2131427410;
+			public const int abc_primary_text_material_dark = 2131427410;
 			
 			// aapt resource value: 0x7f0b0053
-			public const int abc_search_url_text = 2131427411;
+			public const int abc_primary_text_material_light = 2131427411;
+			
+			// aapt resource value: 0x7f0b0054
+			public const int abc_search_url_text = 2131427412;
 			
 			// aapt resource value: 0x7f0b0005
 			public const int abc_search_url_text_normal = 2131427333;
@@ -1127,11 +1127,11 @@ namespace DiseasePrevention.Droid
 			// aapt resource value: 0x7f0b0007
 			public const int abc_search_url_text_selected = 2131427335;
 			
-			// aapt resource value: 0x7f0b0054
-			public const int abc_secondary_text_material_dark = 2131427412;
-			
 			// aapt resource value: 0x7f0b0055
-			public const int abc_secondary_text_material_light = 2131427413;
+			public const int abc_secondary_text_material_dark = 2131427413;
+			
+			// aapt resource value: 0x7f0b0056
+			public const int abc_secondary_text_material_light = 2131427414;
 			
 			// aapt resource value: 0x7f0b004a
 			public const int accent = 2131427402;
@@ -1334,17 +1334,20 @@ namespace DiseasePrevention.Droid
 			// aapt resource value: 0x7f0b0039
 			public const int secondary_text_disabled_material_light = 2131427385;
 			
+			// aapt resource value: 0x7f0b004c
+			public const int splash_background = 2131427404;
+			
 			// aapt resource value: 0x7f0b003a
 			public const int switch_thumb_disabled_material_dark = 2131427386;
 			
 			// aapt resource value: 0x7f0b003b
 			public const int switch_thumb_disabled_material_light = 2131427387;
 			
-			// aapt resource value: 0x7f0b0056
-			public const int switch_thumb_material_dark = 2131427414;
-			
 			// aapt resource value: 0x7f0b0057
-			public const int switch_thumb_material_light = 2131427415;
+			public const int switch_thumb_material_dark = 2131427415;
+			
+			// aapt resource value: 0x7f0b0058
+			public const int switch_thumb_material_light = 2131427416;
 			
 			// aapt resource value: 0x7f0b003c
 			public const int switch_thumb_normal_material_dark = 2131427388;
@@ -2278,29 +2281,35 @@ namespace DiseasePrevention.Droid
 			// aapt resource value: 0x7f0200b6
 			public const int mr_ic_play_light = 2130837686;
 			
-			// aapt resource value: 0x7f0200be
-			public const int notification_template_icon_bg = 2130837694;
+			// aapt resource value: 0x7f0200c0
+			public const int notification_template_icon_bg = 2130837696;
 			
 			// aapt resource value: 0x7f0200b7
-			public const int toolbar_call = 2130837687;
+			public const int splash_logo = 2130837687;
 			
 			// aapt resource value: 0x7f0200b8
-			public const int toolbar_chrome = 2130837688;
+			public const int splash_screen = 2130837688;
 			
 			// aapt resource value: 0x7f0200b9
-			public const int toolbar_filter = 2130837689;
+			public const int toolbar_call = 2130837689;
 			
 			// aapt resource value: 0x7f0200ba
-			public const int toolbar_link = 2130837690;
+			public const int toolbar_chrome = 2130837690;
 			
 			// aapt resource value: 0x7f0200bb
-			public const int toolbar_map = 2130837691;
+			public const int toolbar_filter = 2130837691;
 			
 			// aapt resource value: 0x7f0200bc
-			public const int toolbar_share = 2130837692;
+			public const int toolbar_link = 2130837692;
 			
 			// aapt resource value: 0x7f0200bd
-			public const int toolbar_zoom = 2130837693;
+			public const int toolbar_map = 2130837693;
+			
+			// aapt resource value: 0x7f0200be
+			public const int toolbar_share = 2130837694;
+			
+			// aapt resource value: 0x7f0200bf
+			public const int toolbar_zoom = 2130837695;
 			
 			static Drawable()
 			{
@@ -3624,6 +3633,9 @@ namespace DiseasePrevention.Droid
 			
 			// aapt resource value: 0x7f0a0173
 			public const int MyTheme_Base = 2131362163;
+			
+			// aapt resource value: 0x7f0a0174
+			public const int MyTheme_Splash = 2131362164;
 			
 			// aapt resource value: 0x7f0a0032
 			public const int Platform_AppCompat = 2131361842;

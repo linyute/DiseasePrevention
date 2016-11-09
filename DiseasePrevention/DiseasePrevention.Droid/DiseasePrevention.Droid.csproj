@@ -230,6 +230,7 @@
     <Compile Include="MainApplication.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -365,6 +366,8 @@
     <AndroidResource Include="Resources\drawable-hdpi\menu_sick.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\menu_sick.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_sick.png" />
+    <AndroidResource Include="Resources\drawable\splash_screen.xml" />
+    <AndroidResource Include="Resources\drawable\splash_logo.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DiseasePrevention\DiseasePrevention.csproj">
