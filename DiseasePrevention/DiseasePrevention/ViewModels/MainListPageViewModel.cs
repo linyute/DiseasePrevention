@@ -172,6 +172,10 @@ namespace DiseasePrevention.ViewModels
                         });
                     }
                 }
+                else
+                {
+                    await _dialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
+                }
             }
             catch (Exception ex)
             {
@@ -212,13 +216,20 @@ namespace DiseasePrevention.ViewModels
         {
             try
             {
-                var item = await this._newsService.GetDiseaseFeedAsync(this.MainListViewModel.SelectedItem.Id);
+                if (CrossConnectivity.Current.IsConnected)
+                {
+                    var item = await this._newsService.GetDiseaseFeedAsync(this.MainListViewModel.SelectedItem.Id);
 
-                var title = "傳染病說明";
+                    var title = "傳染病說明";
 
-                var ps = new NavigationParameters { { "SelectedItem", item } };
+                    var ps = new NavigationParameters { { "SelectedItem", item } };
 
-                await _navigationService.NavigateAsync(new Uri($"NewsDetailPage?Title={title}", UriKind.Relative), ps);
+                    await _navigationService.NavigateAsync(new Uri($"NewsDetailPage?Title={title}", UriKind.Relative), ps);
+                }
+                else
+                {
+                    await _dialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
+                }
             }
             catch (Exception ex)
             {
@@ -251,6 +262,10 @@ namespace DiseasePrevention.ViewModels
                             PublicationDate = item.Sent
                         });
                     }
+                }
+                else
+                {
+                    await _dialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
                 }
             }
             catch (Exception ex)

@@ -122,6 +122,10 @@ namespace DiseasePrevention.ViewModels.News
                         });
                     }
                 }
+                else
+                {
+                    await _dialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
+                }
             }
             catch (Exception ex)
             {
