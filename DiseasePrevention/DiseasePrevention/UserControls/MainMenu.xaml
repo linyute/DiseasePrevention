@@ -8,9 +8,17 @@
   <ContentView.Content>
     
     <ListView ItemsSource="{Binding MenuItems, Mode=TwoWay}"
-                SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
-                HasUnevenRows="True" SeparatorVisibility="None"
-                CachingStrategy="RecycleElement">
+              SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
+              SeparatorVisibility="None"
+              CachingStrategy="RecycleElement">
+      <ListView.HasUnevenRows>
+        <OnPlatform x:TypeArguments="x:Boolean">
+          <OnPlatform.iOS>False</OnPlatform.iOS>
+          <OnPlatform.Android>True</OnPlatform.Android>
+          <OnPlatform.WinPhone>False</OnPlatform.WinPhone>
+        </OnPlatform>
+      </ListView.HasUnevenRows>
+      
       <ListView.Behaviors>
         <behaviors:EventHandlerBehavior EventName="ItemTapped">
           <behaviors:InvokeCommandAction Command="{Binding MenuItemSelectedCommand}" />
@@ -44,7 +52,8 @@
                     <RowDefinition Height="Auto"/>
                   </Grid.RowDefinitions>
 
-                  <Image Source="{Binding Icon}" VerticalOptions="Center" 
+                  <Image Source="{Binding Icon}" VerticalOptions="Center"
+                         WidthRequest="48" HeightRequest="48"
                          IsVisible="{Binding Icon, Converter={StaticResource ObjectToBooleanConverter}}"
                          Grid.Column="0" Grid.Row="0" />
                   <Label Text="{Binding Text}" LineBreakMode="CharacterWrap" FontAttributes="Bold"

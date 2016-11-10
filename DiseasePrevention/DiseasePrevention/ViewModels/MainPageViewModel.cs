@@ -29,6 +29,18 @@ namespace DiseasePrevention.ViewModels
             this._menuItemService = menuItemService;
         }
 
+        private bool _isRunning = true;
+
+        public bool IsRunning
+        {
+            get { return _isRunning; }
+            set
+            {
+                SetProperty(ref _isRunning, value);
+                this.MainMenuViewModel.IsRunning = value;
+            }
+        }
+
         #region Navigation
 
         private readonly INavigationService _navigationService;
@@ -45,6 +57,8 @@ namespace DiseasePrevention.ViewModels
             if (parameters.ContainsKey("MenuType")) { this.MenuType = (string)parameters["MenuType"]; }
 
             this.BuildMenu();
+
+            this.IsRunning = false;
         }
 
         #endregion

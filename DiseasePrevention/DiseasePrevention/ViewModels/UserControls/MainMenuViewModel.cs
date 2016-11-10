@@ -16,6 +16,14 @@ namespace DiseasePrevention.ViewModels.UserControls
             this.MenuItemSelectedCommand = new DelegateCommand(MenuItemSelected);
         }
 
+        private bool _isRunning = true;
+
+        public bool IsRunning
+        {
+            get { return _isRunning; }
+            set { SetProperty(ref _isRunning, value); }
+        }
+
         #region Menu
 
         public DelegateCommand MenuItemSelectedCommand { get; private set; }

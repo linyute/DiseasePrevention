@@ -11,11 +11,21 @@
 
     <userControls:LoadingIndicator IsVisible="{Binding IsRunning}" />
 
-    <ListView SeparatorVisibility="None" HasUnevenRows="true"
+    <StackLayout Orientation="Vertical"
+                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                 IsVisible="{Binding IsRunning, Converter={StaticResource InvertedBooleanConverter}}">
+    <ListView SeparatorVisibility="None"
               ItemsSource="{Binding ItemsSource, Mode=TwoWay}"
-              IsVisible="{Binding IsRunning, Converter={StaticResource InvertedBooleanConverter}}"
               VerticalOptions="FillAndExpand" 
               CachingStrategy="RecycleElement">
+      <ListView.HasUnevenRows>
+        <OnPlatform x:TypeArguments="x:Boolean">
+          <OnPlatform.iOS>False</OnPlatform.iOS>
+          <OnPlatform.Android>True</OnPlatform.Android>
+          <OnPlatform.WinPhone>False</OnPlatform.WinPhone>
+        </OnPlatform>
+      </ListView.HasUnevenRows>
+      
       <ListView.ItemTemplate>
         <DataTemplate>
           <ViewCell>
@@ -50,6 +60,7 @@
       </ListView.ItemTemplate>
     </ListView>
 
-  <Label Text="資料版本 2016-11-02" HorizontalTextAlignment="Center" />
+    <Label Text="資料版本 2016-11-02" HorizontalTextAlignment="Center" />
+    </StackLayout>
   </StackLayout>
 </ContentPage>

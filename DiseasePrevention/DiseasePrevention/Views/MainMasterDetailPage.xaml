@@ -11,9 +11,9 @@
       <ContentPage.Icon>
         <OnPlatform x:TypeArguments="FileImageSource" iOS="row.png" Android="row.png" WinPhone="Assets/row.png" />
       </ContentPage.Icon>
-
-      <StackLayout Orientation="Vertical"
-                   HorizontalOptions="Start"
+      
+      <StackLayout Orientation="Vertical" HorizontalOptions="Start"
+                   IsVisible="{Binding IsRunning, Converter={StaticResource InvertedBooleanConverter}}"
                    Padding="20, 20, 20, 20">
 
         <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="#4169E1">
@@ -29,8 +29,16 @@
 
         <ListView ItemsSource="{Binding MenuItems, Mode=TwoWay}"
                 SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
-                HasUnevenRows="True" SeparatorVisibility="None"
+                SeparatorVisibility="None"
                 CachingStrategy="RecycleElement">
+          <ListView.HasUnevenRows>
+            <OnPlatform x:TypeArguments="x:Boolean">
+              <OnPlatform.iOS>False</OnPlatform.iOS>
+              <OnPlatform.Android>True</OnPlatform.Android>
+              <OnPlatform.WinPhone>False</OnPlatform.WinPhone>
+            </OnPlatform>
+          </ListView.HasUnevenRows>
+        
           <ListView.Behaviors>
             <behaviors:EventHandlerBehavior EventName="ItemTapped">
               <behaviors:InvokeCommandAction Command="{Binding MenuItemSelectedCommand}" />
@@ -53,7 +61,7 @@
 
                     <Image Source="{Binding Icon}" VerticalOptions="Center" WidthRequest="32" HeightRequest="32"/>
                     <Label Text ="{Binding Text}" HorizontalOptions="Start" VerticalOptions="Center"
-                           FontSize="24" Grid.Column="1" />
+                           FontSize="24" TextColor="Black" Grid.Column="1" />
                   </Grid>
 
                 </ViewCell.View>
@@ -61,7 +69,6 @@
             </DataTemplate>
           </ListView.ItemTemplate>
         </ListView>
-
 
       </StackLayout>
 

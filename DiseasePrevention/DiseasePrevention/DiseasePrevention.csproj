@@ -67,13 +67,8 @@
     <Compile Include="ViewModels\MainMasterDetailPageViewModel.cs" />
     <Compile Include="ViewModels\MainNavigationPageViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
-    <Compile Include="ViewModels\News\NewsPageViewModel.cs" />
     <Compile Include="ViewModels\News\NewsDetailPageViewModel.cs" />
-    <Compile Include="ViewModels\News\NewsListPageViewModel.cs" />
-    <Compile Include="ViewModels\News\NewsTabbedPageViewModel.cs" />
     <Compile Include="ViewModels\Travels\TravelDetailPageViewModel.cs" />
-    <Compile Include="ViewModels\Travels\TravelListPageViewModel.cs" />
-    <Compile Include="ViewModels\Travels\TravelPageViewModel.cs" />
     <Compile Include="ViewModels\UserControls\MainListViewModel.cs" />
     <Compile Include="ViewModels\UserControls\MainMenuViewModel.cs" />
     <Compile Include="Views\MainListPage.xaml.cs">
@@ -82,23 +77,8 @@
     <Compile Include="Views\News\NewsDetailPage.xaml.cs">
       <DependentUpon>NewsDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\News\NewsListPage.xaml.cs">
-      <DependentUpon>NewsListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\News\NewsPage.xaml.cs">
-      <DependentUpon>NewsPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\News\NewsTabbedPage.xaml.cs">
-      <DependentUpon>NewsTabbedPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\Travels\TravelDetailPage.xaml.cs">
       <DependentUpon>TravelDetailPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Travels\TravelListPage.xaml.cs">
-      <DependentUpon>TravelListPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Travels\TravelPage.xaml.cs">
-      <DependentUpon>TravelPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Vaccines\AdultVaccinePage.xaml.cs">
       <DependentUpon>AdultVaccinePage.xaml</DependentUpon>
@@ -266,25 +246,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Views\News\NewsTabbedPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\News\NewsListPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Views\News\NewsDetailPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\News\NewsPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -303,18 +265,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="UserControls\LoadingIndicator.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Travels\TravelPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Views\Travels\TravelListPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

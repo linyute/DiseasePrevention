@@ -5,10 +5,18 @@
              x:Class="DiseasePrevention.UserControls.MainList">
   <ContentView.Content>
 
-    <ListView SeparatorVisibility="None" HasUnevenRows="true"
+    <ListView SeparatorVisibility="None"
               ItemsSource="{Binding ItemsSource, Mode=TwoWay}"
               SelectedItem="{Binding SelectedItem, Mode=TwoWay}"
               CachingStrategy="RecycleElement">
+      <ListView.HasUnevenRows>
+        <OnPlatform x:TypeArguments="x:Boolean">
+          <OnPlatform.iOS>False</OnPlatform.iOS>
+          <OnPlatform.Android>True</OnPlatform.Android>
+          <OnPlatform.WinPhone>False</OnPlatform.WinPhone>
+        </OnPlatform>
+      </ListView.HasUnevenRows>
+      
       <ListView.Behaviors>
         <behaviors:EventHandlerBehavior EventName="ItemTapped">
           <behaviors:InvokeCommandAction Command="{Binding ItemSelectedCommand}" />

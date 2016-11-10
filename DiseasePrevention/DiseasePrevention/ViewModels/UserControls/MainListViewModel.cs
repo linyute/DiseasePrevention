@@ -15,6 +15,18 @@ namespace DiseasePrevention.ViewModels.UserControls
 
         }
 
+        private bool _isRunning = true;
+
+        public bool IsRunning
+        {
+            get { return _isRunning; }
+            set
+            {
+                SetProperty(ref _isRunning, value);
+                ItemSelectedCommand?.RaiseCanExecuteChanged();
+            }
+        }
+
         #region List
 
         private ObservableCollection<MainListItem> _itemsSource = new ObservableCollection<MainListItem>();

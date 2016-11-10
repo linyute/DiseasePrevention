@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using DiseasePrevention.Models.Vaccines;
 using DiseasePrevention.Services.Vaccines;
 using Prism.Navigation;
@@ -47,11 +48,11 @@ namespace DiseasePrevention.ViewModels.Vaccines
 
         }
 
-        public void OnNavigatedTo(NavigationParameters parameters)
+        public async void OnNavigatedTo(NavigationParameters parameters)
         {
             //if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
 
-            this.BuildList();
+            await this.BuildList();
 
             this.IsRunning = false;
         }
@@ -69,11 +70,14 @@ namespace DiseasePrevention.ViewModels.Vaccines
 
         private readonly VaccineService _vaccineService;
 
-        public void BuildList()
+        public async Task BuildList()
         {
-            this.ItemsSource.Clear();
+            List<AdultVaccine> items = null;
 
-            var items = this._vaccineService.GetAdultVaccines().OrderBy(x => x.Age);
+            await Task.Run(() =>
+            {
+                items = this._vaccineService.GetAdultVaccines().OrderBy(x => x.Age).ToList();
+            });
 
             foreach (var item in items)
             {

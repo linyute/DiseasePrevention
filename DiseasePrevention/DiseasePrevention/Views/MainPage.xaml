@@ -6,9 +6,11 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DiseasePrevention.Views.MainPage"
              Title="{Binding Title}">
-  <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="5">
+  <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+               Padding="5">
 
     <userControls:MainMenu BindingContext="{Binding MainMenuViewModel}"
+        IsVisible="{Binding IsRunning, Converter={StaticResource InvertedBooleanConverter}}"
         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
 
   </StackLayout>

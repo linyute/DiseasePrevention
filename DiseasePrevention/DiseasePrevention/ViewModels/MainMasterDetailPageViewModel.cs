@@ -20,12 +20,22 @@ namespace DiseasePrevention.ViewModels
             _navigationService = navigationService;
             _menuItemService = menuItemService;
 
-            BuildMenu();
-
             MenuItemSelectedCommand = new DelegateCommand(MenuItemSelected);
+
+            this.BuildMenu();
+
+            this.IsRunning = false;
         }
 
         private readonly INavigationService _navigationService;
+
+        private bool _isRunning = true;
+
+        public bool IsRunning
+        {
+            get { return _isRunning; }
+            set { SetProperty(ref _isRunning, value); }
+        }
 
         #region Menu
 
@@ -59,7 +69,7 @@ namespace DiseasePrevention.ViewModels
 
             foreach (var item in items)
             {
-                MenuItems.Add(item);
+                this.MenuItems.Add(item);
             }
         }
 

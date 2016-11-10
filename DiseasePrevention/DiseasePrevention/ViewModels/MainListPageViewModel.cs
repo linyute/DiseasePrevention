@@ -2,6 +2,7 @@
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Threading.Tasks;
 using DiseasePrevention.Models;
@@ -50,7 +51,7 @@ namespace DiseasePrevention.ViewModels
             set
             {
                 SetProperty(ref _isRunning, value);
-                this.MainListViewModel.ItemSelectedCommand.RaiseCanExecuteChanged();
+                this.MainListViewModel.IsRunning = value;
             }
         }
 
@@ -60,9 +61,9 @@ namespace DiseasePrevention.ViewModels
 
         private readonly IPageDialogService _dialogService;
 
-        public async void OnNavigatedFrom(NavigationParameters parameters)
+        public void OnNavigatedFrom(NavigationParameters parameters)
         {
-
+            
         }
 
         public async void OnNavigatedTo(NavigationParameters parameters)
@@ -112,7 +113,7 @@ namespace DiseasePrevention.ViewModels
                     await this.DownloadNewsListAsync();
                     break;
                 case "傳染病介紹":
-                    this.GetDiseaseList();
+                    await this.GetDiseaseListAsync();
                     break;
                 case "國際疫情":
                     await this.DownloadTravelListAsync();
@@ -143,6 +144,8 @@ namespace DiseasePrevention.ViewModels
                 default:
                     break;
             }
+
+            this.MainListViewModel.SelectedItem = null;
         }
 
         #endregion
@@ -198,10 +201,15 @@ namespace DiseasePrevention.ViewModels
 
         #region 傳染病介紹
 
-        private void GetDiseaseList()
+        private async Task GetDiseaseListAsync()
         {
-            var items = this._newsService.GetDiseases(this.ListType);
+            Dictionary<string, string> items = null;
 
+            await Task.Run(() =>
+            {
+                items = this._newsService.GetDiseases(this.ListType);
+            });
+            
             foreach (var item in items)
             {
                 this.MainListViewModel.ItemsSource.Add(new MainListItem()
@@ -283,10 +291,6 @@ namespace DiseasePrevention.ViewModels
             await _navigationService.NavigateAsync(new Uri("TravelDetailPage", UriKind.Relative), ps);
         }
 
-        #endregion
-
-        #region 疫苗接種
-        
         #endregion
     }
 }
