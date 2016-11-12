@@ -60,8 +60,11 @@ namespace DiseasePrevention
 
             Container.RegisterTypeForNavigation<ChildVaccinePage>();
             Container.RegisterTypeForNavigation<AdultVaccinePage>();
-
+            //Container.RegisterTypeForNavigation<VaccineHospitalPage>();
+            Container.RegisterTypeForNavigation<VaccineHospitalDetailPage>();
+            
             #endregion
+            
         }
     }
 }

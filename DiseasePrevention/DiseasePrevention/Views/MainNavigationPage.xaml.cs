@@ -27,8 +27,9 @@ namespace DiseasePrevention.Views
                 {
                     var prop = vmSender.GetType().GetRuntimeProperty("Title");
                     var title = (string)prop.GetValue(vmSender);
-                    this.CurrentPage.Title = title; // UriKind.Absolute
+                    
                     this.Title = title; // UriKind.Relative
+                    this.CurrentPage.Title = title; // UriKind.Absolute
                 }
             };
         }

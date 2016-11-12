@@ -74,16 +74,16 @@ namespace DiseasePrevention.Services
                 })
             });
 
-            this.MainMenuItems.Add(new MenuItem()
-            {
-                Text = "國際疫情",
-                Icon = Device.OnPlatform("menu_globe.png", "menu_globe.png", "Assets/menu_globe.png"),
-                Command = new DelegateCommand(async () =>
-                {
-                    await this._navigationService.NavigateAsync(
-                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=國際疫情&MenuType=國際疫情", UriKind.Absolute));
-                })
-            });
+            //this.MainMenuItems.Add(new MenuItem()
+            //{
+            //    Text = "國際疫情",
+            //    Icon = Device.OnPlatform("menu_globe.png", "menu_globe.png", "Assets/menu_globe.png"),
+            //    Command = new DelegateCommand(async () =>
+            //    {
+            //        await this._navigationService.NavigateAsync(
+            //            new Uri("xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=國際疫情&MenuType=國際疫情", UriKind.Absolute));
+            //    })
+            //});
 
             this.MainMenuItems.Add(new MenuItem()
             {
@@ -335,10 +335,21 @@ namespace DiseasePrevention.Services
             this.VaccineMenuItems.Add(new MenuItem()
             {
                 Text = "公費流感疫苗合約院所查詢",
-                Icon = Device.OnPlatform("menu_hospital.png", "menu_hospital.png", "Assets/menu_hospital.png"),
+                Icon = Device.OnPlatform("menu_injection1.png", "menu_injection1.png", "Assets/menu_injection1.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await CrossShare.Current.OpenBrowser(@"https://antiflu.cdc.gov.tw/");
+                })
+            });
+
+            this.VaccineMenuItems.Add(new MenuItem()
+            {
+                Text = "預防接種單位查詢",
+                Icon = Device.OnPlatform("menu_hospital.png", "menu_hospital.png", "Assets/menu_hospital.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("MainListPage?Title=預防接種單位查詢&MenuType=預防接種單位縣市", UriKind.Relative));
                 })
             });
         }

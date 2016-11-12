@@ -24,7 +24,6 @@
                Grid.Row="0" />
         <DatePicker Date="{Binding BirthDay, Mode=TwoWay}" Format="yyyy-MM-dd"
                     HorizontalOptions="CenterAndExpand" VerticalOptions="Center"
-                    
                     Grid.Row="1" />
         <Button Text="試算接種時間" FontSize="20"
                 Command="{Binding CaculateDateCommand}"
@@ -32,257 +31,257 @@
                 Grid.Row="2" />
       </Grid>
     </Frame>
-    
-  <ScrollView Orientation="Vertical">
-    <StackLayout Orientation="Vertical" Padding="0"
-                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-      <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
-        <Grid Padding="10">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
-          
-          <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
-            <!--<Label Text="{Binding BirthDay, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />-->
-            <Label Text="出生 24小時內 儘速接種" TextColor="Black" FontSize="20" FontAttributes="Bold" />
-          </StackLayout>
-          
-          <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="B型肝炎免疫球蛋白一劑" />
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="B型肝炎遺傳工程疫苗第一劑" />
-            <Label LineBreakMode="CharacterWrap" FontSize="20" TextColor="Red" Text="媽媽若為高傳染性B型肝炎帶原者(e抗原陽性)，其寶寶應於出生後儘速注射一劑B型肝炎免疫球蛋白，最遲不要超過24小時。" />
-          </StackLayout>
-        </Grid>
-      </Frame>
+    <ScrollView Orientation="Vertical">
+      <StackLayout Orientation="Vertical" Padding="0"
+                  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
-      <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
-        <Grid Padding="10">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
+        <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+          <Grid Padding="10">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-          <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
-            <Label Text="{Binding BirthDayPlus1Day, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
-            <Label Text="出生 滿24小時 以後" TextColor="Black" FontSize="20" FontAttributes="Bold" />
-          </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+              <!--<Label Text="{Binding BirthDay, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />-->
+              <Label Text="出生 24小時內 儘速接種" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+            </StackLayout>
 
-          <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="卡介苗一劑" />
-          </StackLayout>
-        </Grid>
-      </Frame>
+            <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="B型肝炎免疫球蛋白一劑" />
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="B型肝炎遺傳工程疫苗第一劑" />
+              <Label LineBreakMode="CharacterWrap" FontSize="20" TextColor="Red" Text="媽媽若為高傳染性B型肝炎帶原者(e抗原陽性)，其寶寶應於出生後儘速注射一劑B型肝炎免疫球蛋白，最遲不要超過24小時。" />
+            </StackLayout>
+          </Grid>
+        </Frame>
 
-      <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
-        <Grid Padding="10">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
+        <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+          <Grid Padding="10">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-          <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
-            <Label Text="{Binding BirthDayPlus1Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
-            <Label Text="出生 滿1個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
-          </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+              <Label Text="{Binding BirthDayPlus1Day, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
+              <Label Text="出生 滿24小時 以後" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+            </StackLayout>
 
-          <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="B型肝炎遺傳工程疫苗第二劑" />
-          </StackLayout>
-        </Grid>
-      </Frame>
+            <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="卡介苗一劑" />
+            </StackLayout>
+          </Grid>
+        </Frame>
 
-      <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
-        <Grid Padding="10">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
+        <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+          <Grid Padding="10">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-          <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
-            <Label Text="{Binding BirthDayPlus2Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
-            <Label Text="出生 滿2個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
-          </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+              <Label Text="{Binding BirthDayPlus1Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
+              <Label Text="出生 滿1個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+            </StackLayout>
 
-          <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="13價結合型肺炎鏈菌疫苗第一劑" />
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="五合一疫苗(白喉破傷風非細胞性百日咳、b型嗜血桿菌及不活化小兒麻痺混合疫苗)第一劑" />
-          </StackLayout>
-        </Grid>
-      </Frame>
+            <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="B型肝炎遺傳工程疫苗第二劑" />
+            </StackLayout>
+          </Grid>
+        </Frame>
 
-      <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
-        <Grid Padding="10">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
+        <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+          <Grid Padding="10">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-          <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
-            <Label Text="{Binding BirthDayPlus4Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
-            <Label Text="出生 滿4個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
-          </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+              <Label Text="{Binding BirthDayPlus2Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
+              <Label Text="出生 滿2個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+            </StackLayout>
 
-          <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="13價結合型肺炎鏈菌疫苗第二劑" />
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="五合一疫苗(白喉破傷風非細胞性百日咳、b型嗜血桿菌及不活化小兒麻痺混合疫苗)第二劑" />
-          </StackLayout>
-        </Grid>
-      </Frame>
+            <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="13價結合型肺炎鏈菌疫苗第一劑" />
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="五合一疫苗(白喉破傷風非細胞性百日咳、b型嗜血桿菌及不活化小兒麻痺混合疫苗)第一劑" />
+            </StackLayout>
+          </Grid>
+        </Frame>
 
-      <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
-        <Grid Padding="10">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
+        <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+          <Grid Padding="10">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-          <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
-            <Label Text="{Binding BirthDayPlus6Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
-            <Label Text="出生 滿6個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
-          </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+              <Label Text="{Binding BirthDayPlus4Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
+              <Label Text="出生 滿4個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+            </StackLayout>
 
-          <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="B型肝炎遺傳工程疫苗第三劑" />
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="五合一疫苗(白喉破傷風非細胞性百日咳、b型嗜血桿菌及不活化小兒麻痺混合疫苗)第三劑" />
-          </StackLayout>
-        </Grid>
-      </Frame>
+            <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="13價結合型肺炎鏈菌疫苗第二劑" />
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="五合一疫苗(白喉破傷風非細胞性百日咳、b型嗜血桿菌及不活化小兒麻痺混合疫苗)第二劑" />
+            </StackLayout>
+          </Grid>
+        </Frame>
 
-      <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
-        <Grid Padding="10">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
+        <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+          <Grid Padding="10">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-          <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
-            <Label Text="{Binding BirthDayPlus1Year, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
-            <Label Text="出生 滿12個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
-          </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+              <Label Text="{Binding BirthDayPlus6Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
+              <Label Text="出生 滿6個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+            </StackLayout>
 
-          <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="麻疹腮腺炎德國麻疹混合疫苗第一劑" />
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="水痘疫苗一劑" />
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="13價結合型肺炎鏈菌疫苗第三劑 (出生滿12-15個月)" />
-          </StackLayout>
-        </Grid>
-      </Frame>
+            <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="B型肝炎遺傳工程疫苗第三劑" />
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="五合一疫苗(白喉破傷風非細胞性百日咳、b型嗜血桿菌及不活化小兒麻痺混合疫苗)第三劑" />
+            </StackLayout>
+          </Grid>
+        </Frame>
 
-      <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
-        <Grid Padding="10">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
+        <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+          <Grid Padding="10">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-          <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
-            <Label Text="{Binding BirthDayPlus1Year3Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
-            <Label Text="出生 滿15個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
-          </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+              <Label Text="{Binding BirthDayPlus1Year, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
+              <Label Text="出生 滿12個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+            </StackLayout>
 
-          <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="日本腦炎疫苗第一劑、第二劑 (間隔兩週)" />
-            <Label LineBreakMode="CharacterWrap" FontSize="20" TextColor="Red" Text="日本腦炎疫苗出生滿十五個月接種第一劑，間隔二週接種第三劑，隔年接種第三劑。" />
-          </StackLayout>
-        </Grid>
-      </Frame>
+            <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="麻疹腮腺炎德國麻疹混合疫苗第一劑" />
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="水痘疫苗一劑" />
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="13價結合型肺炎鏈菌疫苗第三劑 (出生滿12-15個月)" />
+            </StackLayout>
+          </Grid>
+        </Frame>
 
-      <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
-        <Grid Padding="10">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
+        <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+          <Grid Padding="10">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-          <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
-            <Label Text="{Binding BirthDayPlus1Year6Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
-            <Label Text="出生 滿18個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
-          </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+              <Label Text="{Binding BirthDayPlus1Year3Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
+              <Label Text="出生 滿15個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+            </StackLayout>
 
-          <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="五合一疫苗(白喉破傷風非細胞性百日咳、b型嗜血桿菌及不活化小兒麻痺混合疫苗)第四劑" />
-          </StackLayout>
-        </Grid>
-      </Frame>
+            <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="日本腦炎疫苗第一劑、第二劑 (間隔兩週)" />
+              <Label LineBreakMode="CharacterWrap" FontSize="20" TextColor="Red" Text="日本腦炎疫苗出生滿十五個月接種第一劑，間隔二週接種第三劑，隔年接種第三劑。" />
+            </StackLayout>
+          </Grid>
+        </Frame>
 
-      <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
-        <Grid Padding="10">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
+        <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+          <Grid Padding="10">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-          <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
-            <Label Text="{Binding BirthDayPlus2Year3Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
-            <Label Text="出生 滿27個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
-          </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+              <Label Text="{Binding BirthDayPlus1Year6Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
+              <Label Text="出生 滿18個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+            </StackLayout>
 
-          <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="日本腦炎疫苗第三劑" />
-          </StackLayout>
-        </Grid>
-      </Frame>
+            <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="五合一疫苗(白喉破傷風非細胞性百日咳、b型嗜血桿菌及不活化小兒麻痺混合疫苗)第四劑" />
+            </StackLayout>
+          </Grid>
+        </Frame>
 
-      <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
-        <Grid Padding="10">
-          <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-          </Grid.RowDefinitions>
-          <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-          </Grid.ColumnDefinitions>
+        <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+          <Grid Padding="10">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
 
-          <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
-            <Label Text="{Binding BirthDayPlus5Year, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
-            <Label Text="滿5歲 至入學前" TextColor="Black" FontSize="20" FontAttributes="Bold" />
-          </StackLayout>
+            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+              <Label Text="{Binding BirthDayPlus2Year3Month, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
+              <Label Text="出生 滿27個月" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+            </StackLayout>
 
-          <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="四合一疫苗（減量破傷風白喉非細胞性百日咳及不活化小兒麻痺混合疫苗）一劑" />
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="麻疹腮腺炎德國麻疹混合疫苗第二劑" />
-            <Label LineBreakMode="CharacterWrap" FontSize="20" Text="日本腦炎疫苗第四劑" />
-            <Label LineBreakMode="CharacterWrap" FontSize="20" TextColor="Red" Text="國小一年級應接種項目，提前於滿5歲至入學前於衛生所或預防接種合約院所接種。" />
-          </StackLayout>
-        </Grid>
-      </Frame>
-      
-    </StackLayout>
-  </ScrollView>
-    
+            <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="日本腦炎疫苗第三劑" />
+            </StackLayout>
+          </Grid>
+        </Frame>
+
+        <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+          <Grid Padding="10">
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+              <Label Text="{Binding BirthDayPlus5Year, StringFormat='{0:yyyy-MM-dd}'}" FontSize="20" TextColor="Blue" FontAttributes="Bold" />
+              <Label Text="滿5歲 至入學前" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+            </StackLayout>
+
+            <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="四合一疫苗（減量破傷風白喉非細胞性百日咳及不活化小兒麻痺混合疫苗）一劑" />
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="麻疹腮腺炎德國麻疹混合疫苗第二劑" />
+              <Label LineBreakMode="CharacterWrap" FontSize="20" Text="日本腦炎疫苗第四劑" />
+              <Label LineBreakMode="CharacterWrap" FontSize="20" TextColor="Red" Text="國小一年級應接種項目，提前於滿5歲至入學前於衛生所或預防接種合約院所接種。" />
+            </StackLayout>
+          </Grid>
+        </Frame>
+
+      </StackLayout>
+    </ScrollView>
+
     <Label Text="資料版本 2016-11-02" HorizontalTextAlignment="Center" />
   </StackLayout>
-    
+
 </ContentPage>
