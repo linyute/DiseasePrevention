@@ -61,7 +61,7 @@
 
                     <Image Source="{Binding Icon}" VerticalOptions="Center" WidthRequest="32" HeightRequest="32"/>
                     <Label Text ="{Binding Text}" HorizontalOptions="Start" VerticalOptions="Center"
-                           FontSize="24" TextColor="Black" Grid.Column="1" />
+                           FontSize="24" TextColor="Black" Margin="10, 0, 0, 0" Grid.Column="1" />
                   </Grid>
 
                 </ViewCell.View>

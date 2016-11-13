@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="DiseasePrevention.Views.Serums.SerumHospitalDetailPage"
+             Title="院所資訊">
+  <ContentPage.ToolbarItems>
+    <ToolbarItem Command="{Binding OpenExternalMapsCommand}" Text="開啟地圖">
+      <ToolbarItem.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource"
+                    iOS="toolbar_map.png" Android="toolbar_map.png" WinPhone="Assets/toolbar_map.png"/>
+      </ToolbarItem.Icon>
+    </ToolbarItem>
+
+    <ToolbarItem Command="{Binding MakePhoneCallCommand}" Text="播打電話">
+      <ToolbarItem.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource"
+                    iOS="toolbar_call.png" Android="toolbar_call.png" WinPhone="Assets/toolbar_call.png"/>
+      </ToolbarItem.Icon>
+    </ToolbarItem>
+  </ContentPage.ToolbarItems>
+
+
+  <StackLayout Orientation="Vertical" Padding="5" Spacing="5"
+              HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+    <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+      <Grid Padding="10">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Vertical" Padding="5" BackgroundColor="#E0FFFF" Grid.Row="0">
+          <Label Text="{Binding Path=SelectedItem.醫療院所名稱}" 
+                 LineBreakMode="CharacterWrap" TextColor="Black" FontSize="20" FontAttributes="Bold" />
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="85"/>
+              <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="區域別" FontSize="20" Grid.Row="0" Grid.Column="0" />
+            <Label Text="{Binding Path=SelectedItem.區域別}" LineBreakMode="CharacterWrap" FontSize="20" Grid.Row="0" Grid.Column="1" />
+
+            <Label Text="聯絡電話" FontSize="20" Grid.Row="1" Grid.Column="0" />
+            <Label Text="{Binding Path=SelectedItem.聯絡電話}" LineBreakMode="CharacterWrap" FontSize="20" Grid.Row="1" Grid.Column="1" />
+
+          </Grid>
+        </StackLayout>
+      </Grid>
+    </Frame>
+
+    <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
+      <Grid Padding="10">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="Auto"/>
+          <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Orientation="Horizontal" Padding="5" BackgroundColor="#e7ffbf" Grid.Row="0">
+          <Label Text="抗蛇毒血清種類" TextColor="Black" FontSize="20" FontAttributes="Bold"/>
+        </StackLayout>
+
+        <StackLayout Orientation="Vertical" Padding="5, 0, 5, 0" Grid.Row="1">
+          <Label Text="{Binding Path=SelectedItem.抗蛇毒血清種類}" LineBreakMode="CharacterWrap" FontSize="20" />
+        </StackLayout>
+      </Grid>
+    </Frame>
+
+  </StackLayout>
+</ContentPage>

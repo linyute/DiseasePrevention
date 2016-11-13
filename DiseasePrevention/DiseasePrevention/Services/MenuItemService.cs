@@ -33,6 +33,8 @@ namespace DiseasePrevention.Services
 
             this.BuildVaccineMenu();
 
+            this.BuildSerumMenu();
+
             this.BuildCDCAreaMenu();
         }
 
@@ -109,6 +111,17 @@ namespace DiseasePrevention.Services
 
             this.MainMenuItems.Add(new MenuItem()
             {
+                Text = "抗蛇毒血清",
+                Icon = Device.OnPlatform("menu_snake.png", "menu_snake.png", "Assets/menu_snake.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("xf:///MainMasterDetailPage/MainNavigationPage/MainPage?Title=抗蛇毒血清&MenuType=抗蛇毒血清", UriKind.Absolute));
+                })
+            });
+
+            this.MainMenuItems.Add(new MenuItem()
+            {
                 Text = "疾管署防疫專區",
                 Icon = Device.OnPlatform("menu_cdc.png", "menu_cdc.png", "Assets/menu_cdc.png"),
                 Command = new DelegateCommand(async () =>
@@ -151,7 +164,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("MainListPage?Title=一般民眾版&MenuType=最新消息&ListType=一般民眾版", UriKind.Relative));
+                        new Uri("NewsListPage?Title=一般民眾版&MenuType=最新消息&ListType=一般民眾版", UriKind.Relative));
                 })
             });
 
@@ -162,7 +175,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("MainListPage?Title=專業人士版&MenuType=最新消息&ListType=專業人士版", UriKind.Relative));
+                        new Uri("NewsListPage?Title=專業人士版&MenuType=最新消息&ListType=專業人士版", UriKind.Relative));
                 })
             });
 
@@ -173,7 +186,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("MainListPage?Title=致醫界通函&MenuType=最新消息&ListType=致醫界通函", UriKind.Relative));
+                        new Uri("NewsListPage?Title=致醫界通函&MenuType=最新消息&ListType=致醫界通函", UriKind.Relative));
                 })
             });
         }
@@ -199,7 +212,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("MainListPage?Title=國際重要疫情&MenuType=國際疫情&ListType=國際重要疫情", UriKind.Relative));
+                        new Uri("TravelListPage?Title=國際重要疫情&MenuType=國際疫情&ListType=國際重要疫情", UriKind.Relative));
                 })
             });
 
@@ -210,7 +223,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("MainListPage?Title=國際旅遊疫情&MenuType=國際疫情&ListType=國際旅遊疫情", UriKind.Relative));
+                        new Uri("TravelListPage?Title=國際旅遊疫情&MenuType=國際疫情&ListType=國際旅遊疫情", UriKind.Relative));
                 })
             });
         }
@@ -236,7 +249,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("MainListPage?Title=食物或飲水傳染&MenuType=傳染病介紹&ListType=食物或飲水傳染", UriKind.Relative));
+                        new Uri("DiseaseListPage?Title=食物或飲水傳染&MenuType=傳染病介紹&ListType=食物或飲水傳染", UriKind.Relative));
                 })
             });
 
@@ -247,7 +260,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("MainListPage?Title=空氣或飛沫傳染&MenuType=傳染病介紹&ListType=空氣或飛沫傳染", UriKind.Relative));
+                        new Uri("DiseaseListPage?Title=空氣或飛沫傳染&MenuType=傳染病介紹&ListType=空氣或飛沫傳染", UriKind.Relative));
                 })
             });
 
@@ -258,7 +271,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("MainListPage?Title=蟲媒傳染&MenuType=傳染病介紹&ListType=蟲媒傳染", UriKind.Relative));
+                        new Uri("DiseaseListPage?Title=蟲媒傳染&MenuType=傳染病介紹&ListType=蟲媒傳染", UriKind.Relative));
                 })
             });
 
@@ -269,7 +282,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("MainListPage?Title=性接觸或血液傳染&MenuType=傳染病介紹&ListType=性接觸或血液傳染", UriKind.Relative));
+                        new Uri("DiseaseListPage?Title=性接觸或血液傳染&MenuType=傳染病介紹&ListType=性接觸或血液傳染", UriKind.Relative));
                 })
             });
 
@@ -280,7 +293,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("MainListPage?Title=接觸傳染&MenuType=傳染病介紹&ListType=接觸傳染", UriKind.Relative));
+                        new Uri("DiseaseListPage?Title=接觸傳染&MenuType=傳染病介紹&ListType=接觸傳染", UriKind.Relative));
                 })
             });
 
@@ -291,7 +304,7 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("MainListPage?Title=其他類&MenuType=傳染病介紹&ListType=其他類", UriKind.Relative));
+                        new Uri("DiseaseListPage?Title=其他類&MenuType=傳染病介紹&ListType=其他類", UriKind.Relative));
                 })
             });
         }
@@ -349,7 +362,53 @@ namespace DiseasePrevention.Services
                 Command = new DelegateCommand(async () =>
                 {
                     await this._navigationService.NavigateAsync(
-                        new Uri("MainListPage?Title=預防接種單位查詢&MenuType=預防接種單位縣市", UriKind.Relative));
+                        new Uri("VaccineHospitalListPage?Title=預防接種單位縣市&MenuType=預防接種單位縣市", UriKind.Relative));
+                })
+            });
+        }
+
+        #endregion
+
+        #region 抗蛇毒血清
+
+        /// <summary>
+        /// 抗蛇毒血清
+        /// </summary>
+        public List<MenuItem> SerumMenuItems { get; set; } = new List<MenuItem>();
+
+        /// <summary>
+        /// 抗蛇毒血清
+        /// </summary>
+        private void BuildSerumMenu()
+        {
+            this.SerumMenuItems.Add(new MenuItem()
+            {
+                Text = "抗蛇毒血清儲備點查詢",
+                Icon = Device.OnPlatform("menu_injection2.png", "menu_injection2.png", "Assets/menu_injection2.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await this._navigationService.NavigateAsync(
+                        new Uri("SerumHospitalListPage?Title=抗蛇毒血清儲備點查詢&MenuType=血清儲備點縣市", UriKind.Relative));
+                })
+            });
+
+            this.SerumMenuItems.Add(new MenuItem()
+            {
+                Text = "台灣六大毒蛇",
+                Icon = Device.OnPlatform("menu_snake.png", "menu_snake.png", "Assets/menu_snake.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await CrossShare.Current.OpenBrowser(@"https://zh.m.wikipedia.org/wiki/%E5%8F%B0%E7%81%A3%E5%85%AD%E5%A4%A7%E6%AF%92%E8%9B%87");
+                })
+            });
+
+            this.SerumMenuItems.Add(new MenuItem()
+            {
+                Text = "毒蛇咬傷緊急處置要點",
+                Icon = Device.OnPlatform("menu_firstaid.png", "menu_firstaid.png", "Assets/menu_firstaid.png"),
+                Command = new DelegateCommand(async () =>
+                {
+                    await CrossShare.Current.OpenBrowser(@"http://www.pcc-vghtpe.tw/antidote/snake02.htm");
                 })
             });
         }

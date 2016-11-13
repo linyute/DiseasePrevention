@@ -1,6 +1,4 @@
-﻿using DiseasePrevention.Services;
-using DiseasePrevention.ViewModels.News;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 
 namespace DiseasePrevention.Views.News
 {

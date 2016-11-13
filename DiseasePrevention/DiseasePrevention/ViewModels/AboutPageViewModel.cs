@@ -41,13 +41,18 @@ namespace DiseasePrevention.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            //if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
+            
+        }
+
+        public void OnNavigatingTo(NavigationParameters parameters)
+        {
+            if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
         }
 
         #endregion
 
         #region DeviceInfo
-        
+
         private string _platform;
         public string Platform
         {

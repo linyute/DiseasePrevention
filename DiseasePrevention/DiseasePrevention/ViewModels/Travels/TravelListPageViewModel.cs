@@ -2,111 +2,50 @@
 using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using DiseasePrevention.Models;
 using DiseasePrevention.Models.Travels;
 using DiseasePrevention.Services.Travels;
-using DiseasePrevention.ViewModels.UserControls;
 using Plugin.Connectivity;
 using Prism.Navigation;
 using Prism.Services;
 
 namespace DiseasePrevention.ViewModels.Travels
 {
-    public class TravelListPageViewModel : BindableBase, INavigationAware
+    public class TravelListPageViewModel : MainListPageViewModel
     {
-        private string _title;
-
-        public string Title
-        {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
-        }
-
         public TravelListPageViewModel(
             INavigationService navigationService,
             IPageDialogService dialogService,
             TravelService travelService
-        )
+            ) : base(navigationService, dialogService)
         {
-            this._navigationService = navigationService;
-            this._dialogService = dialogService;
             this._travelService = travelService;
-
-            this.MainListViewModel.ItemSelectedCommand =
-                new DelegateCommand(NaviDetailPage, () => this.IsRunning == false);
         }
-
-        private bool _isRunning = true;
-
-        public bool IsRunning
+        
+        protected override async Task BuildList(string menuType, string listType)
         {
-            get { return _isRunning; }
-            set
-            {
-                SetProperty(ref _isRunning, value);
-                this.MainListViewModel.ItemSelectedCommand.RaiseCanExecuteChanged();
-            }
+            this.MainListViewModel.ItemsSource.Clear();
+
+            await this.DownloadListAsync(listType);
         }
-
-        #region Navigation
-
-        private readonly INavigationService _navigationService;
-
-        private readonly IPageDialogService _dialogService;
-
-        public async void OnNavigatedFrom(NavigationParameters parameters)
-        {
-
-        }
-
-        public async void OnNavigatedTo(NavigationParameters parameters)
-        {
-            if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
-
-            if (parameters.ContainsKey("NewsType"))
-            {
-                this.NewsType = (string)parameters["NewsType"];
-            }
-
-            await this.DownloadListAsync();
-
-            this.IsRunning = false;
-        }
-
-        #endregion
-
-        #region ListView
 
         private readonly TravelService _travelService;
 
-        private string _newsType;
+        private List<TravelAlert> _travelList = new List<TravelAlert>();
 
-        public string NewsType
-        {
-            get { return _newsType; }
-            set
-            {
-                SetProperty(ref _newsType, value);
-                //this._travelService.NewsType = _newsType;
-            }
-        }
-
-        public MainListViewModel MainListViewModel { get; set; }
-        = new MainListViewModel();
-
-        private List<TravelAlert> _itemList = new List<TravelAlert>();
-
-        public async Task DownloadListAsync()
+        private async Task DownloadListAsync(string listType)
         {
             try
             {
                 if (CrossConnectivity.Current.IsConnected)
                 {
-                    this._itemList = await this._travelService.GetTravelAlertsAsync(this.NewsType);
+                    this._travelList = await this._travelService.GetTravelAlertsAsync(listType);
 
-                    foreach (var item in _itemList)
+                    foreach (var item in _travelList)
                     {
                         this.MainListViewModel.ItemsSource.Add(new MainListItem()
                         {
@@ -118,28 +57,25 @@ namespace DiseasePrevention.ViewModels.Travels
                 }
                 else
                 {
-                    await _dialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
+                    await DialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
                 }
             }
             catch (Exception ex)
             {
-                await _dialogService.DisplayAlertAsync("發生錯誤", ex.Message, "OK");
+                await DialogService.DisplayAlertAsync("發生錯誤", ex.Message, "OK");
             }
         }
-
-        #endregion
-
-        #region Command
-
-        private async void NaviDetailPage()
+        
+        protected override async void NaviDetailPageAsync()
         {
-            var item = this._itemList.First(x => x.Id == this.MainListViewModel.SelectedItem.Id);
+            var item = this._travelList.First(x => x.Id == this.MainListViewModel.SelectedItem.Id);
 
-            var ps = new NavigationParameters {{"SelectedItem", item}};
+            var ps = new NavigationParameters { { "SelectedItem", item } };
 
-            await _navigationService.NavigateAsync(new Uri("TravelDetailPage", UriKind.Relative), ps);
+            await NavigationService.NavigateAsync(new Uri("TravelDetailPage", UriKind.Relative), ps);
+
+            this.MainListViewModel.SelectedItem = null;
         }
-
-        #endregion
+        
     }
 }

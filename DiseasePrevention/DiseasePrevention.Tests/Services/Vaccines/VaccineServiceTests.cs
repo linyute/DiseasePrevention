@@ -20,13 +20,13 @@ namespace DiseasePrevention.Tests.Services.Vaccines
             this._output = output;
             this._httpClient = new HttpClient();
             this._netService = new NetService(_httpClient);
-    }
+        }
 
-    private readonly HttpClient _httpClient;
+        private readonly HttpClient _httpClient;
 
-    private readonly NetService _netService;
+        private readonly NetService _netService;
 
-    [Fact]
+        [Fact]
         public void GetAdultVaccinesTest()
         {
             // Arrange

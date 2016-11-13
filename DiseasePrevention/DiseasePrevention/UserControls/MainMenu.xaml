@@ -53,12 +53,12 @@
                   </Grid.RowDefinitions>
 
                   <Image Source="{Binding Icon}" VerticalOptions="Center"
-                         WidthRequest="48" HeightRequest="48"
+                         WidthRequest="72" HeightRequest="72" 
                          IsVisible="{Binding Icon, Converter={StaticResource ObjectToBooleanConverter}}"
                          Grid.Column="0" Grid.Row="0" />
                   <Label Text="{Binding Text}" LineBreakMode="CharacterWrap" FontAttributes="Bold"
                          FontSize="26" TextColor="Black"
-                         HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
                          HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
                          Grid.Column="1" Grid.Row="0" />
                 </Grid>

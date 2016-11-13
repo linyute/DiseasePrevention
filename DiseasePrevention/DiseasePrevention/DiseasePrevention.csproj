@@ -42,6 +42,8 @@
     <Compile Include="Models\MainMenuItem.cs" />
     <Compile Include="Models\MainListItem.cs" />
     <Compile Include="Models\News\RssFeed.cs" />
+    <Compile Include="Models\Serums\HospitalSerums.cs" />
+    <Compile Include="Models\Serums\SerumHospital.cs" />
     <Compile Include="Models\Travels\TravelAlert.cs" />
     <Compile Include="Models\Vaccines\AdultVaccine.cs" />
     <Compile Include="Models\Vaccines\VaccineHospital.cs" />
@@ -51,6 +53,7 @@
     <Compile Include="Services\NetContent.cs" />
     <Compile Include="Services\NetService.cs" />
     <Compile Include="Services\News\NewsService.cs" />
+    <Compile Include="Services\Serums\SerumService.cs" />
     <Compile Include="Services\Travels\TravelService.cs" />
     <Compile Include="Services\Vaccines\VaccineService.cs" />
     <Compile Include="UserControls\LoadingIndicator.xaml.cs">
@@ -63,6 +66,12 @@
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AboutPageViewModel.cs" />
+    <Compile Include="ViewModels\News\DiseaseListPageViewModel.cs" />
+    <Compile Include="ViewModels\News\NewsListPageViewModel.cs" />
+    <Compile Include="ViewModels\Serums\SerumHospitalListPageViewModel.cs" />
+    <Compile Include="ViewModels\Serums\SerumHospitalDetailPageViewModel.cs" />
+    <Compile Include="ViewModels\Travels\TravelListPageViewModel.cs" />
+    <Compile Include="ViewModels\Vaccines\VaccineHospitalListPageViewModel.cs" />
     <Compile Include="ViewModels\Vaccines\VaccineHospitalDetailPageViewModel.cs" />
     <Compile Include="ViewModels\Vaccines\AdultVaccinePageViewModel.cs" />
     <Compile Include="ViewModels\Vaccines\ChildVaccinePageViewModel.cs" />
@@ -74,11 +83,26 @@
     <Compile Include="ViewModels\Travels\TravelDetailPageViewModel.cs" />
     <Compile Include="ViewModels\UserControls\MainListViewModel.cs" />
     <Compile Include="ViewModels\UserControls\MainMenuViewModel.cs" />
+    <Compile Include="Views\News\DiseaseListPage.xaml.cs">
+      <DependentUpon>DiseaseListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MainListPage.xaml.cs">
       <DependentUpon>MainListPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\News\NewsListPage.xaml.cs">
+      <DependentUpon>NewsListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\News\NewsDetailPage.xaml.cs">
       <DependentUpon>NewsDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Serums\SerumHospitalListPage.xaml.cs">
+      <DependentUpon>SerumHospitalListPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Serums\SerumHospitalDetailPage.xaml.cs">
+      <DependentUpon>SerumHospitalDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Travels\TravelListPage.xaml.cs">
+      <DependentUpon>TravelListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Travels\TravelDetailPage.xaml.cs">
       <DependentUpon>TravelDetailPage.xaml</DependentUpon>
@@ -88,6 +112,9 @@
     </Compile>
     <Compile Include="Views\Vaccines\ChildVaccinePage.xaml.cs">
       <DependentUpon>ChildVaccinePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Vaccines\VaccineHospitalListPage.xaml.cs">
+      <DependentUpon>VaccineHospitalListPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Vaccines\VaccineHospitalDetailPage.xaml.cs">
       <DependentUpon>VaccineHospitalDetailPage.xaml</DependentUpon>
@@ -189,16 +216,16 @@
       <HintPath>..\..\packages\Plugin.Share.4.0.3\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10+UAP10\Plugin.Share.Abstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Prism, Version=6.2.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Prism.Core.6.2.1\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Prism.dll</HintPath>
+    <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Core.6.3.0-pre1\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Prism.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Prism.Forms, Version=6.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Prism.Forms.6.2.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Prism.Forms.dll</HintPath>
+    <Reference Include="Prism.Forms, Version=6.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Forms.6.3.0-pre1\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Prism.Forms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Prism.Unity.Forms, Version=6.2.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Prism.Unity.Forms.6.2.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Prism.Unity.Forms.dll</HintPath>
+    <Reference Include="Prism.Unity.Forms, Version=6.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Prism.Unity.Forms.6.3.0-pre1\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Prism.Unity.Forms.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="SQLite-net, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -305,6 +332,42 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Vaccines\VaccineHospitalDetailPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\News\NewsListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Serums\SerumHospitalListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Travels\TravelListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\News\DiseaseListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Vaccines\VaccineHospitalListPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\Serums\SerumHospitalDetailPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

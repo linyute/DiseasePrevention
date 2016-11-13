@@ -2,9 +2,9 @@
 
 namespace DiseasePrevention.Views.Vaccines
 {
-    public partial class VaccineHospitalPage : ContentPage
+    public partial class VaccineHospitalListPage : ContentPage
     {
-        public VaccineHospitalPage()
+        public VaccineHospitalListPage()
         {
             InitializeComponent();
         }

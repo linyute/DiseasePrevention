@@ -2,9 +2,9 @@
 
 namespace DiseasePrevention.Views.News
 {
-    public partial class NewsPage : ContentPage
+    public partial class DiseaseListPage : ContentPage
     {
-        public NewsPage()
+        public DiseaseListPage()
         {
             InitializeComponent();
         }

@@ -48,9 +48,14 @@ namespace DiseasePrevention.ViewModels.Vaccines
 
         }
 
-        public async void OnNavigatedTo(NavigationParameters parameters)
+        public void OnNavigatedTo(NavigationParameters parameters)
         {
-            //if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
+            
+        }
+
+        public async void OnNavigatingTo(NavigationParameters parameters)
+        {
+            if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
 
             await this.BuildList();
 

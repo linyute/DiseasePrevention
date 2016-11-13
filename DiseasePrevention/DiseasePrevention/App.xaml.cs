@@ -1,7 +1,10 @@
 ﻿using System;
+using DiseasePrevention.ViewModels.News;
+using DiseasePrevention.ViewModels.Serums;
 using Prism.Unity;
 using DiseasePrevention.Views;
 using DiseasePrevention.Views.News;
+using DiseasePrevention.Views.Serums;
 using DiseasePrevention.Views.Travels;
 using DiseasePrevention.Views.Vaccines;
 using Microsoft.Practices.Unity;
@@ -26,32 +29,26 @@ namespace DiseasePrevention
             Container.RegisterInstance(typeof(System.Net.Http.HttpClient), null, httpClient,
                 new ContainerControlledLifetimeManager());
 
-            Container.RegisterTypeForNavigation<MainPage>();
+            
             Container.RegisterTypeForNavigation<MainMasterDetailPage>();
             Container.RegisterTypeForNavigation<MainNavigationPage>();
-            Container.RegisterTypeForNavigation<MainListPage>();
+
+            Container.RegisterTypeForNavigation<MainPage>();
+            //Container.RegisterTypeForNavigation<MainListPage>();
 
             Container.RegisterTypeForNavigation<AboutPage>();
 
             #region 最新消息
 
-            // Prism for XF 6.3 才會修正子頁面的 Navigation
-            // https://github.com/PrismLibrary/Prism/issues/650
-            // Container.RegisterTypeForNavigation<NewsTabbedPage>();
-
-            //Container.RegisterTypeForNavigation<NewsListPage>("NormalNewsPage");
-            //Container.RegisterTypeForNavigation<NewsListPage>("ProfessionalNewsPage");
-            //Container.RegisterTypeForNavigation<NewsListPage>("MedicalNewsPage");
-            //Container.RegisterTypeForNavigation<NewsPage>();
-            //Container.RegisterTypeForNavigation<NewsListPage>();
+            Container.RegisterTypeForNavigation<NewsListPage>();
+            Container.RegisterTypeForNavigation<DiseaseListPage>();
             Container.RegisterTypeForNavigation<NewsDetailPage>();
 
             #endregion
 
             #region 國際疫情
 
-            //Container.RegisterTypeForNavigation<TravelPage>();
-            //Container.RegisterTypeForNavigation<TravelListPage>();
+            Container.RegisterTypeForNavigation<TravelListPage>();
             Container.RegisterTypeForNavigation<TravelDetailPage>();
 
             #endregion
@@ -60,11 +57,20 @@ namespace DiseasePrevention
 
             Container.RegisterTypeForNavigation<ChildVaccinePage>();
             Container.RegisterTypeForNavigation<AdultVaccinePage>();
-            //Container.RegisterTypeForNavigation<VaccineHospitalPage>();
+
+            Container.RegisterTypeForNavigation<VaccineHospitalListPage>();
             Container.RegisterTypeForNavigation<VaccineHospitalDetailPage>();
-            
+
             #endregion
-            
+
+            #region 抗蛇毒血清
+
+            Container.RegisterTypeForNavigation<SerumHospitalListPage>();
+            Container.RegisterTypeForNavigation<SerumHospitalDetailPage>();
+
+            #endregion
+
+
         }
     }
 }

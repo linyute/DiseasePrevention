@@ -47,7 +47,12 @@ namespace DiseasePrevention.ViewModels.Vaccines
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
-            //if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
+            
+        }
+
+        public void OnNavigatingTo(NavigationParameters parameters)
+        {
+            if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
 
             if (parameters.ContainsKey("SelectedItem"))
             {
@@ -88,7 +93,7 @@ namespace DiseasePrevention.ViewModels.Vaccines
 
         public DelegateCommand MakePhoneCallCommand { get; private set; }
 
-        private async void MakePhoneCall()
+        private void MakePhoneCall()
         {
             CrossMessaging.Current.PhoneDialer.MakePhoneCall(SelectedItem.連絡電話, SelectedItem.合約醫療院所名稱);
         }

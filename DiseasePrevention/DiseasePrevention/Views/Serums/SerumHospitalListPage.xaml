@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             xmlns:userControls="clr-namespace:DiseasePrevention.UserControls;assembly=DiseasePrevention"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="DiseasePrevention.Views.Serums.SerumHospitalListPage"
+             Title="{Binding Title}">
+  <StackLayout Orientation="Vertical" Padding="5"
+               HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+    <userControls:LoadingIndicator IsVisible="{Binding IsRunning}" />
+
+    <userControls:MainList BindingContext="{Binding MainListViewModel}" 
+        IsVisible="{Binding IsRunning, Converter={StaticResource InvertedBooleanConverter}}"
+        VerticalOptions="FillAndExpand" />
+    
+  </StackLayout>
+</ContentPage>

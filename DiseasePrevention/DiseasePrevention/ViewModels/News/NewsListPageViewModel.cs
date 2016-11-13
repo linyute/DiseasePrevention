@@ -4,113 +4,46 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Net.Http;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using DiseasePrevention.Models;
 using DiseasePrevention.Models.News;
 using DiseasePrevention.Services.News;
-using DiseasePrevention.ViewModels.UserControls;
 using Plugin.Connectivity;
 using Prism.Navigation;
 using Prism.Services;
 
 namespace DiseasePrevention.ViewModels.News
 {
-    public class NewsListPageViewModel : BindableBase, INavigationAware
+    public class NewsListPageViewModel : MainListPageViewModel
     {
-        private string _title;
-        public string Title
-        {
-            get { return _title; }
-            set { SetProperty(ref _title, value); }
-        }
-
         public NewsListPageViewModel(
             INavigationService navigationService,
             IPageDialogService dialogService,
             NewsService newsService
-            )
+            ) : base(navigationService, dialogService)
         {
-            this._navigationService = navigationService;
-            this._dialogService = dialogService;
             this._newsService = newsService;
-
-            this.MainListViewModel.ItemSelectedCommand = 
-                new DelegateCommand(NaviDetailPage, () => this.IsRunning == false);
         }
-
-        private bool _isRunning = true;
-
-        public bool IsRunning
+        
+        protected override async Task BuildList(string menuType, string listType)
         {
-            get { return _isRunning; }
-            set
-            {
-                SetProperty(ref _isRunning, value);
-                this.MainListViewModel.ItemSelectedCommand.RaiseCanExecuteChanged();
-            }
+            this.MainListViewModel.ItemsSource.Clear();
+
+            await this.DownloadListAsync(listType);
         }
-
-        #region Navigation
-
-        private readonly INavigationService _navigationService;
-
-        private readonly IPageDialogService _dialogService;
-
-        public async void OnNavigatedFrom(NavigationParameters parameters)
-        {
-
-        }
-
-        public async void OnNavigatedTo(NavigationParameters parameters)
-        {
-            if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
-
-            if (parameters.ContainsKey("NewsType"))
-            {
-                this.NewsType = (string)parameters["NewsType"];
-                await this.DownloadNewsListAsync();
-            }
-
-            if (parameters.ContainsKey("DiseaseType"))
-            {
-                this.DiseaseType = (string)parameters["DiseaseType"];
-                this.GetDiseaseList();
-            }
-
-            this.IsRunning = false;
-        }
-
-        #endregion
-
-        public MainListViewModel MainListViewModel { get; set; }
-            = new MainListViewModel();
 
         private readonly NewsService _newsService;
 
-        #region News List
-
-        private string _newsType;
-
-        public string NewsType
-        {
-            get { return _newsType; }
-            set
-            {
-                SetProperty(ref _newsType, value);
-                //this._newsService.NewsType = _newsType;
-            }
-        }
-        
         private List<RssFeed> _newsList = new List<RssFeed>();
 
-        public async Task DownloadNewsListAsync()
+        private async Task DownloadListAsync(string listType)
         {
             try
             {
                 if (CrossConnectivity.Current.IsConnected)
                 {
-                    this._newsList = await this._newsService.GetRssReedsAsync(this.NewsType);
+                    this._newsList = await this._newsService.GetRssReedsAsync(listType);
 
                     foreach (var feed in _newsList)
                     {
@@ -124,71 +57,27 @@ namespace DiseasePrevention.ViewModels.News
                 }
                 else
                 {
-                    await _dialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
+                    await DialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
                 }
             }
             catch (Exception ex)
             {
-                await _dialogService.DisplayAlertAsync("發生錯誤", ex.Message, "OK");
-            }
-        }
-
-        #endregion
-
-        #region Disease List
-
-        private string _diseaseType;
-
-        public string DiseaseType
-        {
-            get { return _diseaseType; }
-            set
-            {
-                SetProperty(ref _diseaseType, value);
-                //this._newsService.DiseaseType = _diseaseType;
+                await DialogService.DisplayAlertAsync("發生錯誤", ex.Message, "OK");
             }
         }
         
-        public void GetDiseaseList()
+        protected override async void NaviDetailPageAsync()
         {
-            var items = this._newsService.GetDiseases(this.DiseaseType);
+            var item = this._newsList.First(x => x.Guid == this.MainListViewModel.SelectedItem.Id);
 
-            foreach (var item in items)
-            {
-                this.MainListViewModel.ItemsSource.Add(new MainListItem()
-                {
-                    Id = item.Key,
-                    Title = item.Value
-                });
-            }
+            var title = "新聞稿內容";
+
+            var ps = new NavigationParameters { { "SelectedItem", item } };
+
+            await NavigationService.NavigateAsync(new Uri($"NewsDetailPage?Title={title}", UriKind.Relative), ps);
+
+            this.MainListViewModel.SelectedItem = null;
         }
-
-        #endregion
-
-        #region Command
-
-        private async void NaviDetailPage()
-        {
-            RssFeed item = null;
-            var title = string.Empty;
-
-            if (string.IsNullOrEmpty(this.NewsType) == false)
-            {
-                item = this._newsList.First(x => x.Guid == this.MainListViewModel.SelectedItem.Id);
-                title = "新聞稿內容";
-            }
-
-            if (string.IsNullOrEmpty(this.DiseaseType) == false)
-            {
-                item = await this._newsService.GetDiseaseFeedAsync(this.MainListViewModel.SelectedItem.Id);
-                title = "傳染病說明";
-            }
-
-            var ps = new NavigationParameters {{"SelectedItem", item }};
-
-            await _navigationService.NavigateAsync(new Uri($"NewsDetailPage?Title={title}", UriKind.Relative), ps);
-        }
-
-        #endregion
+        
     }
 }

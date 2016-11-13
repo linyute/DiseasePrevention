@@ -45,11 +45,11 @@
 
                 <Label Text="疫苗種類" FontSize="20" />
                 <Label Text="{Binding Vaccine}" LineBreakMode="CharacterWrap" FontSize="20" TextColor="Black" FontAttributes="Bold" Grid.Column="1" Grid.Row="0" />
-                <Label Text="年齡" FontSize="20" Grid.Row="1" />
+                <Label Text="年齡" FontSize="20" Grid.Column="0" Grid.Row="1" />
                 <Label Text="{Binding Age}" LineBreakMode="CharacterWrap" FontSize="20" TextColor="Blue" FontAttributes="Bold" Grid.Column="1" Grid.Row="1" />
-                <Label Text="建議" FontSize="20" Grid.Row="2" />
+                <Label Text="建議" FontSize="20" Grid.Column="0" Grid.Row="2" />
                 <Label Text="{Binding Advice}" LineBreakMode="CharacterWrap" FontSize="20" Grid.Column="1" Grid.Row="2" />
-                <Label Text="接種劑次" FontSize="20" Grid.Row="3" />
+                <Label Text="接種劑次" FontSize="20" Grid.Column="0" Grid.Row="3" />
                 <Label Text="{Binding Vaccinate}" LineBreakMode="CharacterWrap" FontSize="20" Grid.Column="1" Grid.Row="3" />
                 <!--<Label Text="備註" FontSize="20" Grid.Row="4" />
                 <Label Text="{Binding Note}" LineBreakMode="CharacterWrap" FontSize="20" Grid.Column="1" Grid.Row="4" />-->

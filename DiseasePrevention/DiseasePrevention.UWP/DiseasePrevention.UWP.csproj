@@ -117,6 +117,7 @@
     <Content Include="Assets\menu_dengue.png" />
     <Content Include="Assets\menu_doctor.png" />
     <Content Include="Assets\menu_employee.png" />
+    <Content Include="Assets\menu_firstaid.png" />
     <Content Include="Assets\menu_flu.png" />
     <Content Include="Assets\menu_globe.png" />
     <Content Include="Assets\menu_home.png" />
@@ -127,6 +128,7 @@
     <Content Include="Assets\menu_rss.png" />
     <Content Include="Assets\menu_setting.png" />
     <Content Include="Assets\menu_sick.png" />
+    <Content Include="Assets\menu_snake.png" />
     <Content Include="Assets\menu_syringe.png" />
     <Content Include="Assets\menu_telephone.png" />
     <Content Include="Assets\menu_user.png" />

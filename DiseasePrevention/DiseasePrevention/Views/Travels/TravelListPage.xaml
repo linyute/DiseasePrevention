@@ -6,14 +6,14 @@
              prism:ViewModelLocator.AutowireViewModel="True"
              x:Class="DiseasePrevention.Views.Travels.TravelListPage"
              Title="{Binding Title}">
-  <StackLayout Orientation="Vertical" Padding="20"
+  <StackLayout Orientation="Vertical" Padding="5"
                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
     <userControls:LoadingIndicator IsVisible="{Binding IsRunning}" />
 
-    <userControls:MainList BindingContext="{Binding MainListViewModel}"
+    <userControls:MainList BindingContext="{Binding MainListViewModel}" 
         IsVisible="{Binding IsRunning, Converter={StaticResource InvertedBooleanConverter}}"
-        VerticalOptions="FillAndExpand"/>
-
+        VerticalOptions="FillAndExpand" />
+    
   </StackLayout>
 </ContentPage>

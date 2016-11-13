@@ -23,7 +23,7 @@
 
   <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
     <ScrollView Orientation="Vertical" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-      <StackLayout Orientation="Vertical" Padding="20" Spacing="5"
+      <StackLayout Orientation="Vertical" Padding="5" Spacing="5"
                  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
         <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
@@ -36,7 +36,7 @@
               <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#E0FFFF" Grid.Row="0">
+            <StackLayout Orientation="Vertical" Padding="5" BackgroundColor="#E0FFFF" Grid.Row="0">
               <Label Text="{Binding Path=SelectedItem.合約醫療院所名稱}" LineBreakMode="CharacterWrap" TextColor="Black" FontSize="20" FontAttributes="Bold" />
             </StackLayout>
 
@@ -64,40 +64,6 @@
           </Grid>
         </Frame>
 
-        <!--<Grid>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="*"/>
-      </Grid.ColumnDefinitions>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-      <Label Text="{Binding Path=SelectedItem.合約醫療院所名稱}" LineBreakMode="CharacterWrap" FontSize="24" />
-    </Grid>-->
-
-        <!--<Grid>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="85"/>
-        <ColumnDefinition Width="*"/>
-      </Grid.ColumnDefinitions>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-      <Label Text="縣市" FontSize="20" />
-      <Label Text="{Binding Path=SelectedItem.縣市}" LineBreakMode="CharacterWrap" Grid.Column="1" FontSize="20" />
-    </Grid>
-    
-    <Grid>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="85"/>
-        <ColumnDefinition Width="*"/>
-      </Grid.ColumnDefinitions>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-      <Label Text="鄉鎮市區" FontSize="20" />
-      <Label Text="{Binding Path=SelectedItem.鄉鎮市區}" LineBreakMode="CharacterWrap" Grid.Column="1" FontSize="20" />
-    </Grid>-->
-
         <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
           <Grid Padding="10">
             <Grid.RowDefinitions>
@@ -108,7 +74,7 @@
               <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+            <StackLayout Orientation="Horizontal" Padding="5" BackgroundColor="#e7ffbf" Grid.Row="0">
               <Label Text="接種時間" FontSize="20" TextColor="Black" FontAttributes="Bold" />
             </StackLayout>
 
@@ -118,42 +84,6 @@
           </Grid>
         </Frame>
 
-        <!--<Grid>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="85"/>
-        <ColumnDefinition Width="*"/>
-      </Grid.ColumnDefinitions>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-      <Label Text="接種時間" FontSize="20" />
-      <Label Text="{Binding Path=SelectedItem.接種時間}" LineBreakMode="CharacterWrap" FontSize="20" />
-    </Grid>
-
-    <Grid>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="85"/>
-        <ColumnDefinition Width="*"/>
-      </Grid.ColumnDefinitions>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-      <Label Text="連絡電話" FontSize="20" />
-      <Label Text="{Binding Path=SelectedItem.連絡電話}" LineBreakMode="CharacterWrap" Grid.Column="1" FontSize="20" />
-    </Grid>
-
-    <Grid>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="85"/>
-        <ColumnDefinition Width="*"/>
-      </Grid.ColumnDefinitions>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-      <Label Text="地址" FontSize="20" />
-      <Label Text="{Binding Path=SelectedItem.地址}" LineBreakMode="CharacterWrap" Grid.Column="1" FontSize="20" />
-    </Grid>-->
-
         <Frame HasShadow="True" OutlineColor="Transparent" Padding="0">
           <Grid Padding="10">
             <Grid.RowDefinitions>
@@ -164,7 +94,7 @@
               <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+            <StackLayout Orientation="Horizontal" Padding="5" BackgroundColor="#e7ffbf" Grid.Row="0">
               <Label Text="公費疫苗" TextColor="Black" FontSize="20" FontAttributes="Bold" />
             </StackLayout>
 
@@ -184,7 +114,7 @@
               <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <StackLayout Orientation="Horizontal" Padding="5, 0, 5, 0" BackgroundColor="#e7ffbf" Grid.Row="0">
+            <StackLayout Orientation="Horizontal" Padding="5" BackgroundColor="#e7ffbf" Grid.Row="0">
               <Label Text="自費疫苗" TextColor="Black" FontSize="20" FontAttributes="Bold" />
             </StackLayout>
 
@@ -193,30 +123,6 @@
             </StackLayout>
           </Grid>
         </Frame>
-
-        <!--<Grid>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="85"/>
-        <ColumnDefinition Width="*"/>
-      </Grid.ColumnDefinitions>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-      <Label Text="公費疫苗" FontSize="20" />
-      <Label Text="{Binding Path=SelectedItem.公費疫苗}" LineBreakMode="CharacterWrap" Grid.Column="1" FontSize="20" />
-    </Grid>
-  
-    <Grid>
-      <Grid.ColumnDefinitions>
-        <ColumnDefinition Width="85"/>
-        <ColumnDefinition Width="*"/>
-      </Grid.ColumnDefinitions>
-      <Grid.RowDefinitions>
-        <RowDefinition Height="Auto"/>
-      </Grid.RowDefinitions>
-      <Label Text="自費疫苗" FontSize="20" />
-      <Label Text="{Binding Path=SelectedItem.自費疫苗}" LineBreakMode="CharacterWrap" Grid.Column="1" FontSize="20" />
-    </Grid>-->
 
       </StackLayout>
     </ScrollView>

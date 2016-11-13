@@ -30,7 +30,7 @@
   
   <StackLayout Orientation="Vertical" Padding="20"
                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-    <Label Text="{Binding SelectedItem.Title}" TextColor="Black" FontSize="20"
+    <Label Text="{Binding SelectedItem.Title}" TextColor="Black" FontSize="20" FontAttributes="Bold"
            LineBreakMode="CharacterWrap" />
     <Label Text="{Binding SelectedItem.PublicationDate, StringFormat='{0:yyyy-MM-dd HH:mm:ss}'}"
            TextColor="Blue" HorizontalTextAlignment="End" />

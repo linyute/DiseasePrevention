@@ -4,12 +4,16 @@
              xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
              xmlns:userControls="clr-namespace:DiseasePrevention.UserControls;assembly=DiseasePrevention"
              prism:ViewModelLocator.AutowireViewModel="True"
-             x:Class="DiseasePrevention.Views.Vaccines.VaccineHospitalPage"
+             x:Class="DiseasePrevention.Views.News.DiseaseListPage"
              Title="{Binding Title}">
   <StackLayout Orientation="Vertical" Padding="5"
                HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
     <userControls:LoadingIndicator IsVisible="{Binding IsRunning}" />
 
+    <userControls:MainList BindingContext="{Binding MainListViewModel}" 
+        IsVisible="{Binding IsRunning, Converter={StaticResource InvertedBooleanConverter}}"
+        VerticalOptions="FillAndExpand" />
+    
   </StackLayout>
 </ContentPage>

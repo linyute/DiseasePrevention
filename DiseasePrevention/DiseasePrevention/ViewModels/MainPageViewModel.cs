@@ -52,6 +52,11 @@ namespace DiseasePrevention.ViewModels
 
         public void OnNavigatedTo(NavigationParameters parameters)
         {
+            
+        }
+
+        public void OnNavigatingTo(NavigationParameters parameters)
+        {
             if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
 
             if (parameters.ContainsKey("MenuType")) { this.MenuType = (string)parameters["MenuType"]; }
@@ -80,6 +85,8 @@ namespace DiseasePrevention.ViewModels
 
         private void BuildMenu()
         {
+            this.MainMenuViewModel.MenuItems.Clear();
+
             List<MenuItem> items = null;
 
             switch (this.MenuType)
@@ -98,6 +105,9 @@ namespace DiseasePrevention.ViewModels
                     break;
                 case "疫苗接種":
                     items = this._menuItemService.VaccineMenuItems;
+                    break;
+                case "抗蛇毒血清":
+                    items = this._menuItemService.SerumMenuItems;
                     break;
                 case "疾管署防疫專區":
                     items = this._menuItemService.CDCAreaMenuItems;

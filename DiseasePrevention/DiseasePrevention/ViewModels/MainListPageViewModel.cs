@@ -7,11 +7,9 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using DiseasePrevention.Models;
-using DiseasePrevention.Models.News;
 using DiseasePrevention.Models.Travels;
 using DiseasePrevention.Models.Vaccines;
 using DiseasePrevention.Services;
-using DiseasePrevention.Services.News;
 using DiseasePrevention.Services.Travels;
 using DiseasePrevention.Services.Vaccines;
 using DiseasePrevention.ViewModels.UserControls;
@@ -32,18 +30,16 @@ namespace DiseasePrevention.ViewModels
 
         public MainListPageViewModel(
             INavigationService navigationService,
-            IPageDialogService dialogService,
-            NewsService newsService,
-            TravelService travelService,
-            VaccineService vaccineService
+            IPageDialogService dialogService
+            //TravelService travelService,
+            //VaccineService vaccineService
             )
         {
-            this._navigationService = navigationService;
-            this._dialogService = dialogService;
+            this.NavigationService = navigationService;
+            this.DialogService = dialogService;
 
-            this._newsService = newsService;
-            this._travelService = travelService;
-            this._vaccineService = vaccineService;
+            //this._travelService = travelService;
+            //this._vaccineService = vaccineService;
 
             this.MainListViewModel.ItemSelectedCommand =
                 new DelegateCommand(NaviDetailPageAsync, () => this.IsRunning == false);
@@ -63,16 +59,21 @@ namespace DiseasePrevention.ViewModels
 
         #region Navigation
 
-        private readonly INavigationService _navigationService;
+        protected readonly INavigationService NavigationService;
 
-        private readonly IPageDialogService _dialogService;
+        protected readonly IPageDialogService DialogService;
 
-        public void OnNavigatedFrom(NavigationParameters parameters)
+        public virtual void OnNavigatedFrom(NavigationParameters parameters)
         {
             
         }
 
-        public async void OnNavigatedTo(NavigationParameters parameters)
+        public virtual void OnNavigatedTo(NavigationParameters parameters)
+        {
+            
+        }
+
+        public virtual async void OnNavigatingTo(NavigationParameters parameters)
         {
             if (parameters.ContainsKey("Title")) { this.Title = (string)parameters["Title"]; }
 
@@ -109,15 +110,14 @@ namespace DiseasePrevention.ViewModels
         public MainListViewModel MainListViewModel { get; set; }
             = new MainListViewModel();
 
-        private async Task BuildList(string menuType, string listType)
+        protected virtual async Task BuildList(string menuType, string listType)
         {
+            /*
             this.MainListViewModel.ItemsSource.Clear();
 
             switch (menuType)
             {
-                case "最新消息":
-                    await this.DownloadNewsListAsync(listType);
-                    break;
+                
                 case "傳染病介紹":
                     await this.GetDiseaseListAsync(listType);
                     break;
@@ -137,20 +137,20 @@ namespace DiseasePrevention.ViewModels
                 default:
                     break;
             }
+            */
         }
 
         #endregion
-        
+
 
         #region Command
 
-        private async void NaviDetailPageAsync()
+        protected virtual async void NaviDetailPageAsync()
         {
+            /*
             switch (this.MenuType)
             {
-                case "最新消息":
-                    await this.NaviNewsDetailPageAsync();
-                    break;
+                
                 case "傳染病介紹":
                     await this.NaviDiseaseDetailPageAsync();
                     break;
@@ -171,58 +171,13 @@ namespace DiseasePrevention.ViewModels
             }
 
             this.MainListViewModel.SelectedItem = null;
+            */
         }
 
         #endregion
 
 
-        #region 最新消息
-
-        private readonly NewsService _newsService;
-
-        private List<RssFeed> _newsList = new List<RssFeed>();
-
-        private async Task DownloadNewsListAsync(string listType)
-        {
-            try
-            {
-                if (CrossConnectivity.Current.IsConnected)
-                {
-                    this._newsList = await this._newsService.GetRssReedsAsync(listType);
-
-                    foreach (var feed in _newsList)
-                    {
-                        this.MainListViewModel.ItemsSource.Add(new MainListItem()
-                        {
-                            Id = feed.Guid,
-                            Title = feed.Title,
-                            PublicationDate = feed.PublicationDate
-                        });
-                    }
-                }
-                else
-                {
-                    await _dialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
-                }
-            }
-            catch (Exception ex)
-            {
-                await _dialogService.DisplayAlertAsync("發生錯誤", ex.Message, "OK");
-            }
-        }
-
-        private async Task NaviNewsDetailPageAsync()
-        {
-            var item = this._newsList.First(x => x.Guid == this.MainListViewModel.SelectedItem.Id);
-
-            var title = "新聞稿內容";
-
-            var ps = new NavigationParameters { { "SelectedItem", item } };
-
-            await _navigationService.NavigateAsync(new Uri($"NewsDetailPage?Title={title}", UriKind.Relative), ps);
-        }
-
-        #endregion
+        /*
 
         #region 傳染病介紹
 
@@ -257,16 +212,16 @@ namespace DiseasePrevention.ViewModels
 
                     var ps = new NavigationParameters { { "SelectedItem", item } };
 
-                    await _navigationService.NavigateAsync(new Uri($"NewsDetailPage?Title={title}", UriKind.Relative), ps);
+                    await NavigationService.NavigateAsync(new Uri($"NewsDetailPage?Title={title}", UriKind.Relative), ps);
                 }
                 else
                 {
-                    await _dialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
+                    await DialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
                 }
             }
             catch (Exception ex)
             {
-                await _dialogService.DisplayAlertAsync("發生錯誤", ex.Message, "OK");
+                await DialogService.DisplayAlertAsync("發生錯誤", ex.Message, "OK");
             }
         }
 
@@ -298,12 +253,12 @@ namespace DiseasePrevention.ViewModels
                 }
                 else
                 {
-                    await _dialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
+                    await DialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
                 }
             }
             catch (Exception ex)
             {
-                await _dialogService.DisplayAlertAsync("發生錯誤", ex.Message, "OK");
+                await DialogService.DisplayAlertAsync("發生錯誤", ex.Message, "OK");
             }
         }
 
@@ -313,7 +268,7 @@ namespace DiseasePrevention.ViewModels
 
             var ps = new NavigationParameters { { "SelectedItem", item } };
 
-            await _navigationService.NavigateAsync(new Uri("TravelDetailPage", UriKind.Relative), ps);
+            await NavigationService.NavigateAsync(new Uri("TravelDetailPage", UriKind.Relative), ps);
         }
 
         #endregion
@@ -335,12 +290,12 @@ namespace DiseasePrevention.ViewModels
                 }
                 else
                 {
-                    await _dialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
+                    await DialogService.DisplayAlertAsync("無法連線", "請開啟網路", "OK");
                 }
             }
             catch (Exception ex)
             {
-                await _dialogService.DisplayAlertAsync("發生錯誤", ex.Message, "OK");
+                await DialogService.DisplayAlertAsync("發生錯誤", ex.Message, "OK");
             }
         }
 
@@ -369,7 +324,7 @@ namespace DiseasePrevention.ViewModels
         {
             var url = $"MainListPage?Title=預防接種單位查詢&MenuType=預防接種單位行政區&ListType={this.MainListViewModel.SelectedItem.Id}";
 
-            await _navigationService.NavigateAsync(new Uri(url, UriKind.Relative));
+            await NavigationService.NavigateAsync(new Uri(url, UriKind.Relative));
         }
 
         private async Task GetVaccineHospitalDistrictsAsync(string city)
@@ -400,7 +355,7 @@ namespace DiseasePrevention.ViewModels
 
             var url = $"MainListPage?Title=預防接種單位查詢&MenuType=預防接種單位查詢&ListType={cityAndDistrict}";
 
-            await _navigationService.NavigateAsync(new Uri(url, UriKind.Relative));
+            await NavigationService.NavigateAsync(new Uri(url, UriKind.Relative));
         }
 
         private async Task GetVaccineHospitalsAsync(string cityAndDistrict)
@@ -436,9 +391,11 @@ namespace DiseasePrevention.ViewModels
 
             var ps = new NavigationParameters { { "SelectedItem", item } };
 
-            await _navigationService.NavigateAsync(new Uri("VaccineHospitalDetailPage", UriKind.Relative), ps);
+            await NavigationService.NavigateAsync(new Uri("VaccineHospitalDetailPage", UriKind.Relative), ps);
         }
 
         #endregion
+
+        */
     }
 }
