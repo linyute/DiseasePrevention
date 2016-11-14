@@ -13,23 +13,37 @@
       </ContentPage.Icon>
       
       <StackLayout Orientation="Vertical" HorizontalOptions="Start"
-                   IsVisible="{Binding IsRunning, Converter={StaticResource InvertedBooleanConverter}}"
-                   Padding="20, 20, 20, 20">
+                   IsVisible="{Binding IsRunning, Converter={StaticResource InvertedBooleanConverter}}">
+        <StackLayout.Padding>
+          <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>0</OnPlatform.iOS>
+            <OnPlatform.Android>0</OnPlatform.Android>
+            <OnPlatform.WinPhone>00</OnPlatform.WinPhone>
+          </OnPlatform>
+        </StackLayout.Padding>
+        
+        <Grid BackgroundColor="#4169E1">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="120" />
+          </Grid.RowDefinitions>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120" />
+            <ColumnDefinition Width="*" />
+          </Grid.ColumnDefinitions>
 
-        <StackLayout Orientation="Horizontal" Padding="10" BackgroundColor="#4169E1">
-          <Image VerticalOptions="Center" >
+          <Image HorizontalOptions="Center" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Aspect="AspectFit" >
             <Image.Source>
               <OnPlatform x:TypeArguments="ImageSource" iOS="icon.png" Android="icon.png" WinPhone="Assets/icon.png" />
             </Image.Source>
           </Image>
           <Label Text ="防疫小幫手" FontSize="24" FontAttributes="Bold" TextColor="White"
-              VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand"
-              HorizontalOptions="CenterAndExpand"/>
-        </StackLayout>
+                 VerticalTextAlignment="Center" HorizontalTextAlignment="Start"
+                 Grid.Row="0" Grid.Column="1"/>
+        </Grid>
 
         <ListView ItemsSource="{Binding MenuItems, Mode=TwoWay}"
                 SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
-                SeparatorVisibility="None"
+                SeparatorVisibility="None" Margin="15, 10, 15, 10"
                 CachingStrategy="RecycleElement">
           <ListView.HasUnevenRows>
             <OnPlatform x:TypeArguments="x:Boolean">
