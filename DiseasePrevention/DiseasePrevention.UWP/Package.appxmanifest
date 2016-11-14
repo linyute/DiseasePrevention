@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="f7a2e212-ff62-4c0f-80e1-bfdceaef815d" Publisher="CN=yutelin" Version="1.0.0.0" />
+  <Identity Name="21623yutelin.6496066EF8C1D" Publisher="CN=4A24EB4B-6D8C-4D3E-BFF6-597971D200B3" Version="1.0.0.0" />
   <mp:PhoneIdentity PhoneProductId="f7a2e212-ff62-4c0f-80e1-bfdceaef815d" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
-    <DisplayName>DiseasePrevention.UWP</DisplayName>
+    <DisplayName>防疫小幫手</DisplayName>
     <PublisherDisplayName>yutelin</PublisherDisplayName>
     <Logo>Assets\NewStoreLogo.png</Logo>
   </Properties>
@@ -15,7 +15,7 @@
   </Resources>
   <Applications>
     <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="DiseasePrevention.UWP.App">
-      <uap:VisualElements DisplayName="DiseasePrevention.UWP" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="DiseasePrevention.UWP" BackgroundColor="#4169E1">
+      <uap:VisualElements DisplayName="防疫小幫手" Square150x150Logo="Assets\Square150x150Logo.png" Square44x44Logo="Assets\Square44x44Logo.png" Description="防疫小幫手" BackgroundColor="#4169E1">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square310x310Logo="Assets\Square310x310Logo.png" Square71x71Logo="Assets\Square71x71Logo.png">
         </uap:DefaultTile>
         <uap:SplashScreen Image="Assets\SplashScreen.png" BackgroundColor="#4169E1" />

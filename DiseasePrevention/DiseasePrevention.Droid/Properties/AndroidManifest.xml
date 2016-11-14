@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" android:installLocation="auto" package="tw.idv.yutelin.diseaseprevention" android:versionCode="1" android:versionName="1.0.0">
 	<uses-sdk android:minSdkVersion="19" android:targetSdkVersion="23" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.CALL_PHONE" />
-	<application android:label="DiseasePrevention.Droid" android:theme="@style/MyTheme"></application>
+	<application android:label="防疫小幫手" android:theme="@style/MyTheme" android:icon="@drawable/icon"></application>
 </manifest>

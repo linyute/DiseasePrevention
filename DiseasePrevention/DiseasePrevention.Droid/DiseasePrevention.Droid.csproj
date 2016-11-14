@@ -55,6 +55,16 @@
     <WarningLevel>4</WarningLevel>
     <AndroidUseSharedRuntime>False</AndroidUseSharedRuntime>
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+    <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
+    <BundleAssemblies>False</BundleAssemblies>
+    <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+    <Debugger>Xamarin</Debugger>
+    <AotAssemblies>False</AotAssemblies>
+    <EnableLLVM>False</EnableLLVM>
+    <AndroidEnableMultiDex>False</AndroidEnableMultiDex>
+    <EnableProguard>False</EnableProguard>
+    <DebugSymbols>False</DebugSymbols>
+    <JavaMaximumHeapSize>1G</JavaMaximumHeapSize>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Behaviors, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -306,12 +316,9 @@
     <AndroidResource Include="Resources\drawable\menu_aeroplane.png" />
     <AndroidResource Include="Resources\drawable\menu_baby.png" />
     <AndroidResource Include="Resources\drawable\menu_caduceus.png" />
-    <AndroidResource Include="Resources\drawable\menu_cdc.png" />
     <AndroidResource Include="Resources\drawable\menu_children.png" />
-    <AndroidResource Include="Resources\drawable\menu_dengue.png" />
     <AndroidResource Include="Resources\drawable\menu_doctor.png" />
     <AndroidResource Include="Resources\drawable\menu_employee.png" />
-    <AndroidResource Include="Resources\drawable\menu_flu.png" />
     <AndroidResource Include="Resources\drawable\menu_globe.png" />
     <AndroidResource Include="Resources\drawable\menu_hospital.png" />
     <AndroidResource Include="Resources\drawable\menu_injection1.png" />
@@ -319,32 +326,24 @@
     <AndroidResource Include="Resources\drawable\menu_syringe.png" />
     <AndroidResource Include="Resources\drawable\menu_telephone.png" />
     <AndroidResource Include="Resources\drawable\menu_user.png" />
-    <AndroidResource Include="Resources\drawable\menu_zika.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_aeroplane.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_baby.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_caduceus.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\menu_cdc.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_children.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\menu_dengue.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_doctor.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_employee.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\menu_flu.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_globe.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_hospital.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_injection1.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_injection2.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_syringe.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_telephone.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\menu_zika.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_user.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\menu_aeroplane.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\menu_baby.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\menu_cdc.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\menu_children.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\menu_dengue.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\menu_doctor.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\menu_employee.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\menu_flu.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\menu_globe.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\menu_hospital.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\menu_injection1.png" />
@@ -352,15 +351,11 @@
     <AndroidResource Include="Resources\drawable-xhdpi\menu_syringe.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\menu_telephone.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\menu_user.png" />
-    <AndroidResource Include="Resources\drawable-xhdpi\menu_zika.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_aeroplane.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_baby.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\menu_cdc.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_children.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\menu_dengue.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_doctor.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_employee.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\menu_flu.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_globe.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_hospital.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_injection1.png" />
@@ -368,7 +363,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_syringe.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_telephone.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_user.png" />
-    <AndroidResource Include="Resources\drawable-xxhdpi\menu_zika.png" />
     <AndroidResource Include="Resources\drawable\menu_sick.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_sick.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\menu_sick.png" />
@@ -383,6 +377,14 @@
     <AndroidResource Include="Resources\drawable-hdpi\menu_firstaid.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\menu_firstaid.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_firstaid.png" />
+    <AndroidResource Include="Resources\drawable\menu_chrome.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\menu_chrome.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\menu_chrome.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\menu_chrome.png" />
+    <AndroidResource Include="Resources\drawable\menu_cdc.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\menu_cdc.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\menu_cdc.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\menu_cdc.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DiseasePrevention\DiseasePrevention.csproj">

@@ -289,22 +289,13 @@
     <BundleResource Include="Resources\menu_caduceus.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\menu_cdc.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\menu_children.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\menu_dengue.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\menu_doctor.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\menu_employee.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\menu_flu.png" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\menu_globe.png" />
@@ -328,9 +319,6 @@
     <BundleResource Include="Resources\menu_user.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\menu_zika.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\menu_sick.png" />
   </ItemGroup>
   <ItemGroup>
@@ -338,6 +326,12 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\menu_firstaid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu_safari.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\menu_cdc.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\..\packages\Xamarin.Forms.2.3.2.127\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

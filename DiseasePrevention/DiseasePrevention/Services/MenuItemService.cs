@@ -348,7 +348,7 @@ namespace DiseasePrevention.Services
             this.VaccineMenuItems.Add(new MenuItem()
             {
                 Text = "公費流感疫苗合約院所查詢",
-                Icon = Device.OnPlatform("menu_injection1.png", "menu_injection1.png", "Assets/menu_injection1.png"),
+                Icon = Device.OnPlatform("menu_safari.png", "menu_chrome.png", "Assets/menu_edge.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await CrossShare.Current.OpenBrowser(@"https://antiflu.cdc.gov.tw/");
@@ -395,7 +395,7 @@ namespace DiseasePrevention.Services
             this.SerumMenuItems.Add(new MenuItem()
             {
                 Text = "台灣六大毒蛇",
-                Icon = Device.OnPlatform("menu_snake.png", "menu_snake.png", "Assets/menu_snake.png"),
+                Icon = Device.OnPlatform("menu_safari.png", "menu_chrome.png", "Assets/menu_edge.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await CrossShare.Current.OpenBrowser(@"https://zh.m.wikipedia.org/wiki/%E5%8F%B0%E7%81%A3%E5%85%AD%E5%A4%A7%E6%AF%92%E8%9B%87");
@@ -405,7 +405,7 @@ namespace DiseasePrevention.Services
             this.SerumMenuItems.Add(new MenuItem()
             {
                 Text = "毒蛇咬傷緊急處置要點",
-                Icon = Device.OnPlatform("menu_firstaid.png", "menu_firstaid.png", "Assets/menu_firstaid.png"),
+                Icon = Device.OnPlatform("menu_safari.png", "menu_chrome.png", "Assets/menu_edge.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await CrossShare.Current.OpenBrowser(@"http://www.pcc-vghtpe.tw/antidote/snake02.htm");
@@ -430,7 +430,7 @@ namespace DiseasePrevention.Services
             this.CDCAreaMenuItems.Add(new MenuItem()
             {
                 Text = "流感專區",
-                Icon = Device.OnPlatform("menu_flu.png", "menu_flu.png", "Assets/menu_flu.png"),
+                Icon = Device.OnPlatform("menu_safari.png", "menu_chrome.png", "Assets/menu_edge.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await CrossShare.Current.OpenBrowser(@"http://www.cdc.gov.tw/Professional/DiseasePrologue.aspx?did=680&lid=960C589FBCC5C017&treeid=8208EB95DDA7842A&nowtreeid=8208EB95DDA7842A");
@@ -440,7 +440,7 @@ namespace DiseasePrevention.Services
             this.CDCAreaMenuItems.Add(new MenuItem()
             {
                 Text = "登革熱防治網",
-                Icon = Device.OnPlatform("menu_dengue.png", "menu_dengue.png", "Assets/menu_dengue.png"),
+                Icon = Device.OnPlatform("menu_safari.png", "menu_chrome.png", "Assets/menu_edge.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await CrossShare.Current.OpenBrowser(@"http://www.dengue.gov.tw/");
@@ -450,7 +450,7 @@ namespace DiseasePrevention.Services
             this.CDCAreaMenuItems.Add(new MenuItem()
             {
                 Text = "茲卡病毒感染症專區",
-                Icon = Device.OnPlatform("menu_zika.png", "menu_zika.png", "Assets/menu_zika.png"),
+                Icon = Device.OnPlatform("menu_safari.png", "menu_chrome.png", "Assets/menu_edge.png"),
                 Command = new DelegateCommand(async () =>
                 {
                     await CrossShare.Current.OpenBrowser(@"http://www.cdc.gov.tw/Professional/DiseasePrologue.aspx?did=744&lid=64B7C4FC7D164D4D&treeid=53FDE358DA8186DD&nowtreeid=53FDE358DA8186DD");
