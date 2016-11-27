@@ -15,7 +15,7 @@
     "Xam.Plugin.ExternalMaps": "3.0.0",
     "Xam.Plugins.Messaging": "3.2.1",
     "Xam.Plugins.Settings": "2.5.1",
-    "Xamarin.Forms": "2.3.2.127"
+    "Xamarin.Forms": "2.3.3.168"
   },
   "frameworks": {
     "uap10.0": {}
