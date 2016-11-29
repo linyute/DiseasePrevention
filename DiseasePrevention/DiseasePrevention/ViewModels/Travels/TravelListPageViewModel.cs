@@ -51,7 +51,7 @@ namespace DiseasePrevention.ViewModels.Travels
                         {
                             Id = item.Id,
                             Title = item.Headline,
-                            PublicationDate = item.Sent
+                            PublicationDate = item.Sent.ToString("yyyy-MM-dd")
                         });
                     }
                 }

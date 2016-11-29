@@ -1,16 +1,18 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
-             xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
-             mvvm:ViewModelLocator.AutowireViewModel="True"
-             x:Class="DiseasePrevention.UserControls.MainMenu">
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentView
+    x:Class="DiseasePrevention.UserControls.MainMenu"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:behaviors="clr-namespace:Behaviors;assembly=Behaviors"
+    xmlns:mvvm="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+    mvvm:ViewModelLocator.AutowireViewModel="True">
   <ContentView.Content>
-    
-    <ListView ItemsSource="{Binding MenuItems, Mode=TwoWay}"
-              SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
-              SeparatorVisibility="None"
-              CachingStrategy="RecycleElement">
+
+    <ListView
+        CachingStrategy="RecycleElement"
+        ItemsSource="{Binding MenuItems, Mode=TwoWay}"
+        SelectedItem="{Binding SelectedMenuItem, Mode=TwoWay}"
+        SeparatorVisibility="None">
       <ListView.HasUnevenRows>
         <OnPlatform x:TypeArguments="x:Boolean">
           <OnPlatform.iOS>False</OnPlatform.iOS>
@@ -18,7 +20,7 @@
           <OnPlatform.WinPhone>False</OnPlatform.WinPhone>
         </OnPlatform>
       </ListView.HasUnevenRows>
-      
+
       <ListView.Behaviors>
         <behaviors:EventHandlerBehavior EventName="ItemTapped">
           <behaviors:InvokeCommandAction Command="{Binding MenuItemSelectedCommand}" />
@@ -42,33 +44,50 @@
                 </StackLayout>
               </Frame>-->
 
-              <Frame HasShadow="True" OutlineColor="Transparent" BackgroundColor="White" Margin="5" Padding="20">
+              <Frame 
+                  Margin="5"
+                  BackgroundColor="White"
+                  HasShadow="True"
+                  OutlineColor="Transparent">
                 <Grid>
                   <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
                   </Grid.ColumnDefinitions>
                   <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto" />
                   </Grid.RowDefinitions>
 
-                  <Image Source="{Binding Icon}" VerticalOptions="Center"
-                         WidthRequest="72" HeightRequest="72" 
-                         IsVisible="{Binding Icon, Converter={StaticResource ObjectToBooleanConverter}}"
-                         Grid.Column="0" Grid.Row="0" />
-                  <Label Text="{Binding Text}" LineBreakMode="CharacterWrap" FontAttributes="Bold"
-                         FontSize="26" TextColor="Black"
-                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
-                         HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
-                         Grid.Column="1" Grid.Row="0" />
+                  <Image
+                      Grid.Row="0"
+                      Grid.Column="0"
+                      BackgroundColor="{Binding BackgroundColor}"
+                      HeightRequest="72"
+                      IsVisible="{Binding Icon, Converter={StaticResource ObjectToBooleanConverter}}"
+                      Source="{Binding Icon}"
+                      VerticalOptions="Center"
+                      WidthRequest="72" />
+                  <Label
+                      Grid.Row="0"
+                      Grid.Column="1"
+                      Margin="10,0,0,0"
+                      FontAttributes="Bold"
+                      FontSize="26"
+                      HorizontalOptions="FillAndExpand"
+                      HorizontalTextAlignment="Start"
+                      LineBreakMode="CharacterWrap"
+                      Text="{Binding Text}"
+                      TextColor="Black"
+                      VerticalOptions="FillAndExpand"
+                      VerticalTextAlignment="Center" />
                 </Grid>
               </Frame>
-              
+
             </ViewCell.View>
           </ViewCell>
         </DataTemplate>
       </ListView.ItemTemplate>
     </ListView>
-    
+
   </ContentView.Content>
 </ContentView>

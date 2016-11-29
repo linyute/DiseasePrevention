@@ -15,7 +15,7 @@
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
-      <Label Text="{Binding Path=SelectedItem.Headline}" LineBreakMode="CharacterWrap" FontSize="24" />
+      <Label Text="{Binding Path=SelectedItem.Headline}" LineBreakMode="CharacterWrap" FontSize="24" FontAttributes="Bold" TextColor="Black" />
     </Grid>
     
     <Grid>
@@ -27,7 +27,7 @@
         <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
       <Label Text="發送時間" FontSize="20" />
-      <Label Text="{Binding Path=SelectedItem.Sent, StringFormat='{0:yyyy-MM-dd HH:mm:ss}'}" Grid.Column="1" FontSize="20" />
+      <Label Text="{Binding Path=SelectedItem.Sent, StringFormat='{0:yyyy-MM-dd}'}" Grid.Column="1" FontSize="20" />
     </Grid>
     
     <Grid>
@@ -39,7 +39,7 @@
         <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
       <Label Text="到期日期" FontSize="20" />
-      <Label Text="{Binding Path=SelectedItem.Expires, StringFormat='{0:yyyy-MM-dd HH:mm:ss}'}" Grid.Column="1" FontSize="20" TextColor="Blue" />
+      <Label Text="{Binding Path=SelectedItem.Expires, StringFormat='{0:yyyy-MM-dd}'}" Grid.Column="1" FontSize="20" TextColor="Blue" />
     </Grid>
     
     <Grid>
@@ -70,14 +70,14 @@
       <Grid.ColumnDefinitions>
         <ColumnDefinition Width="85"/>
         <ColumnDefinition Width="*"/>
-        <ColumnDefinition Width="*"/>
       </Grid.ColumnDefinitions>
       <Grid.RowDefinitions>
         <RowDefinition Height="Auto"/>
+        <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
-      <Label Text="區域" FontSize="20" />
-      <Label Text="{Binding Path=SelectedItem.AreaDesc}" Grid.Column="1" FontSize="20" />
-      <Label Text="{Binding Path=SelectedItem.AreaDesc_EN}" Grid.Column="2" FontSize="20" />
+      <Label Text="區域" FontSize="20" Grid.Row="0" Grid.Column="0" />
+      <Label Text="{Binding Path=SelectedItem.AreaDesc}" LineBreakMode="CharacterWrap" Grid.Row="0" Grid.Column="1" FontSize="20" />
+      <Label Text="{Binding Path=SelectedItem.AreaDesc_EN}" LineBreakMode="CharacterWrap" Grid.Row="1" Grid.Column="1" FontSize="20" />
     </Grid>
     
     <Grid>

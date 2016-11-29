@@ -34,15 +34,15 @@ namespace DiseasePrevention.ViewModels.UserControls
             SelectedMenuItem = null;
         }
 
-        private MenuItem _selectedMenuItem;
-        public MenuItem SelectedMenuItem
+        private MainMenuItem _selectedMenuItem;
+        public MainMenuItem SelectedMenuItem
         {
             get { return _selectedMenuItem; }
             set { SetProperty(ref _selectedMenuItem, value); }
         }
 
-        private ObservableCollection<MenuItem> _menuItems = new ObservableCollection<MenuItem>();
-        public ObservableCollection<MenuItem> MenuItems
+        private ObservableCollection<MainMenuItem> _menuItems = new ObservableCollection<MainMenuItem>();
+        public ObservableCollection<MainMenuItem> MenuItems
         {
             get { return _menuItems; }
             set { SetProperty(ref _menuItems, value); }

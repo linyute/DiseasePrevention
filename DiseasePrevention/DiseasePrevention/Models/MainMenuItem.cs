@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace DiseasePrevention.Models
 {
+    public class MainMenuItem : MenuItem
+    {
+        public Color BackgroundColor { get; set; }
+    }
+
+    /*
     public class MainMenuItem
     {
         public string Title { get; set; }
@@ -14,6 +21,7 @@ namespace DiseasePrevention.Models
 
         public Func<Task> ActionAsync { get; set; }
     }
+    */
 
     /*
      ActionAsync = async () =>

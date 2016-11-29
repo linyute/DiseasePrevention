@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="21623yutelin.6496066EF8C1D" Publisher="CN=4A24EB4B-6D8C-4D3E-BFF6-597971D200B3" Version="1.0.0.0" />
+  <Identity Name="21623yutelin.6496066EF8C1D" Publisher="CN=4A24EB4B-6D8C-4D3E-BFF6-597971D200B3" Version="1.1.0.0" />
   <mp:PhoneIdentity PhoneProductId="f7a2e212-ff62-4c0f-80e1-bfdceaef815d" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>防疫小幫手</DisplayName>

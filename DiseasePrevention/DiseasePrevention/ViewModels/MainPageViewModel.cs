@@ -87,7 +87,7 @@ namespace DiseasePrevention.ViewModels
         {
             this.MainMenuViewModel.MenuItems.Clear();
 
-            List<MenuItem> items = null;
+            List<MainMenuItem> items = null;
 
             switch (this.MenuType)
             {
@@ -113,7 +113,7 @@ namespace DiseasePrevention.ViewModels
                     items = this._menuItemService.CDCAreaMenuItems;
                     break;
                 default:
-                    items = new List<MenuItem>();
+                    items = new List<MainMenuItem>();
                     break;
             }
 

@@ -285,9 +285,6 @@
     <BundleResource Include="Resources\menu_baby.png" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\menu_caduceus.png" />
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\menu_children.png" />
   </ItemGroup>
   <ItemGroup>

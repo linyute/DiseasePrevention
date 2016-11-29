@@ -51,7 +51,7 @@ namespace DiseasePrevention.ViewModels.News
                         {
                             Id = feed.Guid,
                             Title = feed.Title,
-                            PublicationDate = feed.PublicationDate
+                            PublicationDate = feed.PublicationDate.ToString("yyyy-MM-dd HH:mm:ss")
                         });
                     }
                 }

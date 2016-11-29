@@ -315,7 +315,6 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\menu_info.png" />
     <AndroidResource Include="Resources\drawable\menu_aeroplane.png" />
     <AndroidResource Include="Resources\drawable\menu_baby.png" />
-    <AndroidResource Include="Resources\drawable\menu_caduceus.png" />
     <AndroidResource Include="Resources\drawable\menu_children.png" />
     <AndroidResource Include="Resources\drawable\menu_doctor.png" />
     <AndroidResource Include="Resources\drawable\menu_employee.png" />
@@ -328,7 +327,6 @@
     <AndroidResource Include="Resources\drawable\menu_user.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_aeroplane.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_baby.png" />
-    <AndroidResource Include="Resources\drawable-hdpi\menu_caduceus.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_children.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_doctor.png" />
     <AndroidResource Include="Resources\drawable-hdpi\menu_employee.png" />

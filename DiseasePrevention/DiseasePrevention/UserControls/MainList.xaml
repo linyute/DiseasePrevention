@@ -27,7 +27,7 @@
         <DataTemplate>
           <ViewCell>
             <StackLayout Orientation="Vertical" Padding="10">
-              <Label Text="{Binding PublicationDate, StringFormat='{0:yyyy-MM-dd HH:mm:ss}'}"
+              <Label Text="{Binding PublicationDate}"
                      IsVisible="{Binding PublicationDate, Converter={StaticResource ObjectToBooleanConverter}}"  
                      TextColor="Blue"/>
               <Label Text="{Binding Title}" TextColor="Black" FontSize="20"
