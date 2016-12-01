@@ -31,11 +31,9 @@ namespace DiseasePrevention.Services.Travels
             {
                 case "國際重要疫情":
                     url = @"http://www.cdc.gov.tw/ExportOpenData.aspx?Type=json&FromWeb=1";
-                    //url = @"http://localhost:8080/JSON//TCDCIntlEpidLast30.json";
                     break;
                 case "國際旅遊疫情":
                     url = @"http://www.cdc.gov.tw/ExportOpenData.aspx?Type=json&FromWeb=2";
-                    //url = @"http://localhost:8080/JSON//TCDCTravelAlert.json";
                     break;
                 default:
                     url = @"http://www.cdc.gov.tw/ExportOpenData.aspx?Type=json&FromWeb=1";
@@ -55,8 +53,6 @@ namespace DiseasePrevention.Services.Travels
 
             items = items.OrderByDescending(x => x.Sent)
                          .ThenByDescending(x => x.Expires)
-                         //.ThenByDescending(x => x.Severity_Level)
-                         //.ThenByDescending(x => x.Sent)
                          .ToList();
 
             return items;

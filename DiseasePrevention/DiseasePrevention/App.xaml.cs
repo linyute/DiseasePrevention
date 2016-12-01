@@ -1,6 +1,4 @@
 ﻿using System;
-using DiseasePrevention.ViewModels.News;
-using DiseasePrevention.ViewModels.Serums;
 using Prism.Unity;
 using DiseasePrevention.Views;
 using DiseasePrevention.Views.News;
@@ -34,7 +32,6 @@ namespace DiseasePrevention
             Container.RegisterTypeForNavigation<MainNavigationPage>();
 
             Container.RegisterTypeForNavigation<MainPage>();
-            //Container.RegisterTypeForNavigation<MainListPage>();
 
             Container.RegisterTypeForNavigation<AboutPage>();
 

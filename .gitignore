@@ -240,3 +240,8 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/DiseasePrevention/DiseasePrevention.UWP/_scale-400.appx
+/DiseasePrevention/DiseasePrevention.UWP/_pkginfo.txt
+/DiseasePrevention/DiseasePrevention.UWP/_scale-100.appx
+/DiseasePrevention/DiseasePrevention.UWP/_scale-125.appx
+/DiseasePrevention/DiseasePrevention.UWP/_scale-150.appx
